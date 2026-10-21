@@ -1,59 +1,247 @@
-# 智绘CAD · 化工设计绘图（云端 MCP 驱动）
+# 智绘CAD · 化工设计绘图
 
-参赛版 MVP 提交截止：2026-10-29 17:00（AI 智能体赛道）
+> 一句话画化工图：**工艺流程图、化工设备图、通用二维 / 三维 CAD**，都在同一个对话框里完成。
+> 大模型只负责“听懂话、写参数”，**所有坐标和几何都由确定性程序计算**；缺关键参数就反问，不替你编数值。
 
-关键节点：10.17 XDATA 实测 · 10.20 功能冻结 · 10.21 云端切换 · 10.28 缓冲日 · 10.29 提交
+| 指标 | 数值 |
+|---|---|
+| 自动化测试 | **1770** 个，全部通过 |
+| 基准用例（脚本模式） | **94 / 94**（流程图 G/M/F/C/S、通用 CAD B/D/A、化工设备图 E） |
+| 化工设备图 · 真实大模型（DeepSeek deepseek-flash） | 两轮都是 **12 / 12**，语音误识别写法 **12 / 12** |
+| 通用 CAD · 真实大模型 | 修复前 32/50 → 修复后三轮 46、48、45/50 |
 
-## 5 分钟跑起来（Windows）
+> ⚠️ 设备图输出是**方案图**：标准件尺寸按公开资料录入、**尚未与标准原文核对**；**未做强度计算、开孔补强计算和支座校核，不得直接用于制造**。导出的 DXF 只经过 ezdxf 自检，没有在 AutoCAD / 浩辰 / 中望里逐一验证。
 
-**产品里没有离线版：所有自然语言口令都必须接入大模型。** 在 `.env` 里填 API Key（或打开页面后点 ⚙ 设置填写），再启动；没接入时页面会明确提示，不会悄悄退回规则。直接输入的 AutoCAD 命令（如 `L 0,0 @100,0`）不需要大模型。`--mock` / `ZHIHUI_LLM=mock` 只给自动化测试和开发用。
+**目录**：[能做什么](#能做什么) · [5 分钟跑起来](#5-分钟跑起来) · [架构](#架构) · [一句话是怎么变成图纸的](#一句话是怎么变成图纸的) · [设计原则](#设计原则) · [开发中的有趣发现](#开发中的有趣发现) · [参考资料](#参考资料) · [目录结构](#目录结构) · [常用命令](#常用命令) · [文档索引](#文档索引)
+
+---
+
+## 能做什么
+
+### 1. 化工设备图（立式 / 卧式储罐方案图）
+
+```text
+画一台立式储罐的设备图，内径1600，筒体高2400，标准椭圆封头，壁厚8，材料Q345R，
+设计压力0.6MPa，设计温度80℃，人孔DN500，进料口DN80，出料口DN80，两个液位计口DN25，四个耳式支座
+```
+
+一句话生成一张 A1 设备图：**主视图**（全剖、壁厚夸大、管口旋转画法）、**管口方位图**（卧式为左视图）、**管口表、设计数据表、明细栏、技术要求、标题栏**。接着说就能改：
+
+`把进料口转到90度` · `筒体加长500` · `上封头再加一个DN50的放空口` · `支座改成3个` · `设计压力改成1.0MPa`（默认 PN 自动重新初选）· `出一张管口方位图` · `导出 DXF 和 PDF`
+
+只说“画一个立式储罐”时，系统**一次问完**：要流程图还是设备图、内径、筒体长度、壁厚、支座、管口。
+
+![化工设备图示例（真实模型生成，A1 布局「设备图」）](06_测试与基准用例/results/20261021_deploy_demo1.png)
+
+### 2. 工艺流程图
+
+`画精馏工段的工艺流程图` → 规划设备与连接 → 你确认方案 → 出图（DXF / PDF / PNG）→ 继续说话改图（`把 P-101 向右移动 800`）。支持方案流程图、物料流程图、施工流程图和给水处理高程布置图。
+
+![流程图规范化前后对比](03_CAD算法与图元库/化工规范_前后对比_C001.png)
+
+### 3. 通用二维 / 三维 CAD
+
+鼠标点画、敲 AutoCAD 命令（`L 0,0 @100,0`）、打字或语音口述（“画一个矩形，左下角在零零，长120宽80”）都行。46 个预置函数覆盖图层、绘图、编辑、标注、公差、块、约束、布局出图和三维建模（拉伸、旋转、布尔）。
+
+---
+
+## 5 分钟跑起来
+
+**产品里没有离线版**：自然语言口令都要经过大模型（默认 DeepSeek）。没配 Key 时页面会明确提示，不会悄悄退回规则；直接输入的 AutoCAD 命令不需要大模型。
 
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install -e ".[dev]"
-.venv/Scripts/python -m pytest -q                     # 全量测试（含通用 CAD 的内核、DXF、识别、执行器、演示口令、基准）
-.venv/Scripts/python -m zhihui.api                    # 需要已配置 API Key，打开 http://127.0.0.1:8000
+cp 04_后端与部署/.env.example .env            # 填 DEEPSEEK_API_KEY（也可以启动后在页面 ⚙ 设置里填）
+.venv/Scripts/python -m zhihui.api             # 打开 http://127.0.0.1:8000
+.venv/Scripts/python -m pytest -q              # 全量测试（ZHIHUI_LLM=mock 下不调用大模型）
 ```
 
-- **化工设备图**（2026-10-21 新增，P0：立式/卧式储罐方案图）：顶部选“化工设备图”，或直接说“画一台立式储罐的设备图，内径1600，筒体高2400，标准椭圆封头，壁厚8，材料Q345R，设计压力0.6MPa，设计温度80℃，人孔DN500，进料口DN80，出料口DN80，两个液位计口DN25，四个耳式支座”。系统新建一张 A1 设备图，按参数生成主视图、管口方位图、管口表、设计数据表、明细栏、技术要求和标题栏；接着可以说“把进料口转到90度”“筒体加长500”“上封头再加一个DN50的放空口”“导出 DXF 和 PDF”。缺参数时一次反问。**输出是方案图，标准件数据未核对，未做强度计算，不得直接用于制造**。见 [化工设备图_设计说明](01_项目文档/化工设备图_设计说明.md)、[功能对照表](01_项目文档/化工设备图_功能对照表.md)、[数据表清单](01_项目文档/化工设备图_数据表清单.md)、[变更总结](01_项目文档/化工设备图_变更总结.md)。
-- **流程图**：首页 `http://127.0.0.1:8000/`，一句话生成/修改化工流程图（原有功能）。
-- **可选依赖**：任意实体的三维布尔（旋转体/锥度体/扫掠体/布尔结果）需要 `pip install manifold3d`（或 `pip install -e ".[solid]"`）；不装也能跑，只是这类布尔会报 `BOOLEAN_UNSUPPORTED` 并提示安装，两个竖直拉伸体的布尔不受影响。
-- **两个页面是同一个应用**：顶部“化工流程图 / 通用绘图”页签切换，共用 ⚙ 设置（API Key、模型）；在一边说了另一边的话会自动跳过去（流程图页说“画一个矩形…”→ 通用绘图页；通用绘图页说“绘制精馏工艺方案…”→ 流程图页）。
-- **通用 2D/3D 绘图**（新）：`http://127.0.0.1:8000/`，可以点鼠标画、敲命令（`L 0,0 @100,0`）、打字或语音口述（“画一个矩形，左下角在零零，长120宽80”）。《改造提示词》第 10 节的 14 条演示口令在自动化测试里用规则 Planner 验证过（`tests/test_demo_phrases.py`），真实使用时由大模型规划。设计见 [通用CAD能力_设计说明](01_项目文档/通用CAD能力_设计说明.md)，逐项完成度和限制见 [功能对照表](01_项目文档/通用CAD能力_功能对照表.md)。
+可选依赖：任意实体的三维布尔需要 `pip install manifold3d`（`pip install -e ".[solid]"`）；不装也能跑，只是这类布尔会报 `BOOLEAN_UNSUPPORTED`。
 
-`--mock` 只给自动化测试和前后端联调用（用脚本模拟智能体，不是产品形态）。正式使用设置 `DEEPSEEK_API_KEY`（或 `DASHSCOPE_API_KEY` / `ZHIPUAI_API_KEY`），见 [接口约定](01_项目文档/接口约定/接口约定.md) 第 7 节。
+---
 
-常用命令：
+## 架构
+
+```mermaid
+flowchart LR
+    U["浏览器<br/>一个对话框 + 图纸区 + 设备参数面板"] -->|"口令 / 按钮"| API["FastAPI<br/>任务队列 · 事件流 · 反问续接"]
+    API --> R{"入口路由<br/>流程图 / 设备图 / 通用绘图"}
+
+    R -->|"流程图"| CO["多智能体协调器<br/>理解 · 规划 · 确认 · 绘制 · 核对 · 修复"]
+    CO -->|"MCP"| PT["流程图工具<br/>图元库 · 自动布局 · 正交布线"]
+
+    R -->|"设备图 / 通用绘图"| GA["通用智能体<br/>Planner → 护栏 → Executor"]
+    GA -->|"函数调用"| FN["59 个预置函数<br/>含 5 个 vessel_* 设备图函数"]
+    FN --> EQ["设备图生成器<br/>参数 → 规则 → 查表 → 视图 → 尺寸 → 表格 → 布局"]
+    FN --> GEO["确定性几何内核<br/>zhihui/cad/geom"]
+
+    PT --> IR[("CAD-IR<br/>图纸 JSON · 版本 · 撤销")]
+    EQ --> IR
+    GEO --> IR
+    IR --> OUT["DXF · PDF · PNG · SVG"]
+
+    LLM["大模型<br/>DeepSeek / Qwen / GLM"] -.->|"只在 zhihui/agent/ 里调用"| CO
+    LLM -.-> GA
+```
+
+- **只有 `zhihui/agent/` 能调用大模型**；MCP 子进程和工具层里只有确定性代码（拿不到 API Key）。
+- **一次成功修改只落一个版本**，所有修改可撤销 / 重做；失败的批量整体回滚。
+- **CAD-IR** 是唯一的数据格式：前端、智能体、导出都读写它；DXF 里内嵌 IR，旧图能无损打开。
+
+---
+
+## 一句话是怎么变成图纸的
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor 用户
+    participant 前端
+    participant 路由
+    participant Planner as Planner（大模型）
+    participant 护栏
+    participant 函数 as vessel_define（确定性）
+    participant 生成器
+
+    用户->>前端: 画一台立式储罐的设备图，内径1600…
+    前端->>路由: /api/route
+    路由-->>前端: equipment（设备图）
+    前端->>前端: 新建一张 A1 化工设备图（不画进你原来的草图）
+    前端->>Planner: 口令 + 图纸上下文 + 设备图提示词
+    Planner-->>护栏: 参数补丁（只含用户说了的值）
+    护栏->>护栏: 每个数都要在原话里精确出现<br/>可默认字段（方位、PN…）没说就剔除
+    alt 缺必问参数（内径、壁厚、支座…）
+        护栏-->>用户: 一次问完（不调用大模型、不落版本）
+    else 参数齐全
+        护栏->>函数: 补丁 + 本轮编号 turn_id
+        函数->>函数: 合并 → 默认规则 → 查标准表
+        函数->>生成器: 容器参数（每个值都记来源：用户 / 规则 / 查表）
+        生成器-->>函数: 主视图 · 方位图 · 尺寸链 · 件号 · 四张表 · 布局
+        函数-->>用户: 设备图 + “按默认、待确认”清单 + 自检结果
+    end
+```
+
+设备图生成器内部是一条纯函数流水线（`zhihui/cad/equipment/`）：
+
+```mermaid
+flowchart TB
+    P["参数补丁<br/>VesselPatchIn"] --> M["spec_ops<br/>合并 · 选择器 · 单位换算 · 来源"]
+    M --> D["rules（22 条）<br/>封头 · 筒体长度 · 支座 · 管口位置/方位/伸出 · PN · 法兰 · 符号"]
+    D --> T[("data/*.json 标准表<br/>每行带 source 和 verified<br/>查不到报 STD_SIZE_NOT_FOUND，不插值")]
+    D --> Q{"必问参数齐了？"}
+    Q -->|否| ASK["SPEC_INCOMPLETE<br/>引擎直接转成反问"]
+    Q -->|是| V["views<br/>主视图 · 方位图 / 左视图"]
+    V --> DM["dims<br/>尺寸链按参数值闭合"]
+    V --> BL["balloons<br/>件号 ↔ 明细栏"]
+    DM --> S["sheet<br/>选比例 · 视口 · 表格 · 标题栏 · 技术要求"]
+    BL --> S
+    S --> DIFF["按图元编号差量写回<br/>没变的不动 · 用户手画的保留"]
+    DIFF --> C["check<br/>重叠 · 越界 · 焊缝 · 表图一致 · 字高 · 比例"]
+```
+
+---
+
+## 设计原则
+
+1. **模型不算数。** 坐标、尺寸链、总高、方位换算、单位换算都由程序算；模型写 `{"value": 1.6, "unit": "m"}`，程序换算成 1600。
+2. **数字要有出处。** 设备参数里每个“用户给的”数，都必须和原话里的某个数精确相等，不放行倍数、不用常量表。
+3. **缺了就问，一次问完。** 必问参数缺失时由代码拼出问题（带推荐选项），不消耗模型调用。
+4. **默认值要说出来。** 规则补的值在回复、管口表备注和技术要求里都标“按默认，待确认”；PN、法兰型式、支座型号只在设计条件齐全时“初选”。
+5. **参数是唯一真源。** 改设备一律改参数再重新生成；手动改了生成的图元，它会“脱离参数”，以后不再被覆盖。
+6. **不装作已校核。** 未核对的数据、未做的计算，图上和回复里都写明。
+
+---
+
+## 开发中的有趣发现
+
+真实使用和写测试的过程中挖出来、并已修复（大多带回归测试）的问题：
+
+| 发现 | 后果 | 怎么解决的 |
+|---|---|---|
+| **路由把“储罐、精馏、换热”当成流程图信号** | 画设备图的成功率是 **0**：“立式储罐设备图…”被画成一张标题为“精馏”的流程图，每个管口被当成一台设备 | 路由改成三分（流程图 / 设备图 / 通用），图种词和结构词优先，加了 41 条反例测试 |
+| **“固定管板”命中“约束”类，“20块塔板”命中“块”类** | 工具子集选错，模型只能编函数名 | 关键词加边界规则 |
+| **按关键词只给模型 1–3 类函数** | 通用 CAD 真实模型只有 **32/50** | 模型要的函数不在子集里就换全量目录重来；声明的类别超出子集就放宽 → **46–48/50** |
+| **旧数值护栏“对的拦、错的放”** | 编出来的方位 180°、径向 800（=1600/2）、PN16（=8×2）、直边 25（借自 DN25）都能通过，合理的“内径1.6米→1600”反而被拦 | 设备参数专用护栏：精确相等、不放倍数；可默认字段要在“触发词所在分句”里才放行 |
+| **“600千帕”被规范化成“6000帕”** | 错的数还会被护栏当成用户给的放行 | 阿拉伯数字后的“千/百/万”保持原样 |
+| **超过 10 条的 few-shot 模型根本看不到** | `few_shot_text(n=10)` 只取前 10 条，新增示例形同虚设 | 设备图示例单独成组，只在需要时拼入 |
+| **工具目录里嵌套参数显示成“对象”** | 模型猜字段名，动态块、标准件反复参数错误 | 目录展开嵌套字段；但设备参数**故意不展开**（展开就等于引导模型去填默认字段） |
+| **管口符号要“左下起顺时针”编号** | 规则表里符号排第一，但它依赖管口位置 | 符号规则挪到最后执行，分配后保持稳定，加删管口不重排 |
+| **壁厚 8 mm 在 1:10 图上只有 0.8 mm** | 线挤在一起；按图测尺寸又会偏大 | 图上壁厚夸大到 1 mm，**尺寸定义点取参数真值**，所以尺寸文字永远等于参数 |
+| **DXF 文字不继承样式的宽度因子** | 长仿宋 0.7 只在样式里设置时，AutoCAD 照 1.0 显示，汉字表格溢出 | 设备图文字单独写宽度因子 |
+| **一对液位计口在俯视图里完全重合** | 自检报“重复图元” | 同方位、同伸出、同法兰的管口只画一次，标签合并成“b1、b2（90°）” |
+| **基准检查器看不到批量里的函数** | 真实模型把函数放进 `cad_batch_execute` 时被误判失败 | 计划事件带参数，检查器能看到批量内部 |
+| **`robocopy /XD data` 会排除所有叫 data 的目录** | 部署时把 `zhihui/cad/equipment/data`（标准表）也漏了，线上第一次出图直接报错 | 排除写完整路径，部署后核对 |
+| **多代理并行开发会被会话额度打断，而且不交报告** | 改动落了盘、却没有说明 | 主会话逐个检查代码、补缺失的测试、全量回归；“没有报告 ≠ 通过” |
+
+---
+
+## 参考资料
+
+### 论文（开发前调研阅读的 25 篇）
+
+这些论文用于理解“大模型 + CAD”的研究现状和评测方法。**本项目没有复现其中的模型**：它们大多做 B-rep / CAD 程序的生成与表示学习，而本项目选择了“大模型写参数、确定性程序出图”的工程路线，主要借鉴了其中的交互式编辑、验证与评测思路。
+
+| 方向 | 论文 |
+|---|---|
+| LLM 生成 CAD 代码与交互编辑 | [IterCAD](https://arxiv.org/abs/2606.13368v2) · [ProCAD](https://arxiv.org/abs/2602.03045) · [CADEvolve](https://arxiv.org/abs/2602.16317v1) · [CADENA](https://arxiv.org/abs/2608.00799) · [CAD-Coder](https://arxiv.org/abs/2505.19713v3) · [STEP-LLM](https://arxiv.org/abs/2601.12641) · [B-repLer](https://arxiv.org/abs/2508.10201) |
+| 基准测试 | [Text2CAD-Bench](https://arxiv.org/abs/2605.18430v1) · [BenchCAD](https://arxiv.org/abs/2605.10865) · [CADBench](https://arxiv.org/abs/2605.10873v2) · [MUSE](https://arxiv.org/abs/2605.28579) |
+| CAD 分词与多模态表示 | [BRepCLIP](https://arxiv.org/abs/2606.05515v1) · [BRT](https://arxiv.org/abs/2504.07134) · [BrepARG](https://openaccess.thecvf.com/content/CVPR2026/papers/Li_AutoRegressive_Generation_with_B-rep_Holistic_Token_Sequence_Representation_CVPR_2026_paper.pdf) · [CAD-Tokenizer](https://arxiv.org/abs/2509.21150) |
+| B-rep 生成与修复 | [HiFi-BRep](https://arxiv.org/abs/2608.16485) · [Towards Valid B-Rep Generation](https://arxiv.org/abs/2608.04955) · [BrepGPT](https://arxiv.org/abs/2511.22171) · [BrepForge](https://arxiv.org/abs/2605.19411) · [DualBrep](https://arxiv.org/abs/2606.31579) · [HoLa](https://arxiv.org/abs/2504.14257) · [ParaCAD](https://arxiv.org/abs/2607.17093) |
+| 自监督表示学习 | [Masked Topology Modeling](https://arxiv.org/abs/2607.20642) · [BRepMAE](https://arxiv.org/abs/2602.22701) · [Masked BRep Autoencoder](https://arxiv.org/abs/2603.14927) |
+
+检索入口：[awesome-ai4cad](https://github.com/gudo7208/awesome-ai4cad)。
+
+### 标准与制图规范（只引用标准号，仓库里不放原文）
+
+- 技术制图：GB/T 14689（图纸幅面）、GB/T 14690（比例）、GB/T 14691（字体）、GB/T 10609.1（标题栏）、GB/T 4457.4（图线）、GB/T 4458.2（件号）
+- 化工流程图：HG/T 20519 系列
+- 化工设备图：HG/T 20668（设备设计文件编制）、GB/T 150.1~4-2024（压力容器）、GB/T 25198（封头）、HG/T 20592（管法兰）、HG/T 21514~21535（人孔）、NB/T 47065.1/.3（鞍座 / 耳式支座）、NB/T 47042、HG/T 20583、TSG 21
+
+设备图用到的每张数据表的来源和核对状态见 [数据表清单](01_项目文档/化工设备图_数据表清单.md)（目前全部 `verified: false`）。
+
+---
+
+## 目录结构
+
+Python 代码都在 `zhihui/` 包里；带编号的中文目录放文档、用例和前端。
+
+```text
+zhihui/
+├── agent/          # 只有这里调用大模型：路由、Planner、护栏、提示词、流程图多智能体
+├── api/            # FastAPI：任务、图纸、路由、渲染、导出
+├── cad/
+│   ├── geom/       # 确定性几何内核（求交、修剪、布尔、标注、布局）
+│   └── equipment/  # 化工设备图生成器 + data/ 标准表
+├── tools/general/  # 通用 CAD 与设备图的预置函数（registry 注册）
+├── ir/             # CAD-IR 数据模型（含 vessel.py）
+├── mcp_server/     # MCP Server
+└── bench/          # 基准评测
+01_项目文档/        # 设计说明、功能对照表、接口约定、变更总结
+05_前端/web/        # 单页前端（cad.html / cad.js）
+06_测试与基准用例/  # 基准用例 G/M/F/C/S/B/D/A/E
+tests/              # pytest
+```
+
+## 常用命令
 
 | 做什么 | 命令 |
 |---|---|
-| 化工设备图基准（E 类，scripted / 真实模型） | `.venv/Scripts/python -m zhihui.bench.run --category E` / `--llm real --no-asr --category E` |
-| 跑基准（检验工具链，不调大模型；含通用 CAD 的 B/D/A 类） | `.venv/Scripts/python -m zhihui.bench.run` |
-| 通用 CAD 基准：离线规则 Planner 从口令（含语音误识别写法）生成计划 | `.venv/Scripts/python -m zhihui.bench.run --llm mock --category BDA` |
-| 真实模型跑基准 / 模型选型 | `.venv/Scripts/python -m zhihui.bench.run --llm real --provider deepseek` |
-| 单独启动 MCP Server（stdio） | `.venv/Scripts/python -m zhihui.mcp_server` |
-| MCP Server（内网 HTTP） | `ZHIHUI_MCP_TOKEN=xxx .venv/Scripts/python -m zhihui.mcp_server --http --port 8765` |
-| 重新导出接口 Schema（流程图工具 + 通用 CAD 函数） | `.venv/Scripts/python -m zhihui.contracts` |
-| 通用 CAD 函数经 MCP 暴露（stdio） | `ZHIHUI_MCP_GENERAL=1 .venv/Scripts/python -m zhihui.mcp_server` |
-| XDATA 实测 | 见 [06_测试与基准用例/xdata_probe/实测步骤.md](06_测试与基准用例/xdata_probe/实测步骤.md) |
+| 全部基准（脚本模式，不调大模型） | `.venv/Scripts/python -m zhihui.bench.run` |
+| 化工设备图基准（真实模型，只跑口令写法） | `.venv/Scripts/python -m zhihui.bench.run --llm real --no-asr --category E` |
+| 通用 CAD 基准（离线规则 Planner） | `.venv/Scripts/python -m zhihui.bench.run --llm mock --category BDA` |
+| 模型选型 | `.venv/Scripts/python -m zhihui.bench.run --llm real --provider deepseek` |
+| 启动 MCP Server（stdio / 内网 HTTP） | `.venv/Scripts/python -m zhihui.mcp_server` / `ZHIHUI_MCP_TOKEN=xxx … --http --port 8765` |
+| 重新导出接口 Schema | `.venv/Scripts/python -m zhihui.contracts` |
 
-## 代码在哪
+## 文档索引
 
-Python 代码统一放在 `zhihui/` 包里（中文目录名不适合作为 Python 包名）；各角色目录放文档、配置、用例和前端静态页。
+| 主题 | 文档 |
+|---|---|
+| 化工设备图 | [设计说明](01_项目文档/化工设备图_设计说明.md) · [功能对照表](01_项目文档/化工设备图_功能对照表.md) · [数据表清单](01_项目文档/化工设备图_数据表清单.md) · [变更总结](01_项目文档/化工设备图_变更总结.md) · [改造任务书](01_项目文档/化工设备图能力_改造提示词_v1.md) |
+| 通用 CAD | [设计说明](01_项目文档/通用CAD能力_设计说明.md) · [功能对照表](01_项目文档/通用CAD能力_功能对照表.md) · [变更总结](01_项目文档/通用CAD能力_变更总结.md) |
+| 接口 | [接口约定](01_项目文档/接口约定/接口约定.md)（工具 Schema、CAD-IR Schema、错误码、Web API、基准格式） |
 
-| 文件夹 | 内容 | 负责 | 对应代码 |
-|---|---|---|---|
-| 01_项目文档 | 研发方案书、接口约定、会议记录 | 全员 | `zhihui/contracts.py` 导出 Schema |
-| 02_智能体与MCP | MCP Server、11 个工具、提示词、模型选型 | A | `zhihui/mcp_server/`、`zhihui/agent/`、`zhihui/tools/` |
-| 03_CAD算法与图元库 | 12 种图元、auto_layout、正交连线、渲染、validate | B | `zhihui/cad/` |
-| 04_后端与部署 | API、任务队列、Worker、Docker Compose | C | `zhihui/api/`、本目录 Dockerfile |
-| 05_前端 | 输入页、进度、预览下载、工具日志与差异展示 | D | `05_前端/web/` |
-| 06_测试与基准用例 | 基准用例（G/M/F/C/S/W + 通用 CAD 的 B/D/A）、评测脚本、每晚结果、XDATA 实测 | E | `zhihui/bench/`、`tests/` |
-| 07_比赛提交材料 | 说明书、PPT、演示视频（注意去身份化） | E | — |
+## 许可证
 
-## 架构一句话
-
-浏览器 → FastAPI（任务队列 + 状态机）→ Orchestrator（大模型一主一备）→ **MCP** → 11 个语义工具 → CAD 引擎（ezdxf、确定性布局、正交布线、校验、差异）→ DXF / PNG / PDF。
-大模型只决定「有哪些设备、怎么连」；坐标和几何由程序计算。模型说"完成"后，由程序强制校验；校验不通过就把错误发回给模型修复，最多 2 轮。
-
-通用 CAD 模式（`Drawing.mode == "general"`）的结构：口语规范化 → 命令快速通道（不调模型）→ Planner 出 JSON 计划 → Executor（程序）逐步执行，识别图元交给 Recognizer（规则优先）、改图交给 46 个预置函数（`zhihui/tools/general/`）+ 6 个感知函数 + 批量/撤销；几何全部在确定性内核 `zhihui/cad/geom/` 里。模型不算坐标、不猜编号，缺关键数值就反问。
+[MIT](../LICENSE)
