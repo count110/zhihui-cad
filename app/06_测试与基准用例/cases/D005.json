@@ -1,0 +1,78 @@
+{
+ "id": "D005",
+ "category": "D",
+ "functions": [
+  "create_hatch",
+  "find_closed_boundary"
+ ],
+ "note": "带孔的板：外轮廓 + 孔作为岛，一次填充",
+ "prompt": "给矩形加金属剖面线",
+ "prompt_asr": "给举行加金属剖面县",
+ "intents": [
+  "2d_drafting"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "矩形",
+   "need": [
+    "entity_ids",
+    "boundary"
+   ]
+  },
+  {
+   "tool": "create_hatch",
+   "args": {
+    "boundary_mode": "entity_ids",
+    "entity_ids": [
+     "$s1.boundary.outer",
+     "$s1.boundary.islands"
+    ],
+    "pattern_name": "ANSI31",
+    "island_style": "normal"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "hatch",
+    "n": 1
+   }
+  },
+  {
+   "entity": {
+    "kind": "hatch",
+    "data": {
+     "pattern": "ANSI31"
+    },
+    "len": {
+     "loops": 2
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,546 @@
+{
+ "id": "gb_general",
+ "name": "技术制图通用（GB）",
+ "extends": null,
+ "paper": {
+  "_source": "GB/T 14689-2008 表 1、表 2（基本幅面、加长幅面）、表 4（留边）",
+  "sizes": {
+   "A0": [
+    1189,
+    841
+   ],
+   "A1": [
+    841,
+    594
+   ],
+   "A2": [
+    594,
+    420
+   ],
+   "A3": [
+    420,
+    297
+   ],
+   "A4": [
+    297,
+    210
+   ],
+   "A3x3": [
+    891,
+    420
+   ],
+   "A3x4": [
+    1189,
+    420
+   ],
+   "A4x3": [
+    630,
+    297
+   ],
+   "A4x4": [
+    841,
+    297
+   ],
+   "A4x5": [
+    1051,
+    297
+   ]
+  },
+  "base": {
+   "A3x3": "A3",
+   "A3x4": "A3",
+   "A4x3": "A4",
+   "A4x4": "A4",
+   "A4x5": "A4"
+  },
+  "margins": {
+   "A0": {
+    "a": 25,
+    "c": 10,
+    "e": 20
+   },
+   "A1": {
+    "a": 25,
+    "c": 10,
+    "e": 20
+   },
+   "A2": {
+    "a": 25,
+    "c": 10,
+    "e": 10
+   },
+   "A3": {
+    "a": 25,
+    "c": 5,
+    "e": 10
+   },
+   "A4": {
+    "a": 25,
+    "c": 5,
+    "e": 10
+   }
+  },
+  "binding": false
+ },
+ "scale": {
+  "_source": "GB/T 14690-1993 表 1（优先）、表 2（允许）",
+  "preferred": [
+   1,
+   2,
+   5
+  ],
+  "allowed": [
+   1.5,
+   2.5,
+   3,
+   4,
+   6
+  ],
+  "enlarge_preferred": [
+   2,
+   5
+  ],
+  "enlarge_allowed": [
+   2.5,
+   4
+  ]
+ },
+ "text": {
+  "_source": "GB/T 14691-1993（原文已取得：01_项目文档/标准资料/已取得标准文本）",
+  "heights": [
+   1.8,
+   2.5,
+   3.5,
+   5,
+   7,
+   10,
+   14,
+   20
+  ],
+  "cjk_min": 3.5,
+  "width_factor": 0.7,
+  "latin_type": "B",
+  "dxf_font": "ttf",
+  "_dxf_font": "DXF 文字样式：ttf = TrueType 仿宋 simfang.ttf（汉字正体，宽度因子 0.7）+ 字母数字用同一字体倾斜 15°（ZH_LATIN 样式）；shx = gbeitc.shx（B 型斜体字母数字）+ 大字体 gbcbig.shx。AutoCAD / 中望 / 浩辰自带这两个 SHX，ODA Viewer 没有（汉字显示成 ?，已实测）。默认 ttf 是 2026-10-18 用户裁定（ODA 截图验收）。",
+  "ttf_font": "simfang.ttf",
+  "shx_font": "gbeitc.shx",
+  "shx_bigfont": "gbcbig.shx",
+  "preview_ttf": [
+   "simfang.ttf",
+   "hyswlongfangsong.ttf",
+   "simkai.ttf"
+  ],
+  "cjk_advance": 1.5,
+  "latin_advance": 0.7,
+  "paper_step": {
+   "A4": 0,
+   "A3": 0,
+   "A2": 1,
+   "A1": 1,
+   "A0": 2
+  },
+  "roles": {
+   "default": 3.5,
+   "tag": 2.5,
+   "name": 3.5,
+   "annotation": 3.5,
+   "pipe_label": 3.5,
+   "pipe_code": 2.5,
+   "elevation": 2.5,
+   "dim": 3.5,
+   "symbol_text": 3.5,
+   "small": 2.5,
+   "title_block_label": 3.5,
+   "title_block_value": 3.5,
+   "title_block_note": 3.5,
+   "drawing_name": 7,
+   "unit_name": 7,
+   "drawing_title": 7,
+   "struct_name": 5,
+   "system_title": 5,
+   "legend_title": 5,
+   "legend_name": 3.5,
+   "notes": 3.5,
+   "scale_note": 3.5,
+   "table_head": 5,
+   "table_cell": 3.5
+  },
+  "rules": {
+   "heights": {
+    "source": "GB/T 14691-1993 第 3.2 条",
+    "verified": true,
+    "text": "字高 1.8、2.5、3.5、5、7、10、14、20 mm，更大的字按 √2 递增"
+   },
+   "cjk_min": {
+    "source": "GB/T 14691-1993 第 3.3 条",
+    "verified": true,
+    "text": "汉字长仿宋体，高度不小于 3.5 mm，字宽一般 h/√2"
+   },
+   "type": {
+    "source": "GB/T 14691-1993 第 3.4 条",
+    "verified": true,
+    "text": "字母数字分 A 型（d=h/14）、B 型（d=h/10），同一图样只用一种"
+   },
+   "italic": {
+    "source": "GB/T 14691-1993 第 3.5 条；文章第 3 页「字母一般以斜体输出，汉字正体」",
+    "verified": true,
+    "text": "斜体字头向右倾斜，与水平基准线成 75°"
+   },
+   "spacing": {
+    "source": "GB/T 14691-1993 表 2（B 型）",
+    "verified": true,
+    "text": "字母间距 a=2/10h，基准线最小间距 b2=15/10h（无发音符号）、b3=13/10h（仅大写字母），词间距 e=6/10h"
+   }
+  },
+  "latin_italic": true,
+  "latin_oblique": 15.0,
+  "b_type": {
+   "a": 0.2,
+   "b1": 1.9,
+   "b2": 1.5,
+   "b3": 1.3,
+   "e": 0.6,
+   "d": 0.1,
+   "c1": 0.7
+  },
+  "a_type": {
+   "a": 0.14285714285714285,
+   "b1": 1.7857142857142858,
+   "b2": 1.5,
+   "b3": 1.2142857142857142,
+   "e": 0.42857142857142855,
+   "d": 0.07142857142857142,
+   "c1": 0.7142857142857143
+  },
+  "latin_glyph": 0.5,
+  "_latin_advance": "字母数字平均字宽按 0.5h 估（未查到 B 型逐字宽度表，属估算，verified=false）+ 字母间距 a=0.2h（GB/T 14691 表 2）= 0.7h",
+  "latin_width_factor": 0.9,
+  "_latin_width_factor": "字母数字的宽度因子：仿宋 TTF 的西文字形在 1.0 时每字约 0.79h，取 0.9 使每字约 0.71h，接近 B 型字宽约 0.5h + 字母间距 a=0.2h（GB/T 14691 表 2）；字宽本身是估算，verified=false",
+  "sym_font": "simsun.ttc",
+  "_sym_font": "仿宋 TTF（simfang）没有 ²、³ 两个字形，带这两个字符的字母数字（如设备特性参数 F=60m²）改用宋体 TTF，宽度因子和倾斜同 ZH_LATIN"
+ },
+ "lines": {
+  "_source": "GB/T 17450-1998 第 4.1 条（原文已取得）",
+  "rules": {
+   "series": {
+    "source": "GB/T 17450-1998 第 4.1 条",
+    "verified": true,
+    "text": "线宽 0.13、0.18、0.25、0.35、0.5、0.7、1、1.4、2 mm（公比 √2）"
+   },
+   "ratio": {
+    "source": "GB/T 17450-1998 第 4.1 条",
+    "verified": true,
+    "text": "粗线、中粗线、细线宽度比 4:2:1；同一图样同类图线宽度一致"
+   },
+   "gap": {
+    "source": "GB/T 17450-1998 第 5.1 条",
+    "verified": true,
+    "text": "两条平行线之间的最小间隙不得小于 0.7 mm"
+   },
+   "intersect": {
+    "source": "GB/T 17450-1998 第 5.2.1 条",
+    "verified": true,
+    "text": "No.02～06、08～15 应恰当地相交于画线处"
+   },
+   "elements": {
+    "source": "GB/T 17450-1998 第 4.3 条表 3",
+    "verified": true,
+    "text": "点 ≤0.5d，短间隔 3d，短画 6d，画 12d，长画 24d，间隔 18d"
+   },
+   "center_ext": {
+    "source": "文章第 4 页（化工制图·图线）",
+    "verified": false,
+    "text": "圆的中心线在圆心处为线段的交点，两端超出圆轮廓 2～5 mm；小图形上画点画线有困难时用细实线代替"
+   }
+  },
+  "allowed": [
+   0.13,
+   0.18,
+   0.25,
+   0.35,
+   0.5,
+   0.7,
+   1.0,
+   1.4,
+   2.0
+  ],
+  "ratio": [
+   4,
+   2,
+   1
+  ],
+  "group": {
+   "thick": 1.0,
+   "medium": 0.5,
+   "thin": 0.25
+  },
+  "min_gap_mm": 0.7,
+  "overlap_priority": [
+   "visible",
+   "hidden",
+   "center",
+   "extension"
+  ],
+  "small_symmetric_mm": 10,
+  "center_ext_mm": 3.0
+ },
+ "dim": {
+  "_source": "GB/T 4458.4-2003 尺寸注法",
+  "text_height": 3.5,
+  "ext_beyond_mm": 2.0,
+  "ext_offset_mm": 0.0,
+  "arrow": "CLOSEDFILLED",
+  "arrow_mm": 2.5,
+  "gap_mm": 7.0
+ },
+ "hatch": {
+  "pattern": "ANSI31",
+  "paper_spacing": 3.0
+ },
+ "title_block": "gb10609",
+ "break": {
+  "min_ratio": 0.3,
+  "keep_mm": 15
+ },
+ "linetypes": {
+  "_source": "GB/T 17450-1998 表 1（线型编号）、第 4.3 条表 3（线素长度，d 为所在图线的线宽）",
+  "02": {
+   "name": "虚线",
+   "elements_d": [
+    12,
+    -3
+   ]
+  },
+  "03": {
+   "name": "间隔画线",
+   "elements_d": [
+    12,
+    -18
+   ]
+  },
+  "04": {
+   "name": "点画线",
+   "elements_d": [
+    24,
+    -3,
+    0,
+    -3
+   ]
+  },
+  "05": {
+   "name": "双点画线",
+   "elements_d": [
+    24,
+    -3,
+    0,
+    -3,
+    0,
+    -3
+   ]
+  }
+ },
+ "layers": {
+  "_source": "层名统一 ZH-*；颜色、线型参照 GB/T 14665-2012《机械工程 CAD 制图规则》的图层约定（粗实线 白、细实线 绿、虚线 黄、点画线 红、双点画线 粉红），本表按记忆整理，需对照标准原文核对。颜色与线宽一一对应（按颜色控制打印线宽）",
+  "color_lineweight": {
+   "7": "thick",
+   "4": "medium",
+   "3": "thin",
+   "2": "thin",
+   "1": "thin",
+   "6": "thin",
+   "8": "thin"
+  },
+  "table": {
+   "ZH-粗实线": {
+    "color": 7,
+    "linetype": "Continuous",
+    "weight": "thick"
+   },
+   "ZH-中粗实线": {
+    "color": 4,
+    "linetype": "Continuous",
+    "weight": "medium"
+   },
+   "ZH-细实线": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-中心线": {
+    "color": 1,
+    "linetype": "04",
+    "weight": "thin"
+   },
+   "ZH-虚线": {
+    "color": 2,
+    "linetype": "02",
+    "weight": "thin"
+   },
+   "ZH-双点画线": {
+    "color": 6,
+    "linetype": "05",
+    "weight": "thin"
+   },
+   "ZH-尺寸": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-文字": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-剖面线": {
+    "color": 8,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-设备": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-位号": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-管道-主物料": {
+    "color": 7,
+    "linetype": "Continuous",
+    "weight": "thick",
+    "source": "文章表 2-5 主要物料管道：实线 b",
+    "verified": false
+   },
+   "ZH-管道-公用": {
+    "color": 4,
+    "linetype": "Continuous",
+    "weight": "medium",
+    "source": "文章表 2-5 辅助物料及公用系统管道：实线 (1/2～2/3)b，取中粗线 b/2",
+    "verified": false
+   },
+   "ZH-管道-辅助": {
+    "color": 4,
+    "linetype": "Continuous",
+    "weight": "medium",
+    "source": "文章表 2-5 辅助物料及公用系统管道：实线 (1/2～2/3)b，取中粗线 b/2",
+    "verified": false
+   },
+   "ZH-图框": {
+    "color": 7,
+    "linetype": "Continuous",
+    "weight": "thick"
+   },
+   "ZH-标题栏": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-表格": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-地面": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-标注": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin"
+   },
+   "ZH-管道-主物料埋地": {
+    "color": 7,
+    "linetype": "02",
+    "weight": "thick",
+    "source": "文章表 2-5 主要物料埋地管道：虚线 b",
+    "verified": false
+   },
+   "ZH-管道-辅助埋地": {
+    "color": 4,
+    "linetype": "02",
+    "weight": "medium",
+    "source": "文章表 2-5 辅助物料及公用系统埋地管道：虚线 (1/2～2/3)b",
+    "verified": false
+   },
+   "ZH-管道-仪表": {
+    "color": 3,
+    "linetype": "02",
+    "weight": "thin",
+    "source": "文章表 2-5 仪表管道：虚线 (1/3)b，按 4:2:1 取细线",
+    "verified": false
+   },
+   "ZH-管道-原有": {
+    "color": 7,
+    "linetype": "05",
+    "weight": "thick",
+    "source": "文章表 2-5 原有管道：双点画线 b",
+    "verified": false
+   },
+   "ZH-仪表": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin",
+    "source": "文章 3.2.4 节：仪表圆圈细实线",
+    "verified": false
+   },
+   "ZH-阀门": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin",
+    "source": "文章 3.2.3 节：阀门管件细实线",
+    "verified": false
+   },
+   "ZH-分区": {
+    "color": 3,
+    "linetype": "Continuous",
+    "weight": "thin",
+    "source": "GB/T 14689-2008 图幅分区（原文未取得）",
+    "verified": false
+   }
+  },
+  "roles": {
+   "border": "ZH-图框",
+   "frame": "ZH-标题栏",
+   "paper_edge": "ZH-细实线",
+   "equip": "ZH-设备",
+   "equip_text": "ZH-文字",
+   "tag_row": "ZH-位号",
+   "pipe_process": "ZH-管道-主物料",
+   "pipe_utility": "ZH-管道-公用",
+   "pipe_aux": "ZH-管道-辅助",
+   "pipe_text": "ZH-文字",
+   "anno": "ZH-文字",
+   "hatch": "ZH-剖面线",
+   "ground": "ZH-地面",
+   "elev": "ZH-标注",
+   "legend": "ZH-文字",
+   "title": "ZH-文字",
+   "title_rule": "ZH-中粗实线",
+   "notes": "ZH-文字",
+   "system": "ZH-文字",
+   "system_box": "ZH-虚线",
+   "flow_arrow": "ZH-细实线",
+   "center": "ZH-中心线",
+   "hidden": "ZH-虚线",
+   "phantom": "ZH-双点画线",
+   "dim": "ZH-尺寸",
+   "table": "ZH-表格",
+   "pipe_main_code": "ZH-管道-主物料",
+   "pipe_other_code": "ZH-管道-公用",
+   "pipe_process_buried": "ZH-管道-主物料埋地",
+   "pipe_aux_buried": "ZH-管道-辅助埋地",
+   "pipe_instrument": "ZH-管道-仪表",
+   "pipe_existing": "ZH-管道-原有",
+   "instrument": "ZH-仪表",
+   "valve": "ZH-阀门",
+   "zone": "ZH-分区"
+  },
+  "pipe_code_prefix": "ZH-管道-",
+  "split_suffix": "-分段",
+  "_split_suffix": "虚线、点画线、双点画线按 GB/T 17450 第 5.2.1 条需要交在画线处时，程序算好线素相位拆成短线段，写在同色同宽、线型为实线的「原层名-分段」层上"
+ }
+}

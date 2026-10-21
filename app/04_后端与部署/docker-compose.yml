@@ -1,0 +1,34 @@
+# 比赛期部署：一台 4 vCPU / 8 GB 云主机
+#   cp 04_后端与部署/.env.example 04_后端与部署/.env  然后填写密钥
+#   docker compose -f 04_后端与部署/docker-compose.yml up -d --build
+# MCP Server 只在内部网络监听，不映射端口；浏览器只能访问 api。
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: 04_后端与部署/Dockerfile
+    image: zhihui-cad
+    env_file: .env
+    environment:
+      ZHIHUI_MCP: http://mcp:8765/mcp
+    ports:
+      - "8000:8000"
+    volumes:
+      - zhihui-data:/data
+    depends_on:
+      - mcp
+    restart: unless-stopped
+
+  mcp:
+    image: zhihui-cad
+    command: ["python", "-m", "zhihui.mcp_server", "--http", "--host", "0.0.0.0", "--port", "8765"]
+    environment:
+      ZHIHUI_MCP_TOKEN: ${ZHIHUI_MCP_TOKEN:?请在 .env 里设置 ZHIHUI_MCP_TOKEN}
+    volumes:
+      - zhihui-data:/data   # 与 api 共享：上传件和产物都在这里
+    expose:
+      - "8765"
+    restart: unless-stopped
+
+volumes:
+  zhihui-data:

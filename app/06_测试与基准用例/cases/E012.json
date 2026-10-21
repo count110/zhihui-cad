@@ -1,0 +1,123 @@
+{
+ "id": "E012",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "错误输入：上封头再加一个 DN85 的放空口。DN85 不在接管系列里 → STD_SIZE_NOT_FOUND（不插值、不外推），转成反问，参数和版本都不变。成功判据⑤。",
+ "prompt": "上封头再加一个DN85的放空口",
+ "prompt_asr": "上封头再加一个DN八十五的放空口",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "expect_error": "STD_SIZE_NOT_FOUND",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "upsert_nozzles": [
+     {
+      "dn": 85,
+      "purpose_text": "放空口",
+      "location": "top_head"
+     }
+    ]
+   },
+   "summary": "上封头加 DN85 放空口"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 0
+  },
+  {
+   "equip_nozzles": {
+    "count": 5,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c"
+    ]
+   }
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_spec": {
+    "shell.inner_diameter_mm": 1600,
+    "shell.length_mm": 2400,
+    "shell.thickness_mm": 8,
+    "shell.material": "Q345R",
+    "design.design_pressure_mpa": 0.6,
+    "design.design_temp_c": 80,
+    "heads[top].kind": "EHA",
+    "supports[0].kind": "lug",
+    "supports[0].count": 4
+   }
+  }
+ ],
+ "mock_ok": false
+}

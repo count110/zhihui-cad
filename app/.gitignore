@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.env
+# 运行期数据（任务工作目录、导出产物、SQLite）
+data/
+06_测试与基准用例/results/*.json
+!06_测试与基准用例/results/.gitkeep
+06_测试与基准用例/xdata_probe/out/
+
+# 参考标准原文（版权所属出版方，仅本地查阅，不进仓库）
+01_项目文档/参考标准/*.pdf
+
+# 标准资料包里的 PDF（标准原文、公众号文章）：版权所属方，仅本地查阅，不进仓库
+01_项目文档/标准资料/**/*.pdf
+/智绘CAD_完整项目_*.zip

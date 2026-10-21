@@ -1,0 +1,211 @@
+{
+  "id": "tubular_reactor",
+  "name_cn": "列管式反应器",
+  "aliases": [
+    "列管式反应器",
+    "列管反应器",
+    "管式反应器"
+  ],
+  "category": "R",
+  "family": "reactor",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 列管式反应器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -6,
+    -18,
+    6,
+    18
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          -6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -12
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          9
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -9
+        ],
+        [
+          6,
+          -9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3.5,
+          -9
+        ],
+        [
+          3.5,
+          -9
+        ],
+        [
+          3.5,
+          9
+        ],
+        [
+          -3.5,
+          9
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3.5,
+          9
+        ],
+        [
+          3.5,
+          -9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3.5,
+          -9
+        ],
+        [
+          3.5,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          18
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -15
+        ],
+        [
+          0,
+          -18
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 0,
+      "y": 18,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -18,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 12,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": 4,
+      "y": 13.8,
+      "dir": "up",
+      "len": 2
+    },
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": -4,
+      "y": -13.8,
+      "dir": "down",
+      "len": 2
+    }
+  ]
+}

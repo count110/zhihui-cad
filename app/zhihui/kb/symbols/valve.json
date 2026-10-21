@@ -1,0 +1,97 @@
+{
+  "id": "valve",
+  "name_cn": "阀门",
+  "aliases": [
+    "阀",
+    "阀门",
+    "闸阀",
+    "调节阀",
+    "截止阀"
+  ],
+  "category": "X",
+  "family": "valve",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 9.0.5 第 65 页 闸阀（管道附件，不编设备位号）",
+  "bbox": [
+    -6,
+    -2.5,
+    6,
+    2.5
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          2.5
+        ],
+        [
+          4,
+          -2.5
+        ],
+        [
+          4,
+          2.5
+        ],
+        [
+          -4,
+          -2.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          0
+        ],
+        [
+          -4,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          4,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -6,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": -6,
+    "y": 6.5,
+    "align": "left"
+  },
+  "initials": [
+    "fm"
+  ]
+}

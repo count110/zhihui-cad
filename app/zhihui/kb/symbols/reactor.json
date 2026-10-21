@@ -1,0 +1,229 @@
+{
+  "id": "reactor",
+  "name_cn": "反应釜（带搅拌、夹套）",
+  "aliases": [
+    "反应器",
+    "反应釜",
+    "釜",
+    "搅拌釜",
+    "聚合釜"
+  ],
+  "category": "R",
+  "family": "reactor",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 56 页 反应釜（闭式，带搅拌、夹套）；原图被水印遮挡，待核对",
+  "bbox": [
+    -13,
+    -17,
+    10,
+    24
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          -9
+        ],
+        [
+          -8,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          -9
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        9
+      ],
+      "rx": 8,
+      "ry": 4,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -9
+      ],
+      "rx": 8,
+      "ry": 4,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          -9
+        ],
+        [
+          -10,
+          5
+        ],
+        [
+          -8,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          10,
+          -9
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          8,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -9
+      ],
+      "rx": 10,
+      "ry": 5,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        21
+      ],
+      "r": 3
+    },
+    {
+      "type": "text",
+      "p": [
+        0,
+        21
+      ],
+      "text": "M",
+      "h": 3
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          18
+        ],
+        [
+          0,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -6
+        ],
+        [
+          4,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          7
+        ],
+        [
+          -13,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -14
+        ],
+        [
+          0,
+          -17
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -13,
+      "y": 7,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -17,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 11,
+    "y": 14,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": 4,
+      "y": 12.5,
+      "dir": "up",
+      "len": 3
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 10,
+      "y": 0,
+      "dir": "right",
+      "len": 2.5
+    }
+  ],
+  "initials": [
+    "fyq"
+  ]
+}

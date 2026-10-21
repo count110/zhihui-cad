@@ -1,0 +1,257 @@
+{
+ "id": "hg_equipment",
+ "name": "化工设备图标题栏（GB/T 10609.1 + HG 设备图附加栏，简化，180×56）",
+ "source": "GB/T 10609.1-2008 标题栏分区（签字区、名称及代号区、其他区）；HG/T 20668 设备图的附加栏简化为“设计阶段”“质量”两格（原文待核对）",
+ "size": [
+  180,
+  56
+ ],
+ "skip_edges": [
+  "right",
+  "bottom"
+ ],
+ "required": [
+  "drawing_name",
+  "scale_text"
+ ],
+ "sign_area": {
+  "x": [
+   0,
+   12,
+   37,
+   55
+  ],
+  "y": [
+   0,
+   56
+  ],
+  "roles": [
+   "设计",
+   "制图",
+   "校核",
+   "审核",
+   "批准"
+  ],
+  "date_column": true
+ },
+ "cells": [
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    44,
+    56
+   ],
+   "field": "unit_name",
+   "role": "unit_name",
+   "placeholder": "（设计单位名称）"
+  },
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    16,
+    44
+   ],
+   "field": "drawing_name",
+   "role": "drawing_name",
+   "placeholder": "（图样名称）"
+  },
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    0,
+    16
+   ],
+   "text": "方案图：未作强度计算，不得用于制造",
+   "role": "title_block_note"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    48,
+    56
+   ],
+   "text": "工程名称",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    48,
+    56
+   ],
+   "field": "project",
+   "role": "title_block_value",
+   "placeholder": "（工程名称）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    40,
+    48
+   ],
+   "text": "设计阶段",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    40,
+    48
+   ],
+   "field": "stage",
+   "role": "title_block_value",
+   "placeholder": "方案"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "text": "图号",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "field": "drawing_no",
+   "role": "title_block_value",
+   "placeholder": "（图号）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "text": "比例",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "field": "scale_text",
+   "role": "title_block_value",
+   "placeholder": "（比例）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    16,
+    24
+   ],
+   "text": "质量",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    16,
+    24
+   ],
+   "field": "mass",
+   "role": "title_block_value",
+   "placeholder": "—（P1 计算）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    8,
+    16
+   ],
+   "text": "张次",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    8,
+    16
+   ],
+   "field": "sheet",
+   "role": "title_block_value",
+   "placeholder": "共 1 张 第 1 张"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    0,
+    8
+   ],
+   "text": "日期",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    0,
+    8
+   ],
+   "field": "date",
+   "role": "title_block_value",
+   "placeholder": "（日期）"
+  }
+ ],
+ "label_h": 3.5,
+ "placeholder_ratio": 1.0,
+ "min_h": 3.5,
+ "cjk_advance": 1.05,
+ "_字高": "汉字字高不小于 3.5 mm（GB/T 14691）；文字用长仿宋（宽度因子 0.7），字宽按 1.05×字高估算"
+}

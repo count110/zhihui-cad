@@ -1,0 +1,39 @@
+{
+ "id": "F002",
+ "base_case": "G005",
+ "prompt": "把泵右移 300 mm",
+ "expected": {
+  "outcome": [
+   "WAITING_CONFIRMATION",
+   "FAILED"
+  ]
+ },
+ "note": "同名多个目标",
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  [
+   {
+    "name": "find_entities",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "query": "泵"
+    }
+   }
+  ],
+  {
+   "ask": "图中有两台泵，要移动哪一台？",
+   "options": [
+    "P-101",
+    "P-102"
+   ]
+  }
+ ],
+ "category": "F"
+}

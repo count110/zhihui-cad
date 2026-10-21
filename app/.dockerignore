@@ -1,0 +1,11 @@
+.venv
+.git
+data
+**/__pycache__
+**/*.pyc
+.pytest_cache
+01_项目文档
+06_测试与基准用例
+07_比赛提交材料
+tests
+**/.env

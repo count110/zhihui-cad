@@ -1,0 +1,150 @@
+{
+  "id": "esp",
+  "name_cn": "电除尘器",
+  "aliases": [
+    "电除尘器",
+    "静电除尘器",
+    "干式电除尘器"
+  ],
+  "category": "V",
+  "family": "dust",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 59 页 干式电除尘器",
+  "bbox": [
+    -11,
+    -12,
+    11,
+    12
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          12
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          7,
+          -2
+        ],
+        [
+          1,
+          -9
+        ],
+        [
+          -1,
+          -9
+        ],
+        [
+          -7,
+          -2
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        4
+      ],
+      "r": 3
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -1.5,
+          1.5
+        ],
+        [
+          1.5,
+          1.5
+        ],
+        [
+          -1.5,
+          6.5
+        ],
+        [
+          1.5,
+          6.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          8
+        ],
+        [
+          -7,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7,
+          8
+        ],
+        [
+          11,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -9
+        ],
+        [
+          0,
+          -12
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -11,
+      "y": 8,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 11,
+      "y": 8,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "dust_out",
+      "kind": "out",
+      "x": 0,
+      "y": -12,
+      "dir": "down",
+      "semantics": "飞灰排出口"
+    }
+  ],
+  "label": {
+    "x": 8,
+    "y": 16,
+    "align": "left"
+  }
+}

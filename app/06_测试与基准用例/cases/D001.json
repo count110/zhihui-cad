@@ -1,0 +1,66 @@
+{
+ "id": "D001",
+ "category": "D",
+ "functions": [
+  "draw_linear_primitives"
+ ],
+ "note": "闭合 = 回到起点，共四条独立直线",
+ "prompt": "从原点向右画100，再往上60，再往左100，闭合",
+ "prompt_asr": "从原点向右画一百，再往上六十，再往左一百，闭合",
+ "intents": [
+  "2d_drafting"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "draw_linear_primitives",
+   "args": {
+    "primitive_type": "line",
+    "points": [
+     "0,0",
+     "100,0",
+     "100,60",
+     "0,60"
+    ],
+    "close_loop": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "line",
+    "n": 4
+   }
+  },
+  {
+   "entity": {
+    "kind": "line",
+    "nth": 0,
+    "data": {
+     "p2": [
+      100,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "entity": {
+    "kind": "line",
+    "nth": 3,
+    "data": {
+     "p2": [
+      0,
+      0,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

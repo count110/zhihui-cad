@@ -1,0 +1,137 @@
+{
+ "id": "E005",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 4：筒体加长 500。add 加到用户给过的长度口径上（筒体长度 2400 → 2900，来源 user:<turn>:add）；总高 3766 = 2900 + 2×433；管口按新长度重算位置，仍 0 个错误。",
+ "prompt": "筒体加长500",
+ "prompt_asr": "筒体加长五百",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "add": {
+     "shell.length": 500
+    }
+   },
+   "summary": "筒体加长 500"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_spec": {
+    "shell.inner_diameter_mm": 1600,
+    "shell.length_mm": 2900,
+    "shell.thickness_mm": 8,
+    "shell.material": "Q345R",
+    "design.design_pressure_mpa": 0.6,
+    "design.design_temp_c": 80,
+    "heads[top].kind": "EHA",
+    "supports[0].kind": "lug",
+    "supports[0].count": 4
+   }
+  },
+  {
+   "equip_sources": {
+    "shell.length_mm": "user",
+    "shell.inner_diameter_mm": "user",
+    "nozzles[purpose=进料口].pn": "rule"
+   }
+  },
+  {
+   "equip_nozzles": {
+    "count": 5,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c"
+    ]
+   }
+  },
+  {
+   "equip_dim": {
+    "overall": 3766
+   }
+  },
+  {
+   "equip_user_kept": {
+    "except": [
+     "shell.length_mm"
+    ]
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,47 @@
+{
+ "id": "B004",
+ "category": "B",
+ "functions": [
+  "set_linetype_scale"
+ ],
+ "note": "没给数值：按图形界限自动计算，并在说明里告知",
+ "prompt": "虚线显示成实线了，调一下线型比例",
+ "prompt_asr": "虚线显示成实线了，调一下线形比例",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "gb_a3_mech",
+  "calls": [
+   {
+    "tool": "draw_linear_primitives",
+    "args": {
+     "primitive_type": "line",
+     "points": [
+      "0,0",
+      "200,0"
+     ],
+     "layer": "虚线"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "set_linetype_scale",
+   "args": {
+    "auto": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "ltscale": {
+     "gt": 0
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

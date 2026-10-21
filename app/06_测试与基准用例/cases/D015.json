@@ -1,0 +1,64 @@
+{
+ "id": "D015",
+ "category": "D",
+ "functions": [
+  "grip_edit_entity",
+  "get_entity_grips_and_topology"
+ ],
+ "note": "夹点拖动圆的象限点 = 改半径",
+ "prompt": "把圆右边那个点拖到80,30",
+ "prompt_asr": "把圆右边那个点拖到八十逗号三十",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "圆"
+  },
+  {
+   "perceive": "get_entity_grips_and_topology",
+   "args": {
+    "entity_id": "$s1.entity_ids[0]"
+   }
+  },
+  {
+   "tool": "grip_edit_entity",
+   "args": {
+    "entity_id": "$s1.entity_ids[0]",
+    "grip_type_or_index": "quadrant_0",
+    "grip_mode": "stretch",
+    "new_position": "80,30"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "data": {
+     "r": 30,
+     "c": [
+      50,
+      30,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,61 @@
+{
+ "id": "north",
+ "name_cn": "指北针",
+ "source": "GB/T 50001-2017 第 7.4.3 条",
+ "graphics": [
+  {
+   "type": "circle",
+   "c": [
+    0,
+    0
+   ],
+   "r": 12
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     0,
+     12
+    ],
+    [
+     -1.5,
+     -12
+    ],
+    [
+     1.5,
+     -12
+    ]
+   ],
+   "closed": true
+  },
+  {
+   "type": "hatch",
+   "boundary": [
+    [
+     0,
+     12
+    ],
+    [
+     -1.5,
+     -12
+    ],
+    [
+     1.5,
+     -12
+    ]
+   ],
+   "pattern": "SOLID"
+  },
+  {
+   "type": "text",
+   "text": "北",
+   "p": [
+    0,
+    15
+   ],
+   "role": "annotation"
+  }
+ ],
+ "attribs": []
+}

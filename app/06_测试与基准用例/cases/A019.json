@@ -1,0 +1,53 @@
+{
+ "id": "A019",
+ "category": "A",
+ "functions": [
+  "history_undo_redo"
+ ],
+ "note": "撤销/重做以版本为单位",
+ "prompt": "画一个半径10的圆，圆心在原点，然后撤销，再重做",
+ "prompt_asr": "画一个半径十的源，圆心在原点，然后撒销，再重做",
+ "intents": [
+  "system"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "draw_circular_primitives",
+   "args": {
+    "curve_type": "circle",
+    "method": "center_radius",
+    "center": "0,0",
+    "radius": 10
+   }
+  },
+  {
+   "tool": "history_undo_redo",
+   "args": {
+    "action": "undo",
+    "steps": 1
+   }
+  },
+  {
+   "tool": "history_undo_redo",
+   "args": {
+    "action": "redo",
+    "steps": 1
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "circle",
+    "n": 1
+   }
+  },
+  {
+   "history": 1
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,155 @@
+{
+  "id": "gear_pump",
+  "name_cn": "齿轮泵（旋转泵）",
+  "aliases": [
+    "齿轮泵",
+    "旋转泵",
+    "螺杆泵",
+    "转子泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 齿轮泵（旋转泵）（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -8,
+    -8,
+    8,
+    7
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3.5,
+          -3
+        ],
+        [
+          -3.5,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3.5,
+          -3
+        ],
+        [
+          3.5,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "arc",
+      "c": [
+        0,
+        3
+      ],
+      "r": 3.5,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "arc",
+      "c": [
+        0,
+        -3
+      ],
+      "r": 3.5,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        2.3
+      ],
+      "r": 2
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        -2.3
+      ],
+      "r": 2
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2.5,
+          -5.6
+        ],
+        [
+          -4,
+          -8
+        ],
+        [
+          4,
+          -8
+        ],
+        [
+          2.5,
+          -5.6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3.5,
+          0
+        ],
+        [
+          -8,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3.5,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 8,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 5,
+    "y": 7,
+    "align": "left"
+  }
+}

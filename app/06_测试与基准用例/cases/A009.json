@@ -1,0 +1,87 @@
+{
+ "id": "A009",
+ "category": "A",
+ "functions": [
+  "create_and_insert_block"
+ ],
+ "note": "属性值没给：留空并告知，不编造",
+ "prompt": "把小圆做成带属性的块，属性是规格，插到右上角",
+ "prompt_asr": "把小源做成带属性的块，属性是规格，插到右上角",
+ "intents": [
+  "block_xref_constraint"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 8
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "小圆"
+  },
+  {
+   "tool": "create_and_insert_block",
+   "args": {
+    "action": "define_block",
+    "block_name": "小圆",
+    "source_entity_ids": [
+     "$s1.entity_ids[0]"
+    ],
+    "keep_source": "retain",
+    "attribute_defs": [
+     {
+      "tag": "规格",
+      "prompt": "规格",
+      "default_val": ""
+     }
+    ]
+   }
+  },
+  {
+   "rec": "矩形的右上角",
+   "need": [
+    "entity_ids",
+    "snap:endpoint"
+   ]
+  },
+  {
+   "tool": "create_and_insert_block",
+   "args": {
+    "action": "insert_block",
+    "block_name": "小圆",
+    "insert_point": "$s3.points.primary",
+    "attribute_values": {}
+   }
+  }
+ ],
+ "assert": [
+  {
+   "block": {
+    "name": "小圆",
+    "attdefs": [
+     "规格"
+    ],
+    "inserts": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

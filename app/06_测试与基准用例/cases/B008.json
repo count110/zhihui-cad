@@ -1,0 +1,37 @@
+{
+ "id": "B008",
+ "category": "B",
+ "functions": [
+  "configure_drafting_modes"
+ ],
+ "note": "绘图辅助开关不产生版本、不进撤销栈",
+ "prompt": "打开正交和栅格",
+ "prompt_asr": "打开正焦和栅格",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "configure_drafting_modes",
+   "args": {
+    "ortho_on": true,
+    "grid_on": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "draft.ortho_on": true,
+    "draft.grid_on": true
+   }
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": true
+}

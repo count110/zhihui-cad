@@ -1,0 +1,36 @@
+{
+ "id": "M001",
+ "base_case": "G001",
+ "prompt": "把 F-201 右移 800 mm",
+ "expected": {
+  "type": "move",
+  "target": "F-201",
+  "dx": 800,
+  "dy": 0
+ },
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  [
+   {
+    "name": "move_equipment",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "equipment_ref": "F-201",
+     "dx": 800,
+     "dy": 0
+    }
+   }
+  ],
+  {
+   "say": "已移动。"
+  }
+ ],
+ "category": "M"
+}

@@ -1,0 +1,95 @@
+{
+  "id": "water",
+  "name": "城镇给水处理",
+  "keywords": [
+    "给水处理",
+    "净水厂",
+    "水厂"
+  ],
+  "initials": [
+    "jscl"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "pipe_mixer",
+      "name": "混凝",
+      "tag_prefix": "M",
+      "family": "pipe_mixer",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "floc_sed_tank",
+      "name": "沉淀",
+      "tag_prefix": "V",
+      "family": "floc_sed_tank",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "valveless_filter",
+      "name": "过滤",
+      "tag_prefix": "X",
+      "family": "valveless_filter",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "clear_well",
+      "name": "清水池",
+      "tag_prefix": "V",
+      "family": "clear_well",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "clo2_generator",
+      "name": "消毒投加",
+      "tag_prefix": "M",
+      "family": "clo2_generator",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "公用工程接口",
+      "requirement": "根据用户确认的冷却、加热或药剂需要补充，不自动添加设计参数"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "进料",
+      "direction": "in",
+      "medium": "用户确认介质",
+      "equipment_index": 0
+    },
+    {
+      "name": "产物流",
+      "direction": "out",
+      "medium": "用户确认介质",
+      "equipment_index": 4
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [
+    {
+      "target_index": 1,
+      "region": "fill"
+    },
+    {
+      "target_index": 2,
+      "region": "fill"
+    },
+    {
+      "target_index": 3,
+      "region": "fill"
+    }
+  ],
+  "source": "团队整理，待专业确认；仅为工艺方案示意，不含工程设计参数",
+  "requires_confirmation": true
+}

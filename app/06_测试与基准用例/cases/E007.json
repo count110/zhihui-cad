@@ -1,0 +1,122 @@
+{
+ "id": "E007",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 6：支座改成 3 个。supports[0].count = 3（来源用户），耳座位置按 3 个重新均布（方位 45°、165°、285°，间隔 120°，来自规则 R-SUP-POS-02）。",
+ "prompt": "支座改成3个",
+ "prompt_asr": "支座改成三个",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "set": {
+     "supports[0].count": 3
+    }
+   },
+   "summary": "支座数量改为 3"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_spec": {
+    "supports[0].count": 3,
+    "supports[0].positions.orientation_deg": [
+     45,
+     165,
+     285
+    ],
+    "supports[0].kind": "lug",
+    "shell.length_mm": 2400
+   }
+  },
+  {
+   "equip_sources": {
+    "supports[0].count": "user",
+    "supports[0].positions": "rule",
+    "shell.length_mm": "user"
+   }
+  },
+  {
+   "equip_user_kept": {
+    "except": [
+     "supports[0].count"
+    ]
+   }
+  }
+ ],
+ "mock_ok": false
+}

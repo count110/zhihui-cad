@@ -1,0 +1,9 @@
+# 便携 Python 运行时（271 MB，用户自备：见 README）
+runtime/
+# 本机验收日志
+验收/
+# 打包产物
+*.zip
+# 其余规则见 app/.gitignore（.env、data/、基准结果 JSON、标准原文 PDF 都不进仓库）
+# 研发方案书（可能含团队与参赛信息），默认不公开
+app/01_项目文档/智绘CAD_研发方案书_V3.pdf

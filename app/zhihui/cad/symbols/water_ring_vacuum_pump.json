@@ -1,0 +1,100 @@
+{
+  "id": "water_ring_vacuum_pump",
+  "name_cn": "水环真空泵（纳氏泵）",
+  "aliases": [
+    "水环真空泵",
+    "纳氏泵",
+    "真空泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 水环真空泵（纳氏泵）（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -5,
+    -6,
+    5,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 4.5
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -3.4
+        ],
+        [
+          -4.5,
+          -6
+        ],
+        [
+          4.5,
+          -6
+        ],
+        [
+          3,
+          -3.4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          4.03
+        ],
+        [
+          -2,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          2,
+          4.03
+        ],
+        [
+          2,
+          8
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -2,
+      "y": 8,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 2,
+      "y": 8,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 5,
+    "y": 6,
+    "align": "left"
+  }
+}

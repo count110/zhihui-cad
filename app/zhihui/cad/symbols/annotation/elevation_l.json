@@ -1,0 +1,37 @@
+{
+ "id": "elevation_l",
+ "name_cn": "标高符号（数值在左）",
+ "source": "GB/T 50001-2017 第 7.5 节 标高",
+ "graphics": [
+  {
+   "type": "polyline",
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     -3,
+     3
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "closed": true
+  }
+ ],
+ "attribs": [
+  {
+   "tag": "VALUE",
+   "p": [
+    -3.6,
+    0.6
+   ],
+   "role": "elevation",
+   "align": "BOTTOM_RIGHT",
+   "default": ""
+  }
+ ]
+}

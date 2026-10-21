@@ -1,0 +1,52 @@
+{
+ "id": "D002",
+ "category": "D",
+ "functions": [
+  "draw_complex_curves"
+ ],
+ "note": "",
+ "prompt": "画一条多段线，经过0,0、50,0、50,30，闭合",
+ "prompt_asr": "画一条多断线，经过零逗号零，五十逗号零，五十逗号三十，闭合",
+ "intents": [
+  "2d_drafting"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "draw_complex_curves",
+   "args": {
+    "curve_type": "lwpolyline",
+    "vertices": [
+     "0,0",
+     "50,0",
+     "50,30"
+    ],
+    "closed": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "polyline",
+    "n": 1
+   }
+  },
+  {
+   "entity": {
+    "kind": "polyline",
+    "data": {
+     "closed": true,
+     "vertices.2.p": [
+      50,
+      30,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": false
+}

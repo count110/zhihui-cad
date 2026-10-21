@@ -1,0 +1,229 @@
+{
+  "id": "cooler",
+  "name_cn": "喷淋式冷却器",
+  "aliases": [
+    "冷却器",
+    "喷淋式冷却器",
+    "喷淋冷却器"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 喷淋式冷却器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -16,
+    -7,
+    16,
+    10
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          7
+        ],
+        [
+          12,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6.5,
+          5.5
+        ],
+        [
+          -5,
+          7
+        ],
+        [
+          -3.5,
+          5.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          7
+        ],
+        [
+          -5,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3.5,
+          5.5
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          6.5,
+          5.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          1
+        ],
+        [
+          12,
+          1
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          -12,
+          3
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          -1
+        ],
+        [
+          -13,
+          -4
+        ],
+        [
+          13,
+          -4
+        ],
+        [
+          13,
+          -1
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          12,
+          2
+        ],
+        [
+          16,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          2
+        ],
+        [
+          -16,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -4
+        ],
+        [
+          0,
+          -7
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 16,
+      "y": 2,
+      "dir": "right",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": -16,
+      "y": 2,
+      "dir": "left",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "water_in",
+      "kind": "in",
+      "x": 0,
+      "y": 10,
+      "dir": "up",
+      "semantics": "喷淋式冷却器的water_in入口"
+    },
+    {
+      "name": "water_out",
+      "kind": "out",
+      "x": 0,
+      "y": -7,
+      "dir": "down",
+      "semantics": "喷淋式冷却器的water_out出口"
+    }
+  ],
+  "label": {
+    "x": 3,
+    "y": 13,
+    "align": "left"
+  }
+}

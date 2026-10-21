@@ -1,0 +1,59 @@
+{
+ "id": "E003",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 2：只有设备名。入口路由必须是 equipment 且带 ask_kind；参数不足 → 一次反问全部必问项（scripted 靠 vessel_define 的 SPEC_INCOMPLETE 转成反问），不画图、不落版本。mock/real 下 Planner 还会在 items 里加第一项 drawing_type（工艺流程图 / 设备图），这里只要求至少覆盖这 5 项。",
+ "prompt": "画一个立式储罐",
+ "prompt_asr": "帮我画个立式储罐",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "expect_clarify": {
+  "paths": [
+   "shell.inner_diameter_mm",
+   "shell.length",
+   "shell.thickness_mm",
+   "supports.kind",
+   "nozzles"
+  ]
+ },
+ "expect_ask_kind": true,
+ "setup": {
+  "template": "hg_equipment_a1"
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "create",
+    "spec": {
+     "kind": "vertical_vessel"
+    }
+   },
+   "summary": "新建立式储罐"
+  }
+ ],
+ "assert": [
+  {
+   "clarify_covers": {
+    "paths": [
+     "shell.inner_diameter_mm",
+     "shell.length",
+     "shell.thickness_mm",
+     "supports.kind",
+     "nozzles"
+    ]
+   }
+  },
+  {
+   "revisions_added": 0
+  },
+  {
+   "no_vessel": true
+  }
+ ],
+ "mock_ok": false
+}

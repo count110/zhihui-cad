@@ -1,0 +1,132 @@
+{
+ "_source": "文章表 2-10「加热保温」（第 12 页），转录自文章，未与标准原文核对，verified=false",
+ "verified": false,
+ "columns": [
+  "蒸汽",
+  "电",
+  "水",
+  "加热类型"
+ ],
+ "rows": [
+  {
+   "steam": "A",
+   "electric": "",
+   "water": "",
+   "name": "单线伴热（带隔热用石棉布及隔离片）",
+   "_note": "电列原表为「—」"
+  },
+  {
+   "steam": "B",
+   "electric": "K",
+   "water": "",
+   "name": "单线伴热（带隔热用石棉布）"
+  },
+  {
+   "steam": "C",
+   "electric": "J",
+   "water": "Q",
+   "name": "单线伴热"
+  },
+  {
+   "steam": "D",
+   "electric": "L",
+   "water": "R",
+   "name": "平行或往复双线伴热"
+  },
+  {
+   "steam": "E",
+   "electric": "",
+   "water": "U",
+   "name": "三线伴热"
+  },
+  {
+   "steam": "F",
+   "electric": "",
+   "water": "",
+   "name": "四线伴热"
+  },
+  {
+   "steam": "G",
+   "electric": "M",
+   "water": "S",
+   "name": "单线螺旋形伴热"
+  },
+  {
+   "steam": "H",
+   "electric": "",
+   "water": "T",
+   "name": "夹套",
+   "_note": "电列原表为「—」"
+  }
+ ],
+ "codes": {
+  "A": {
+   "medium": "蒸汽",
+   "name": "单线伴热（带隔热用石棉布及隔离片）"
+  },
+  "B": {
+   "medium": "蒸汽",
+   "name": "单线伴热（带隔热用石棉布）"
+  },
+  "K": {
+   "medium": "电",
+   "name": "单线伴热（带隔热用石棉布）"
+  },
+  "C": {
+   "medium": "蒸汽",
+   "name": "单线伴热"
+  },
+  "J": {
+   "medium": "电",
+   "name": "单线伴热"
+  },
+  "Q": {
+   "medium": "水",
+   "name": "单线伴热"
+  },
+  "D": {
+   "medium": "蒸汽",
+   "name": "平行或往复双线伴热"
+  },
+  "L": {
+   "medium": "电",
+   "name": "平行或往复双线伴热"
+  },
+  "R": {
+   "medium": "水",
+   "name": "平行或往复双线伴热"
+  },
+  "E": {
+   "medium": "蒸汽",
+   "name": "三线伴热"
+  },
+  "U": {
+   "medium": "水",
+   "name": "三线伴热"
+  },
+  "F": {
+   "medium": "蒸汽",
+   "name": "四线伴热"
+  },
+  "G": {
+   "medium": "蒸汽",
+   "name": "单线螺旋形伴热"
+  },
+  "M": {
+   "medium": "电",
+   "name": "单线螺旋形伴热"
+  },
+  "S": {
+   "medium": "水",
+   "name": "单线螺旋形伴热"
+  },
+  "H": {
+   "medium": "蒸汽",
+   "name": "夹套"
+  },
+  "T": {
+   "medium": "水",
+   "name": "夹套"
+  }
+ }
+}

@@ -1,0 +1,88 @@
+{
+  "id": "dosing_point",
+  "name_cn": "加药点",
+  "aliases": [
+    "加药点",
+    "投加点",
+    "投药点",
+    "加氯点"
+  ],
+  "category": "X",
+  "family": "dosing_point",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -4,
+    -1,
+    4,
+    4
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          0.8
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "main_in",
+      "kind": "in",
+      "x": -4,
+      "y": 0,
+      "dir": "left",
+      "semantics": "加药点的main_in入口"
+    },
+    {
+      "name": "main_out",
+      "kind": "out",
+      "x": 4,
+      "y": 0,
+      "dir": "right",
+      "semantics": "加药点的main_out出口"
+    },
+    {
+      "name": "dose",
+      "kind": "in",
+      "x": 0,
+      "y": 4,
+      "dir": "up",
+      "semantics": "加药入口"
+    }
+  ],
+  "label": {
+    "x": 5,
+    "y": 4,
+    "align": "left"
+  },
+  "name_style": "none"
+}

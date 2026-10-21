@@ -1,0 +1,27 @@
+{
+ "id": "E011",
+ "category": "E",
+ "functions": [],
+ "note": "演示口令 11：画精馏工段的工艺流程图。入口路由必须仍是 pfd（设备名“精馏”不能把它抢到设备图），无图和在设备图里说都一样；到路由这一步就判定，不进智能体，不生成设备参数。",
+ "prompt": "画精馏工段的工艺流程图",
+ "prompt_asr": "画精溜工段的工艺流程图",
+ "intents": [],
+ "expect_route": "pfd",
+ "route_drawing": "both",
+ "setup": {
+  "template": "hg_equipment_a1"
+ },
+ "steps": [],
+ "assert": [
+  {
+   "route_mode": "pfd"
+  },
+  {
+   "no_vessel": true
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": false
+}

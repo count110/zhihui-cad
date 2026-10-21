@@ -1,0 +1,43 @@
+{
+ "id": "D004",
+ "category": "D",
+ "functions": [
+  "draw_circular_primitives"
+ ],
+ "note": "",
+ "prompt": "画一个直径40的圆，圆心在100,50",
+ "prompt_asr": "画一个直径四十的源，圆心在一百逗号五十",
+ "intents": [
+  "2d_drafting"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "draw_circular_primitives",
+   "args": {
+    "curve_type": "circle",
+    "method": "center_diameter",
+    "center": "100,50",
+    "diameter": 40
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "data": {
+     "r": 20,
+     "c": [
+      100,
+      50,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

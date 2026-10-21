@@ -1,0 +1,31 @@
+/* 外壳：设置对话框、嵌入模式。样式自成一体，不依赖各页面的 CSS。 */
+/* 嵌入模式（化工流程图工作空间）：隐藏自己的页头，整个窗口给流程图。 */
+html.embed header.top { display: none; }
+html.embed body { min-height: 100vh; }
+#btnSettings.alert { box-shadow: 0 0 0 2px #e0a000; }
+
+.zhs-modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; font: 14px/1.5 "Microsoft YaHei", system-ui, sans-serif; }
+.zhs-modal[hidden] { display: none; }
+.zhs-bg { position: absolute; inset: 0; background: rgba(0, 0, 0, .45); }
+.zhs-card { position: relative; width: min(640px, 94vw); max-height: 88vh; display: flex; flex-direction: column; background: #fff; color: #1d2330; border-radius: 10px; box-shadow: 0 12px 40px rgba(0, 0, 0, .35); }
+.zhs-head, .zhs-foot { display: flex; align-items: center; gap: 12px; padding: 12px 18px; }
+.zhs-head { justify-content: space-between; border-bottom: 1px solid #e3e6ec; }
+.zhs-head h2 { margin: 0; font-size: 16px; }
+.zhs-foot { border-top: 1px solid #e3e6ec; justify-content: flex-end; }
+.zhs-foot .zhs-msg { flex: 1; font-size: 13px; }
+.zhs-body { padding: 8px 18px 14px; overflow: auto; }
+.zhs-body h3 { margin: 14px 0 8px; font-size: 14px; display: flex; gap: 8px; align-items: baseline; }
+.zhs-body .zhs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.zhs-body label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4a5368; }
+.zhs-body input, .zhs-body select { padding: 6px 8px; border: 1px solid #c6ccd8; border-radius: 6px; font-size: 13px; background: #fff; color: #1d2330; }
+.zhs-body .zhs-row { display: flex; gap: 10px; align-items: center; margin-top: 8px; }
+.zhs-body .zhs-sub { font-size: 12px; color: #6a7388; }
+.zhs-body code { background: #eef1f6; padding: 0 4px; border-radius: 3px; }
+.zhs-btn { padding: 6px 14px; border: 1px solid #b8bfcd; background: #f4f6fa; color: #1d2330; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.zhs-btn:hover { background: #e9edf5; }
+.zhs-btn.primary { background: #2a6df4; border-color: #2a6df4; color: #fff; }
+.zhs-link { background: none; border: 0; color: #2a6df4; cursor: pointer; font-size: 12px; padding: 0; }
+.zhs-ok { color: #1a8a4a; }
+.zhs-err { color: #c0392b; }
+.zhs-warn { color: #b9770e; }
+@media (max-width: 560px) { .zhs-body .zhs-grid { grid-template-columns: 1fr; } }

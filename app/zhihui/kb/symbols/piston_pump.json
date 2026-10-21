@@ -1,0 +1,120 @@
+{
+  "id": "piston_pump",
+  "name_cn": "活塞泵（比例泵）",
+  "aliases": [
+    "活塞泵",
+    "比例泵",
+    "柱塞泵",
+    "往复泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 活塞泵（比例泵）（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -9,
+    -6,
+    5,
+    6
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          0.6
+        ],
+        [
+          1,
+          0.6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          -0.6
+        ],
+        [
+          1,
+          -0.6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1,
+          -2
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          -2
+        ],
+        [
+          3,
+          -6
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 3,
+      "y": -6,
+      "dir": "down",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 3,
+      "y": 6,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 5,
+    "y": 8,
+    "align": "left"
+  }
+}

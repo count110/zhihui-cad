@@ -1,0 +1,148 @@
+{
+  "id": "pipe_mixer",
+  "name_cn": "管道混合器",
+  "aliases": [
+    "管道混合器",
+    "静态混合器",
+    "管式静态混合器",
+    "管式混合器"
+  ],
+  "category": "M",
+  "family": "pipe_mixer",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -6,
+    -2.5,
+    6,
+    4
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -2.5
+        ],
+        [
+          3,
+          -2.5
+        ],
+        [
+          3,
+          2.5
+        ],
+        [
+          -3,
+          2.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -2.5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -3,
+          2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          -2.5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          0
+        ],
+        [
+          -3,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          2.5
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -6,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "dose",
+      "kind": "in",
+      "x": 0,
+      "y": 4,
+      "dir": "up",
+      "semantics": "加药入口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 4,
+    "align": "left"
+  }
+}

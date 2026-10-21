@@ -1,0 +1,199 @@
+{
+ "id": "G002",
+ "category": "G",
+ "prompt": "画甲醇合成精馏流程：原料罐 V-101 经进料泵 P-101、预热器 E-101 进入合成反应器 R-101，反应气经冷却器 E-102 到闪蒸罐 V-102，粗甲醇进精馏塔 T-101，塔底经塔底泵 P-102 送产品罐 V-103。循环压缩机 C-101 的出口接预热器壳程入口，冷却器壳程出口（公用工程）接回循环压缩机。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "V-101",
+    "symbol_id": "tank"
+   },
+   {
+    "tag": "P-101",
+    "symbol_id": "pump"
+   },
+   {
+    "tag": "E-101",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "R-101",
+    "symbol_id": "reactor"
+   },
+   {
+    "tag": "E-102",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "V-102",
+    "symbol_id": "tank"
+   },
+   {
+    "tag": "C-101",
+    "symbol_id": "compressor"
+   },
+   {
+    "tag": "T-101",
+    "symbol_id": "tower"
+   },
+   {
+    "tag": "P-102",
+    "symbol_id": "pump"
+   },
+   {
+    "tag": "V-103",
+    "symbol_id": "tank"
+   }
+  ],
+  "connections": [
+   [
+    "V-101",
+    "P-101"
+   ],
+   [
+    "P-101",
+    "E-101"
+   ],
+   [
+    "E-101",
+    "R-101"
+   ],
+   [
+    "R-101",
+    "E-102"
+   ],
+   [
+    "E-102",
+    "V-102"
+   ],
+   [
+    "V-102",
+    "T-101"
+   ],
+   [
+    "T-101",
+    "P-102"
+   ],
+   [
+    "P-102",
+    "V-103"
+   ],
+   [
+    "C-101",
+    "E-101"
+   ],
+   [
+    "E-102",
+    "C-101"
+   ]
+  ]
+ },
+ "plan": {
+  "title": "甲醇合成精馏流程",
+  "equipment": [
+   {
+    "symbol_id": "tank",
+    "tag": "V-101",
+    "name": "原料罐"
+   },
+   {
+    "symbol_id": "pump",
+    "tag": "P-101",
+    "name": "进料泵"
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E-101",
+    "name": "预热器"
+   },
+   {
+    "symbol_id": "reactor",
+    "tag": "R-101",
+    "name": "合成反应器"
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E-102",
+    "name": "冷却器"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-102",
+    "name": "闪蒸罐"
+   },
+   {
+    "symbol_id": "compressor",
+    "tag": "C-101",
+    "name": "循环压缩机"
+   },
+   {
+    "symbol_id": "tower",
+    "tag": "T-101",
+    "name": "精馏塔"
+   },
+   {
+    "symbol_id": "pump",
+    "tag": "P-102",
+    "name": "塔底泵"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-103",
+    "name": "产品罐"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "V-101.out",
+    "to_port": "P-101.in",
+    "medium": "原料"
+   },
+   {
+    "from_port": "P-101.out",
+    "to_port": "E-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "E-101.out",
+    "to_port": "R-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "R-101.out",
+    "to_port": "E-102.in",
+    "medium": "反应气"
+   },
+   {
+    "from_port": "E-102.out",
+    "to_port": "V-102.in",
+    "medium": ""
+   },
+   {
+    "from_port": "V-102.out",
+    "to_port": "T-101.feed",
+    "medium": "粗甲醇"
+   },
+   {
+    "from_port": "T-101.bottom_out",
+    "to_port": "P-102.in",
+    "medium": ""
+   },
+   {
+    "from_port": "P-102.out",
+    "to_port": "V-103.in",
+    "medium": "产品"
+   },
+   {
+    "from_port": "C-101.out",
+    "to_port": "E-101.shell_in",
+    "medium": "循环气"
+   },
+   {
+    "from_port": "E-102.shell_out",
+    "to_port": "C-101.in",
+    "medium": "",
+    "line_type": "utility"
+   }
+  ]
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "id": "A002",
+ "category": "A",
+ "functions": [
+  "manage_text_style"
+ ],
+ "note": "",
+ "prompt": "建一个长仿宋文字样式，宽度系数0.7，设为当前",
+ "prompt_asr": "建一个长仿宋文字样式，宽度系数零点七，设为当前",
+ "intents": [
+  "annotation_dimension"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "manage_text_style",
+   "args": {
+    "style_name": "长仿宋",
+    "font_file": "仿宋",
+    "width_factor": 0.7,
+    "set_current": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "current_text_style": "长仿宋"
+   }
+  }
+ ],
+ "mock_ok": false
+}

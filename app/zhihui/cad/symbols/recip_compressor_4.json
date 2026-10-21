@@ -1,0 +1,283 @@
+{
+  "id": "recip_compressor_4",
+  "name_cn": "四级往复压缩机",
+  "aliases": [
+    "四级往复压缩机",
+    "多级往复压缩机"
+  ],
+  "category": "C",
+  "family": "blower",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 四级往复压缩机（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -10,
+    -7,
+    10,
+    7
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6.5,
+          3.5
+        ],
+        [
+          -1.5,
+          3.5
+        ],
+        [
+          -1.5,
+          6.5
+        ],
+        [
+          -6.5,
+          6.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          5
+        ],
+        [
+          -1.5,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          3.8
+        ],
+        [
+          -4,
+          6.2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1.5,
+          3.5
+        ],
+        [
+          6.5,
+          3.5
+        ],
+        [
+          6.5,
+          6.5
+        ],
+        [
+          1.5,
+          6.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          5
+        ],
+        [
+          1.5,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          4,
+          3.8
+        ],
+        [
+          4,
+          6.2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6.5,
+          -6.5
+        ],
+        [
+          -1.5,
+          -6.5
+        ],
+        [
+          -1.5,
+          -3.5
+        ],
+        [
+          -6.5,
+          -3.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -5
+        ],
+        [
+          -1.5,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -6.2
+        ],
+        [
+          -4,
+          -3.8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1.5,
+          -6.5
+        ],
+        [
+          6.5,
+          -6.5
+        ],
+        [
+          6.5,
+          -3.5
+        ],
+        [
+          1.5,
+          -3.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -5
+        ],
+        [
+          1.5,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          4,
+          -6.2
+        ],
+        [
+          4,
+          -3.8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -5
+        ],
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 1.6
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6.5,
+          5
+        ],
+        [
+          -10,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6.5,
+          -5
+        ],
+        [
+          10,
+          -5
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -10,
+      "y": 5,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 10,
+      "y": -5,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 8,
+    "y": 9,
+    "align": "left"
+  }
+}

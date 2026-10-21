@@ -1,0 +1,152 @@
+{
+  "id": "rotary_compressor_v",
+  "name_cn": "立式旋转式压缩机",
+  "aliases": [
+    "立式旋转式压缩机"
+  ],
+  "category": "C",
+  "family": "blower",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 立式旋转式压缩机（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -7,
+    -9,
+    7,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -3
+        ],
+        [
+          -3,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          -3
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "arc",
+      "c": [
+        0,
+        3
+      ],
+      "r": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "arc",
+      "c": [
+        0,
+        -3
+      ],
+      "r": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        2.2
+      ],
+      "r": 1.6
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        -2.2
+      ],
+      "r": 1.6
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          -5.2
+        ],
+        [
+          -4,
+          -9
+        ],
+        [
+          4,
+          -9
+        ],
+        [
+          2,
+          -5.2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          2.2
+        ],
+        [
+          -7,
+          2.2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          2.2
+        ],
+        [
+          7,
+          2.2
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -7,
+      "y": 2.2,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 7,
+      "y": 2.2,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 4,
+    "y": 8,
+    "align": "left"
+  }
+}

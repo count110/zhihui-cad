@@ -1,0 +1,53 @@
+{
+ "id": "D016",
+ "category": "D",
+ "functions": [
+  "modify_entity_properties"
+ ],
+ "note": "",
+ "prompt": "把圆改到中心线图层，颜色改成红色",
+ "prompt_asr": "把圆改到中心线图成，颜色改成红色",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "gb_a3_mech",
+  "calls": [
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "圆"
+  },
+  {
+   "tool": "modify_entity_properties",
+   "args": {
+    "action": "set",
+    "entity_ids": "$s1.entity_ids",
+    "common_props": {
+     "layer": "中心线",
+     "color": 1
+    }
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "layer": "中心线",
+    "color": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

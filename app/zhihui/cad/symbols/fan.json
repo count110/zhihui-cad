@@ -1,0 +1,121 @@
+{
+  "id": "fan",
+  "name_cn": "风机",
+  "aliases": [
+    "风机",
+    "鼓风机",
+    "引风机",
+    "送风机",
+    "离心风机",
+    "烟气引风机",
+    "增压风机"
+  ],
+  "category": "C",
+  "family": "blower",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 58 页 鼓风机",
+  "bbox": [
+    -9,
+    -8,
+    6,
+    9
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 6
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          2.5
+        ],
+        [
+          7.5,
+          4
+        ],
+        [
+          4.5,
+          4
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          0
+        ],
+        [
+          -6,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -4.47
+        ],
+        [
+          -6,
+          -8
+        ],
+        [
+          6,
+          -8
+        ],
+        [
+          4,
+          -4.47
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -9,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6,
+      "y": 9,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 1,
+    "align": "left"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zhihui-mock",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "zhihui.api",
+        "--mock",
+        "--port",
+        "8000"
+      ],
+      "port": 8000
+    },
+    {
+      "name": "zhihui-real",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "zhihui.api",
+        "--port",
+        "8000"
+      ],
+      "port": 8000
+    }
+  ]
+}

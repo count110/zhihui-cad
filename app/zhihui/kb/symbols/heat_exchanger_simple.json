@@ -1,0 +1,139 @@
+{
+  "id": "heat_exchanger_simple",
+  "name_cn": "换热器（简图）",
+  "aliases": [
+    "换热器简图"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 56 页 换热器（简图）",
+  "bbox": [
+    -9,
+    -8,
+    9,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 5
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -2.5
+        ],
+        [
+          -1,
+          2.5
+        ],
+        [
+          1,
+          -2.5
+        ],
+        [
+          3,
+          2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          0
+        ],
+        [
+          -5,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          0
+        ],
+        [
+          9,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -5
+        ],
+        [
+          0,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          5
+        ],
+        [
+          0,
+          8
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -9,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 9,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "shell_in",
+      "kind": "in",
+      "x": 0,
+      "y": -8,
+      "dir": "down",
+      "semantics": "换热器（简图）的shell_in入口"
+    },
+    {
+      "name": "shell_out",
+      "kind": "out",
+      "x": 0,
+      "y": 8,
+      "dir": "up",
+      "semantics": "换热器（简图）的shell_out出口"
+    }
+  ],
+  "label": {
+    "x": 5,
+    "y": 8,
+    "align": "left"
+  }
+}

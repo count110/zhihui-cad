@@ -1,0 +1,350 @@
+{
+  "$defs": {
+    "ChecklistItem": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "text_span": {
+          "title": "Text Span",
+          "type": "string"
+        },
+        "requirement": {
+          "title": "Requirement",
+          "type": "string"
+        },
+        "checked": {
+          "default": false,
+          "title": "Checked",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "text_span",
+        "requirement"
+      ],
+      "title": "ChecklistItem",
+      "type": "object"
+    },
+    "DrawingSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "default": "pfd",
+          "enum": [
+            "pfd",
+            "water_elevation"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "stage": {
+          "default": "scheme",
+          "enum": [
+            "scheme",
+            "material",
+            "construction"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "standard": {
+          "default": "hg_pfd",
+          "title": "Standard",
+          "type": "string"
+        },
+        "paper_hint": {
+          "default": "A1",
+          "title": "Paper Hint",
+          "type": "string"
+        },
+        "title": {
+          "default": "工艺流程图",
+          "title": "Title",
+          "type": "string"
+        },
+        "title_block": {
+          "additionalProperties": true,
+          "title": "Title Block",
+          "type": "object"
+        }
+      },
+      "title": "DrawingSpec",
+      "type": "object"
+    },
+    "EquipmentSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "title": "Tag",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "symbol_id": {
+          "title": "Symbol Id",
+          "type": "string"
+        },
+        "symbol_candidates": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Symbol Candidates",
+          "type": "array"
+        },
+        "family": {
+          "default": "",
+          "title": "Family",
+          "type": "string"
+        },
+        "params": {
+          "additionalProperties": true,
+          "title": "Params",
+          "type": "object"
+        },
+        "source": {
+          "default": "user",
+          "enum": [
+            "user",
+            "kb",
+            "inferred"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "confidence": {
+          "default": 1,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        }
+      },
+      "required": [
+        "tag",
+        "name",
+        "symbol_id"
+      ],
+      "title": "EquipmentSpec",
+      "type": "object"
+    },
+    "HatchSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "region": {
+          "title": "Region",
+          "type": "string"
+        },
+        "pattern": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pattern"
+        },
+        "source": {
+          "default": "user",
+          "enum": [
+            "user",
+            "kb",
+            "inferred"
+          ],
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "target",
+        "region"
+      ],
+      "title": "HatchSpec",
+      "type": "object"
+    },
+    "StreamSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "title": "From",
+          "type": "string"
+        },
+        "to": {
+          "title": "To",
+          "type": "string"
+        },
+        "medium": {
+          "default": "",
+          "title": "Medium",
+          "type": "string"
+        },
+        "material_code": {
+          "default": "",
+          "title": "Material Code",
+          "type": "string"
+        },
+        "line_class": {
+          "default": "process",
+          "title": "Line Class",
+          "type": "string"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "source": {
+          "default": "user",
+          "enum": [
+            "user",
+            "kb",
+            "inferred"
+          ],
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "from",
+        "to"
+      ],
+      "title": "StreamSpec",
+      "type": "object"
+    },
+    "TerminalSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "in",
+            "out"
+          ],
+          "title": "Direction",
+          "type": "string"
+        },
+        "medium": {
+          "default": "",
+          "title": "Medium",
+          "type": "string"
+        },
+        "connected_to": {
+          "title": "Connected To",
+          "type": "string"
+        },
+        "source": {
+          "default": "user",
+          "enum": [
+            "user",
+            "kb",
+            "inferred"
+          ],
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "direction",
+        "connected_to"
+      ],
+      "title": "TerminalSpec",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "drawing": {
+      "$ref": "#/$defs/DrawingSpec"
+    },
+    "equipment": {
+      "items": {
+        "$ref": "#/$defs/EquipmentSpec"
+      },
+      "title": "Equipment",
+      "type": "array"
+    },
+    "streams": {
+      "items": {
+        "$ref": "#/$defs/StreamSpec"
+      },
+      "title": "Streams",
+      "type": "array"
+    },
+    "terminals": {
+      "items": {
+        "$ref": "#/$defs/TerminalSpec"
+      },
+      "title": "Terminals",
+      "type": "array"
+    },
+    "hatches": {
+      "items": {
+        "$ref": "#/$defs/HatchSpec"
+      },
+      "title": "Hatches",
+      "type": "array"
+    },
+    "annotations": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Annotations",
+      "type": "array"
+    },
+    "instruments": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Instruments",
+      "type": "array"
+    },
+    "fittings": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Fittings",
+      "type": "array"
+    },
+    "checklist": {
+      "items": {
+        "$ref": "#/$defs/ChecklistItem"
+      },
+      "title": "Checklist",
+      "type": "array"
+    },
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Assumptions",
+      "type": "array"
+    }
+  },
+  "title": "ProcessSpec",
+  "type": "object"
+}

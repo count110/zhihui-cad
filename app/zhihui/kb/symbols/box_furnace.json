@@ -1,0 +1,214 @@
+{
+  "id": "box_furnace",
+  "name_cn": "箱式炉",
+  "aliases": [
+    "箱式炉",
+    "箱式加热炉",
+    "方箱炉"
+  ],
+  "category": "F",
+  "family": "furnace",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 箱式炉（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -9,
+    -15,
+    9,
+    15
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          2
+        ],
+        [
+          -6,
+          -12
+        ],
+        [
+          6,
+          -12
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          -6,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          12
+        ],
+        [
+          -2,
+          12
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          10.5
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          0,
+          7.5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          0,
+          4.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -2
+        ],
+        [
+          -2.5,
+          -9
+        ],
+        [
+          -1,
+          -2
+        ],
+        [
+          0.5,
+          -9
+        ],
+        [
+          2,
+          -2
+        ],
+        [
+          3.5,
+          -9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          10.5
+        ],
+        [
+          -9,
+          10.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -4
+        ],
+        [
+          9,
+          -4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -12
+        ],
+        [
+          0,
+          -15
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          2,
+          12
+        ],
+        [
+          2,
+          15
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -9,
+      "y": 10.5,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 9,
+      "y": -4,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "fuel_in",
+      "kind": "in",
+      "x": 0,
+      "y": -15,
+      "dir": "down",
+      "semantics": "箱式炉的fuel_in入口"
+    },
+    {
+      "name": "flue_out",
+      "kind": "out",
+      "x": 2,
+      "y": 15,
+      "dir": "up",
+      "semantics": "烟气出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 15,
+    "align": "left"
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "id": "kettle_jacketed",
+  "name_cn": "夹套反应釜（多管口）",
+  "aliases": [
+    "反应蒸馏釜",
+    "蒸馏釜",
+    "夹套反应釜",
+    "夹套釜",
+    "带夹套反应釜"
+  ],
+  "category": "R",
+  "family": "reactor",
+  "status": "article",
+  "verified": false,
+  "source": "文章图 3-1、图 3-4 的反应蒸馏釜 R0601（带搅拌、夹套；顶部进料、放空、气相出口，夹套蒸汽进、冷凝水出，釜底出料），按扫描图绘制，未与标准原文核对",
+  "bbox": [
+    -13,
+    -17,
+    10,
+    19.5
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          -9
+        ],
+        [
+          -8,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          -9
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        9
+      ],
+      "rx": 8,
+      "ry": 4,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -9
+      ],
+      "rx": 8,
+      "ry": 4,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          -9
+        ],
+        [
+          -10,
+          4
+        ],
+        [
+          -8,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          10,
+          -9
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          8,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -9
+      ],
+      "rx": 10,
+      "ry": 5,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        17
+      ],
+      "r": 2.5
+    },
+    {
+      "type": "text",
+      "p": [
+        0,
+        17
+      ],
+      "text": "M",
+      "h": 3
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          14.5
+        ],
+        [
+          0,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -6
+        ],
+        [
+          4,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          12.12
+        ],
+        [
+          -5,
+          19.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3.5,
+          12.6
+        ],
+        [
+          3.5,
+          19.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6.5,
+          11.33
+        ],
+        [
+          6.5,
+          19.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          0
+        ],
+        [
+          -13,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -13
+        ],
+        [
+          -6,
+          -17
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -14
+        ],
+        [
+          0,
+          -17
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "feed",
+      "kind": "in",
+      "x": -5,
+      "y": 19.5,
+      "dir": "up",
+      "semantics": "进料口"
+    },
+    {
+      "name": "vent",
+      "kind": "out",
+      "x": 3.5,
+      "y": 19.5,
+      "dir": "up",
+      "semantics": "夹套反应釜（多管口）的vent出口"
+    },
+    {
+      "name": "vapor_out",
+      "kind": "out",
+      "x": 6.5,
+      "y": 19.5,
+      "dir": "up",
+      "semantics": "夹套反应釜（多管口）的vapor_out出口"
+    },
+    {
+      "name": "steam_in",
+      "kind": "in",
+      "x": -13,
+      "y": 0,
+      "dir": "left",
+      "semantics": "夹套反应釜（多管口）的steam_in入口"
+    },
+    {
+      "name": "cond_out",
+      "kind": "out",
+      "x": -6,
+      "y": -17,
+      "dir": "down",
+      "semantics": "夹套反应釜（多管口）的cond_out出口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -17,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 11,
+    "y": 12,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": -8,
+      "y": 6.5,
+      "dir": "left",
+      "len": 2.5
+    }
+  ]
+}

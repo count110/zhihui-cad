@@ -1,0 +1,2909 @@
+{
+ "$defs": {
+  "Annotation": {
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "anchor_ref": {
+     "description": "设备 id / 连接 id / 'title'",
+     "title": "Anchor Ref",
+     "type": "string"
+    },
+    "text": {
+     "title": "Text",
+     "type": "string"
+    },
+    "style": {
+     "default": "note",
+     "enum": [
+      "note",
+      "label",
+      "elevation",
+      "slope",
+      "section",
+      "index",
+      "north"
+     ],
+     "title": "Style",
+     "type": "string"
+    },
+    "x": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "X"
+    },
+    "y": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Y"
+    },
+    "rel": {
+     "anyOf": [
+      {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        }
+       ],
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "相对锚点的偏移（图纸 mm）；锚点移动后标注跟着走（文本位置链接）",
+     "title": "Rel"
+    }
+   },
+   "required": [
+    "id",
+    "anchor_ref",
+    "text"
+   ],
+   "title": "Annotation",
+   "type": "object"
+  },
+  "Connection": {
+   "properties": {
+    "id": {
+     "description": "图纸内永久 ID，如 C1",
+     "title": "Id",
+     "type": "string"
+    },
+    "from_equip": {
+     "description": "起点设备 id",
+     "title": "From Equip",
+     "type": "string"
+    },
+    "from_port": {
+     "title": "From Port",
+     "type": "string"
+    },
+    "to_equip": {
+     "description": "终点设备 id",
+     "title": "To Equip",
+     "type": "string"
+    },
+    "to_port": {
+     "title": "To Port",
+     "type": "string"
+    },
+    "line_type": {
+     "default": "process",
+     "enum": [
+      "process",
+      "utility",
+      "auxiliary",
+      "instrument"
+     ],
+     "title": "Line Type",
+     "type": "string"
+    },
+    "medium": {
+     "default": "",
+     "title": "Medium",
+     "type": "string"
+    },
+    "path": {
+     "anyOf": [
+      {
+       "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+         {
+          "type": "number"
+         },
+         {
+          "type": "number"
+         }
+        ],
+        "type": "array"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Path"
+    },
+    "code": {
+     "default": "",
+     "description": "管道代号，如 YS / QS / PAC / CL；只决定线上文字和图例",
+     "title": "Code",
+     "type": "string"
+    },
+    "spec": {
+     "default": "",
+     "description": "管道规格，如 DN200（只能来自用户）",
+     "title": "Spec",
+     "type": "string"
+    },
+    "buried": {
+     "default": false,
+     "description": "埋地管道（文章表 2-5：虚线）",
+     "title": "Buried",
+     "type": "boolean"
+    },
+    "existing": {
+     "default": false,
+     "description": "原有管道（文章表 2-5：双点画线）",
+     "title": "Existing",
+     "type": "boolean"
+    },
+    "tracing": {
+     "default": "",
+     "description": "伴热类型代号（文章表 2-10，如 C 蒸汽单线伴热）；画成带符号的复合线（GB/T 17450 第 3.3.4 条），只能来自用户",
+     "title": "Tracing",
+     "type": "string"
+    },
+    "pipe_no": {
+     "default": "",
+     "description": "管道号 = 物料代号 + 工段号 + 管段序号，如 CW0601",
+     "title": "Pipe No",
+     "type": "string"
+    },
+    "od": {
+     "default": "",
+     "description": "管道外径（mm，只写数字）",
+     "title": "Od",
+     "type": "string"
+    },
+    "wall": {
+     "default": "",
+     "description": "壁厚（mm，只写数字）",
+     "title": "Wall",
+     "type": "string"
+    },
+    "material": {
+     "default": "",
+     "description": "管道材料代号（文章表 2-7，如 B 碳钢）",
+     "title": "Material",
+     "type": "string"
+    },
+    "grade": {
+     "default": "",
+     "description": "管道等级代号",
+     "title": "Grade",
+     "type": "string"
+    },
+    "temp_code": {
+     "default": "",
+     "description": "使用温度范围代号（文章表 2-8，可省略）",
+     "title": "Temp Code",
+     "type": "string"
+    },
+    "insulation_code": {
+     "default": "",
+     "description": "隔热隔音代号（文章表 2-9，可省略）",
+     "title": "Insulation Code",
+     "type": "string"
+    },
+    "fittings": {
+     "description": "管线上的阀门、管件（文章表 2-11）",
+     "items": {
+      "$ref": "#/$defs/Fitting"
+     },
+     "title": "Fittings",
+     "type": "array"
+    },
+    "params": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "description": "管线旁的工艺参数（温度、压力），物料流程图及以上显示，只能来自用户",
+     "title": "Params",
+     "type": "object"
+    }
+   },
+   "required": [
+    "id",
+    "from_equip",
+    "from_port",
+    "to_equip",
+    "to_port"
+   ],
+   "title": "Connection",
+   "type": "object"
+  },
+  "DesignData": {
+   "additionalProperties": false,
+   "description": "设计数据表；全部“只照抄”，缺了写“待填”，不阻止出图。",
+   "properties": {
+    "design_standard": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Design Standard"
+    },
+    "vessel_category": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Vessel Category"
+    },
+    "working_pressure_mpa": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Working Pressure Mpa"
+    },
+    "design_pressure_mpa": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Design Pressure Mpa"
+    },
+    "working_temp_c": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Working Temp C"
+    },
+    "design_temp_c": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Design Temp C"
+    },
+    "medium": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Medium"
+    },
+    "medium_property": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Medium Property"
+    },
+    "main_material": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Main Material"
+    },
+    "corrosion_allowance_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Corrosion Allowance Mm"
+    },
+    "weld_joint_coeff": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Weld Joint Coeff"
+    },
+    "heat_treatment": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Heat Treatment"
+    },
+    "ndt": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Ndt"
+    },
+    "test_type": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Test Type"
+    },
+    "test_pressure_mpa": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Test Pressure Mpa"
+    },
+    "leak_test": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Leak Test"
+    },
+    "insulation_thickness_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Insulation Thickness Mm"
+    },
+    "fill_coeff": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Fill Coeff"
+    },
+    "design_life_years": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Design Life Years"
+    },
+    "wind_pressure_kpa": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Wind Pressure Kpa"
+    },
+    "seismic": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Seismic"
+    },
+    "safety_valve_set_mpa": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Safety Valve Set Mpa"
+    },
+    "shell_side": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/DesignData"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "tube_side": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/DesignData"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    }
+   },
+   "title": "DesignData",
+   "type": "object"
+  },
+  "DetailView": {
+   "description": "局部放大图：锚点（设备 / 管线）+ 偏移（图纸 mm）定圆心，半径（图纸 mm），放大倍数（GB/T 14690 放大比例）。",
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "anchor_ref": {
+     "title": "Anchor Ref",
+     "type": "string"
+    },
+    "rel": {
+     "default": [
+      0.0,
+      0.0
+     ],
+     "maxItems": 2,
+     "minItems": 2,
+     "prefixItems": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      }
+     ],
+     "title": "Rel",
+     "type": "array"
+    },
+    "radius": {
+     "default": 10.0,
+     "title": "Radius",
+     "type": "number"
+    },
+    "factor": {
+     "default": 2.0,
+     "title": "Factor",
+     "type": "number"
+    },
+    "label": {
+     "default": "",
+     "title": "Label",
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "anchor_ref"
+   ],
+   "title": "DetailView",
+   "type": "object"
+  },
+  "Dimension": {
+   "description": "尺寸（DIMENSION 实体）。量的是对象当前的几何，对象移动后跟着走；示意图不按比例时 text 写用户给的尺寸值。",
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "measure": {
+     "default": "width",
+     "enum": [
+      "width",
+      "height",
+      "between_h",
+      "between_v"
+     ],
+     "title": "Measure",
+     "type": "string"
+    },
+    "refs": {
+     "description": "设备 id（width/height 一个，between 两个）",
+     "items": {
+      "type": "string"
+     },
+     "title": "Refs",
+     "type": "array"
+    },
+    "text": {
+     "default": "",
+     "description": "尺寸数字（只能来自用户）；空则显示实测值",
+     "title": "Text",
+     "type": "string"
+    },
+    "side": {
+     "default": "auto",
+     "enum": [
+      "auto",
+      "top",
+      "bottom",
+      "left",
+      "right"
+     ],
+     "title": "Side",
+     "type": "string"
+    }
+   },
+   "required": [
+    "id"
+   ],
+   "title": "Dimension",
+   "type": "object"
+  },
+  "DraftSettings": {
+   "properties": {
+    "snap_on": {
+     "default": false,
+     "title": "Snap On",
+     "type": "boolean"
+    },
+    "snap_spacing": {
+     "default": [
+      10,
+      10
+     ],
+     "maxItems": 2,
+     "minItems": 2,
+     "prefixItems": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      }
+     ],
+     "title": "Snap Spacing",
+     "type": "array"
+    },
+    "grid_on": {
+     "default": false,
+     "title": "Grid On",
+     "type": "boolean"
+    },
+    "grid_spacing": {
+     "default": [
+      10,
+      10
+     ],
+     "maxItems": 2,
+     "minItems": 2,
+     "prefixItems": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      }
+     ],
+     "title": "Grid Spacing",
+     "type": "array"
+    },
+    "ortho_on": {
+     "default": false,
+     "title": "Ortho On",
+     "type": "boolean"
+    },
+    "polar_on": {
+     "default": false,
+     "title": "Polar On",
+     "type": "boolean"
+    },
+    "polar_angle_deg": {
+     "default": 15,
+     "title": "Polar Angle Deg",
+     "type": "number"
+    },
+    "osnap_on": {
+     "default": true,
+     "title": "Osnap On",
+     "type": "boolean"
+    },
+    "osnap_modes": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Osnap Modes",
+     "type": "array"
+    },
+    "otrack_on": {
+     "default": false,
+     "title": "Otrack On",
+     "type": "boolean"
+    },
+    "dynmode_on": {
+     "default": true,
+     "title": "Dynmode On",
+     "type": "boolean"
+    },
+    "pointer_input_on": {
+     "default": true,
+     "title": "Pointer Input On",
+     "type": "boolean"
+    },
+    "dimension_input_on": {
+     "default": true,
+     "title": "Dimension Input On",
+     "type": "boolean"
+    },
+    "coords_display_mode": {
+     "default": "continuous_xy",
+     "enum": [
+      "static",
+      "continuous_xy",
+      "continuous_polar"
+     ],
+     "title": "Coords Display Mode",
+     "type": "string"
+    }
+   },
+   "title": "DraftSettings",
+   "type": "object"
+  },
+  "Equipment": {
+   "properties": {
+    "id": {
+     "description": "图纸内永久 ID，如 E1",
+     "title": "Id",
+     "type": "string"
+    },
+    "tag": {
+     "description": "位号，如 P-101",
+     "title": "Tag",
+     "type": "string"
+    },
+    "symbol_id": {
+     "description": "图元 ID，如 pump",
+     "title": "Symbol Id",
+     "type": "string"
+    },
+    "name": {
+     "default": "",
+     "description": "中文名称，如 进料泵",
+     "title": "Name",
+     "type": "string"
+    },
+    "params": {
+     "additionalProperties": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "number"
+       },
+       {
+        "type": "integer"
+       },
+       {
+        "additionalProperties": {
+         "type": "number"
+        },
+        "type": "object"
+       }
+      ]
+     },
+     "title": "Params",
+     "type": "object"
+    },
+    "x": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "X"
+    },
+    "y": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Y"
+    }
+   },
+   "required": [
+    "id",
+    "tag",
+    "symbol_id"
+   ],
+   "title": "Equipment",
+   "type": "object"
+  },
+  "Fitting": {
+   "description": "管线上的阀门、管件、管道附件（文章表 2-11）。不是设备，不编设备位号；出图时在管线上断开并插入符号。",
+   "properties": {
+    "type": {
+     "description": "管件类型，如 globe_valve 截止阀（见 zhihui/cad/fittings.json）",
+     "title": "Type",
+     "type": "string"
+    },
+    "at": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "string"
+      }
+     ],
+     "default": 0.5,
+     "description": "位置：0～1 为沿管线长度的比例；「from+15」「to-15」为距起点 / 终点端口的图纸 mm",
+     "title": "At"
+    },
+    "size_class": {
+     "default": "",
+     "description": "规格（如异径管「DN50×DN32」，只能来自用户）",
+     "title": "Size Class",
+     "type": "string"
+    },
+    "for_maintenance": {
+     "default": false,
+     "description": "为安装、检修加的法兰、螺纹连接件（文章 3.2.3 节：这类才画）",
+     "title": "For Maintenance",
+     "type": "boolean"
+    }
+   },
+   "required": [
+    "type"
+   ],
+   "title": "Fitting",
+   "type": "object"
+  },
+  "GeoEntity": {
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "kind": {
+     "enum": [
+      "point",
+      "line",
+      "ray",
+      "xline",
+      "mline",
+      "polyline",
+      "spline",
+      "circle",
+      "arc",
+      "ellipse",
+      "text",
+      "mtext",
+      "dimension",
+      "hatch",
+      "insert",
+      "solid3d",
+      "mesh",
+      "tolerance",
+      "leader"
+     ],
+     "title": "Kind",
+     "type": "string"
+    },
+    "layer": {
+     "default": "0",
+     "title": "Layer",
+     "type": "string"
+    },
+    "color": {
+     "anyOf": [
+      {
+       "type": "integer"
+      },
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Color"
+    },
+    "linetype": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Linetype"
+    },
+    "linetype_scale": {
+     "default": 1.0,
+     "title": "Linetype Scale",
+     "type": "number"
+    },
+    "lineweight_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Lineweight Mm"
+    },
+    "transparency": {
+     "anyOf": [
+      {
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Transparency"
+    },
+    "data": {
+     "additionalProperties": true,
+     "title": "Data",
+     "type": "object"
+    },
+    "tags": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Tags",
+     "type": "array"
+    },
+    "handle": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Handle"
+    },
+    "space": {
+     "default": "Model",
+     "title": "Space",
+     "type": "string"
+    },
+    "created_rev": {
+     "default": 0,
+     "title": "Created Rev",
+     "type": "integer"
+    },
+    "modified_rev": {
+     "default": 0,
+     "title": "Modified Rev",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "id",
+    "kind"
+   ],
+   "title": "GeoEntity",
+   "type": "object"
+  },
+  "Hatch": {
+   "description": "填充（AutoCAD HATCH）。DXF 每次都从 IR 重新生成，出图时按「锚点当前位置 + pick_rel」重新求边界，\n所以设备移动、换图元、重新布局后填充自动跟着走；求不出边界时 disassociated=True，沿用上次的边界。",
+   "properties": {
+    "id": {
+     "description": "图纸内永久 ID，如 H1",
+     "title": "Id",
+     "type": "string"
+    },
+    "pattern": {
+     "default": "ANSI31",
+     "description": "图案名（ezdxf 标准图案库）或 SOLID",
+     "title": "Pattern",
+     "type": "string"
+    },
+    "paper_spacing": {
+     "default": 3.0,
+     "description": "图纸上的线距（mm），内部换算成图案比例",
+     "title": "Paper Spacing",
+     "type": "number"
+    },
+    "angle": {
+     "default": 0.0,
+     "title": "Angle",
+     "type": "number"
+    },
+    "style": {
+     "default": "normal",
+     "enum": [
+      "normal",
+      "outer",
+      "ignore"
+     ],
+     "title": "Style",
+     "type": "string"
+    },
+    "layer": {
+     "default": "ZH-剖面线",
+     "title": "Layer",
+     "type": "string"
+    },
+    "mode": {
+     "default": "pick",
+     "enum": [
+      "pick",
+      "select"
+     ],
+     "title": "Mode",
+     "type": "string"
+    },
+    "anchor_ref": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "拾取点相对的设备 id / 连接 id；None 表示 pick_rel 是绝对坐标",
+     "title": "Anchor Ref"
+    },
+    "region": {
+     "default": "",
+     "description": "设备命名填充区域；非空时不使用拾取点",
+     "title": "Region",
+     "type": "string"
+    },
+    "pick_rel": {
+     "anyOf": [
+      {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        }
+       ],
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "有锚点时为相对锚点的偏移（图纸 mm）；没有锚点时为绝对坐标（模型 mm）",
+     "title": "Pick Rel"
+    },
+    "boundary_refs": {
+     "description": "选对象方式的边界对象（设备 id / 连接 id）",
+     "items": {
+      "type": "string"
+     },
+     "title": "Boundary Refs",
+     "type": "array"
+    },
+    "gap_tol": {
+     "default": 0.0,
+     "description": "缺口容差（图纸 mm），对应 AutoCAD 的 HPGAPTOL",
+     "title": "Gap Tol",
+     "type": "number"
+    },
+    "area": {
+     "default": 0.0,
+     "description": "填充面积（模型 mm²）",
+     "title": "Area",
+     "type": "number"
+    },
+    "islands": {
+     "default": 0,
+     "title": "Islands",
+     "type": "integer"
+    },
+    "exact": {
+     "default": false,
+     "title": "Exact",
+     "type": "boolean"
+    },
+    "disassociated": {
+     "default": false,
+     "title": "Disassociated",
+     "type": "boolean"
+    },
+    "rings": {
+     "description": "上一次求出的边界（模型 mm，外环在前），失去关联时沿用",
+     "items": {
+      "items": {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        }
+       ],
+       "type": "array"
+      },
+      "type": "array"
+     },
+     "title": "Rings",
+     "type": "array"
+    },
+    "exterior_count": {
+     "default": 1,
+     "title": "Exterior Count",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "id"
+   ],
+   "title": "Hatch",
+   "type": "object"
+  },
+  "Head": {
+   "additionalProperties": false,
+   "properties": {
+    "position": {
+     "enum": [
+      "top",
+      "bottom",
+      "left",
+      "right"
+     ],
+     "title": "Position",
+     "type": "string"
+    },
+    "kind": {
+     "anyOf": [
+      {
+       "enum": [
+        "EHA",
+        "HHA",
+        "THA",
+        "SDH",
+        "FLAT",
+        "CONE"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Kind"
+    },
+    "thickness_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Thickness Mm"
+    },
+    "straight_flange_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Straight Flange Mm"
+    },
+    "material": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Material"
+    },
+    "cone_half_angle_deg": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Cone Half Angle Deg"
+    }
+   },
+   "required": [
+    "position"
+   ],
+   "title": "Head",
+   "type": "object"
+  },
+  "Instrument": {
+   "description": "仪表控制点（文章 3.2.4 节）：直径 10 mm 细实线圆，上半圆写字母组合代号，下半圆写工段序号；引线连到控制点。",
+   "properties": {
+    "id": {
+     "description": "图纸内永久 ID，如 I1",
+     "title": "Id",
+     "type": "string"
+    },
+    "letters": {
+     "description": "字母组合代号，如 TI、PdRA（文章表 2-13）",
+     "title": "Letters",
+     "type": "string"
+    },
+    "loop_no": {
+     "default": "",
+     "description": "工段序号（工序号 + 顺序号，3～5 位数字），只能来自用户",
+     "title": "Loop No",
+     "type": "string"
+    },
+    "location": {
+     "default": "local",
+     "description": "安装位置（文章表 2-12）",
+     "enum": [
+      "local",
+      "local_inline",
+      "central_panel",
+      "central_back",
+      "local_panel",
+      "local_back"
+     ],
+     "title": "Location",
+     "type": "string"
+    },
+    "attach_to": {
+     "description": "控制点所在的设备 id 或连接 id",
+     "title": "Attach To",
+     "type": "string"
+    },
+    "at": {
+     "default": 0.5,
+     "description": "连在管线上时沿管线的位置（0～1）",
+     "title": "At",
+     "type": "number"
+    }
+   },
+   "required": [
+    "id",
+    "letters",
+    "attach_to"
+   ],
+   "title": "Instrument",
+   "type": "object"
+  },
+  "Internals": {
+   "additionalProperties": false,
+   "properties": {
+    "tubes": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tubes"
+    },
+    "baffles": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Baffles"
+    },
+    "tubesheets": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tubesheets"
+    },
+    "trays": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Trays"
+    },
+    "packing": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Packing"
+    },
+    "agitator": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Agitator"
+    },
+    "jacket": {
+     "anyOf": [
+      {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Jacket"
+    }
+   },
+   "title": "Internals",
+   "type": "object"
+  },
+  "Layer": {
+   "properties": {
+    "name": {
+     "title": "Name",
+     "type": "string"
+    },
+    "color": {
+     "default": 7,
+     "title": "Color",
+     "type": "integer"
+    },
+    "true_color": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "True Color"
+    },
+    "linetype": {
+     "default": "Continuous",
+     "title": "Linetype",
+     "type": "string"
+    },
+    "lineweight_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Lineweight Mm"
+    },
+    "transparency": {
+     "default": 0,
+     "title": "Transparency",
+     "type": "integer"
+    },
+    "on": {
+     "default": true,
+     "title": "On",
+     "type": "boolean"
+    },
+    "frozen": {
+     "default": false,
+     "title": "Frozen",
+     "type": "boolean"
+    },
+    "locked": {
+     "default": false,
+     "title": "Locked",
+     "type": "boolean"
+    },
+    "plot": {
+     "default": true,
+     "title": "Plot",
+     "type": "boolean"
+    },
+    "description": {
+     "default": "",
+     "title": "Description",
+     "type": "string"
+    }
+   },
+   "required": [
+    "name"
+   ],
+   "title": "Layer",
+   "type": "object"
+  },
+  "Nozzle": {
+   "additionalProperties": false,
+   "properties": {
+    "uid": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Uid"
+    },
+    "mark": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Mark"
+    },
+    "dn": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Dn"
+    },
+    "purpose": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Purpose"
+    },
+    "purpose_text": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Purpose Text"
+    },
+    "kind": {
+     "default": "pipe",
+     "enum": [
+      "pipe",
+      "manhole",
+      "handhole",
+      "sight_glass",
+      "level_gauge"
+     ],
+     "title": "Kind",
+     "type": "string"
+    },
+    "location": {
+     "anyOf": [
+      {
+       "enum": [
+        "shell",
+        "top_head",
+        "bottom_head",
+        "left_head",
+        "right_head"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Location"
+    },
+    "axial_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Axial Mm"
+    },
+    "radial_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Radial Mm"
+    },
+    "orientation_deg": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Orientation Deg"
+    },
+    "projection_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Projection Mm"
+    },
+    "pipe_series": {
+     "anyOf": [
+      {
+       "enum": [
+        "A",
+        "B"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pipe Series"
+    },
+    "pipe_od_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pipe Od Mm"
+    },
+    "pipe_thk_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pipe Thk Mm"
+    },
+    "pipe_material": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pipe Material"
+    },
+    "pn": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Pn"
+    },
+    "flange_std": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Flange Std"
+    },
+    "flange_type": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Flange Type"
+    },
+    "facing": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Facing"
+    },
+    "std_part": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Std Part"
+    },
+    "reinforcement": {
+     "default": "auto",
+     "enum": [
+      "none",
+      "pad",
+      "auto"
+     ],
+     "title": "Reinforcement",
+     "type": "string"
+    }
+   },
+   "title": "Nozzle",
+   "type": "object"
+  },
+  "RepeatSystem": {
+   "description": "完全相同的局部系统只画一套，其余用细双点画线方框表示，框内注明系统名称和编号（文章 2.1 节）。",
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "name": {
+     "description": "系统名称，如 真空受槽系统",
+     "title": "Name",
+     "type": "string"
+    },
+    "numbers": {
+     "default": "",
+     "description": "框内注的编号，如 V0605B 或 2#、3#（只能来自用户或已有位号）",
+     "title": "Numbers",
+     "type": "string"
+    },
+    "members": {
+     "description": "画出来的那一套的设备 id；方框放在它们旁边",
+     "items": {
+      "type": "string"
+     },
+     "title": "Members",
+     "type": "array"
+    }
+   },
+   "required": [
+    "id",
+    "name"
+   ],
+   "title": "RepeatSystem",
+   "type": "object"
+  },
+  "Schedule": {
+   "description": "一览表：设备一览表（序号 / 位号 / 名称 / 规格型号 / 材料 / 数量 / 备注）或管道一览表（管道号 / DN / 介质 / 起点 / 终点）。\ninline 放在本图标题栏上方（GB/T 10609.2 明细栏），放不下时自动改为单独一页；sheet 单独出一页。",
+   "properties": {
+    "kind": {
+     "enum": [
+      "equipment",
+      "pipe"
+     ],
+     "title": "Kind",
+     "type": "string"
+    },
+    "placement": {
+     "default": "inline",
+     "enum": [
+      "inline",
+      "sheet"
+     ],
+     "title": "Placement",
+     "type": "string"
+    }
+   },
+   "required": [
+    "kind"
+   ],
+   "title": "Schedule",
+   "type": "object"
+  },
+  "SessionState": {
+   "description": "不导出到 DXF，用于多轮对话、指代消解和撤销重做。",
+   "properties": {
+    "last_point": {
+     "anyOf": [
+      {
+       "maxItems": 3,
+       "minItems": 3,
+       "prefixItems": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        }
+       ],
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Last Point"
+    },
+    "recent_entities": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "title": "Recent Entities",
+     "type": "array"
+    },
+    "selection": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Selection",
+     "type": "array"
+    },
+    "history": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "title": "History",
+     "type": "array"
+    },
+    "redo": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "title": "Redo",
+     "type": "array"
+    },
+    "prev_views": {
+     "items": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "title": "Prev Views",
+     "type": "array"
+    }
+   },
+   "title": "SessionState",
+   "type": "object"
+  },
+  "Shell": {
+   "additionalProperties": false,
+   "properties": {
+    "inner_diameter_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Inner Diameter Mm"
+    },
+    "length_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Length Mm"
+    },
+    "tangent_length_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tangent Length Mm"
+    },
+    "thickness_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Thickness Mm"
+    },
+    "material": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Material"
+    }
+   },
+   "title": "Shell",
+   "type": "object"
+  },
+  "StreamRow": {
+   "properties": {
+    "name": {
+     "description": "组分名称",
+     "title": "Name",
+     "type": "string"
+    },
+    "flow_kg_h": {
+     "default": "",
+     "description": "流量 kg/h（原样保留用户写的数字）",
+     "title": "Flow Kg H",
+     "type": "string"
+    },
+    "mole_pct": {
+     "default": "",
+     "description": "摩尔分率 %（原样保留用户写的数字）",
+     "title": "Mole Pct",
+     "type": "string"
+    }
+   },
+   "required": [
+    "name"
+   ],
+   "title": "StreamRow",
+   "type": "object"
+  },
+  "StreamTable": {
+   "description": "物料组成表（文章 3.1.2 节、图 3-2）：画在流程起点和使物料发生变化的设备后面，指引线连到所在管线；合计行由程序计算。",
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "anchor": {
+     "description": "所在管线的连接 id",
+     "title": "Anchor",
+     "type": "string"
+    },
+    "rows": {
+     "items": {
+      "$ref": "#/$defs/StreamRow"
+     },
+     "title": "Rows",
+     "type": "array"
+    },
+    "title": {
+     "default": "",
+     "description": "表名（可省）",
+     "title": "Title",
+     "type": "string"
+    }
+   },
+   "required": [
+    "id",
+    "anchor"
+   ],
+   "title": "StreamTable",
+   "type": "object"
+  },
+  "Support": {
+   "additionalProperties": false,
+   "properties": {
+    "uid": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Uid"
+    },
+    "kind": {
+     "anyOf": [
+      {
+       "enum": [
+        "lug",
+        "leg",
+        "skirt",
+        "saddle",
+        "ring"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Kind"
+    },
+    "count": {
+     "anyOf": [
+      {
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Count"
+    },
+    "model": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Model"
+    },
+    "positions": {
+     "anyOf": [
+      {
+       "items": {
+        "additionalProperties": true,
+        "type": "object"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Positions"
+    },
+    "height_mm": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Height Mm"
+    },
+    "material": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Material"
+    }
+   },
+   "title": "Support",
+   "type": "object"
+  },
+  "SystemGroup": {
+   "description": "子系统分组（如「PAC投药系统」）：高程布置图里放在图纸上半部各自的区域。",
+   "properties": {
+    "id": {
+     "title": "Id",
+     "type": "string"
+    },
+    "name": {
+     "title": "Name",
+     "type": "string"
+    },
+    "members": {
+     "description": "设备 id",
+     "items": {
+      "type": "string"
+     },
+     "title": "Members",
+     "type": "array"
+    },
+    "boxed": {
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      }
+     ],
+     "default": false,
+     "description": "True 框住整个子系统；或给设备 id 列表，只框这几台（如计量泵组）",
+     "title": "Boxed"
+    }
+   },
+   "required": [
+    "id",
+    "name"
+   ],
+   "title": "SystemGroup",
+   "type": "object"
+  },
+  "VesselSpec": {
+   "additionalProperties": false,
+   "properties": {
+    "kind": {
+     "enum": [
+      "vertical_vessel",
+      "horizontal_vessel",
+      "hx_fixed_tubesheet",
+      "stirred_reactor_jacketed",
+      "tray_column",
+      "packed_column",
+      "hx_floating_head",
+      "hx_u_tube"
+     ],
+     "title": "Kind",
+     "type": "string"
+    },
+    "tag": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Tag"
+    },
+    "name": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Name"
+    },
+    "design": {
+     "$ref": "#/$defs/DesignData"
+    },
+    "shell": {
+     "$ref": "#/$defs/Shell"
+    },
+    "heads": {
+     "items": {
+      "$ref": "#/$defs/Head"
+     },
+     "title": "Heads",
+     "type": "array"
+    },
+    "nozzles": {
+     "items": {
+      "$ref": "#/$defs/Nozzle"
+     },
+     "title": "Nozzles",
+     "type": "array"
+    },
+    "supports": {
+     "items": {
+      "$ref": "#/$defs/Support"
+     },
+     "title": "Supports",
+     "type": "array"
+    },
+    "internals": {
+     "$ref": "#/$defs/Internals"
+    },
+    "drawing": {
+     "additionalProperties": true,
+     "title": "Drawing",
+     "type": "object"
+    },
+    "sources": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "title": "Sources",
+     "type": "object"
+    },
+    "pending": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Pending",
+     "type": "array"
+    },
+    "warnings": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Warnings",
+     "type": "array"
+    }
+   },
+   "required": [
+    "kind"
+   ],
+   "title": "VesselSpec",
+   "type": "object"
+  },
+  "ViewState": {
+   "properties": {
+    "center": {
+     "default": [
+      210,
+      148.5
+     ],
+     "maxItems": 2,
+     "minItems": 2,
+     "prefixItems": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      }
+     ],
+     "title": "Center",
+     "type": "array"
+    },
+    "height": {
+     "default": 297,
+     "title": "Height",
+     "type": "number"
+    },
+    "named_views": {
+     "additionalProperties": {
+      "additionalProperties": true,
+      "type": "object"
+     },
+     "title": "Named Views",
+     "type": "object"
+    },
+    "view3d": {
+     "default": "top",
+     "title": "View3D",
+     "type": "string"
+    },
+    "visual_style": {
+     "default": "2d_wireframe",
+     "title": "Visual Style",
+     "type": "string"
+    },
+    "projection": {
+     "default": "parallel",
+     "title": "Projection",
+     "type": "string"
+    },
+    "orbit": {
+     "additionalProperties": true,
+     "title": "Orbit",
+     "type": "object"
+    },
+    "panels": {
+     "items": {
+      "type": "string"
+     },
+     "title": "Panels",
+     "type": "array"
+    },
+    "zoom_factor": {
+     "default": 1.0,
+     "title": "Zoom Factor",
+     "type": "number"
+    }
+   },
+   "title": "ViewState",
+   "type": "object"
+  }
+ },
+ "properties": {
+  "id": {
+   "title": "Id",
+   "type": "string"
+  },
+  "title": {
+   "default": "工艺流程图",
+   "title": "Title",
+   "type": "string"
+  },
+  "units": {
+   "const": "mm",
+   "default": "mm",
+   "title": "Units",
+   "type": "string"
+  },
+  "paper_size": {
+   "default": "A3",
+   "title": "Paper Size",
+   "type": "string"
+  },
+  "scale": {
+   "default": 50.0,
+   "title": "Scale",
+   "type": "number"
+  },
+  "template_id": {
+   "default": "pfd_default",
+   "title": "Template Id",
+   "type": "string"
+  },
+  "equipment": {
+   "items": {
+    "$ref": "#/$defs/Equipment"
+   },
+   "title": "Equipment",
+   "type": "array"
+  },
+  "connections": {
+   "items": {
+    "$ref": "#/$defs/Connection"
+   },
+   "title": "Connections",
+   "type": "array"
+  },
+  "annotations": {
+   "items": {
+    "$ref": "#/$defs/Annotation"
+   },
+   "title": "Annotations",
+   "type": "array"
+  },
+  "revision": {
+   "default": 0,
+   "title": "Revision",
+   "type": "integer"
+  },
+  "base_revision": {
+   "anyOf": [
+    {
+     "type": "integer"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "改图时的基线版本，用于差异报告与误改检查",
+   "title": "Base Revision"
+  },
+  "declared_impact": {
+   "description": "改图工具声明过的影响集（设备/连接 id），校验时以外的对象不得变化",
+   "items": {
+    "type": "string"
+   },
+   "title": "Declared Impact",
+   "type": "array"
+  },
+  "source": {
+   "default": "generated",
+   "enum": [
+    "generated",
+    "uploaded"
+   ],
+   "title": "Source",
+   "type": "string"
+  },
+  "source_file": {
+   "anyOf": [
+    {
+     "type": "string"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "title": "Source File"
+  },
+  "next_seq": {
+   "default": 1,
+   "title": "Next Seq",
+   "type": "integer"
+  },
+  "title_block": {
+   "additionalProperties": {
+    "anyOf": [
+     {
+      "type": "string"
+     },
+     {
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     }
+    ]
+   },
+   "description": "标题栏字段，只能来自用户，缺的显示格子说明",
+   "title": "Title Block",
+   "type": "object"
+  },
+  "title_template": {
+   "anyOf": [
+    {
+     "type": "string"
+    },
+    {
+     "additionalProperties": true,
+     "type": "object"
+    }
+   ],
+   "default": "",
+   "description": "标题栏模板：内置模板 id（gb10609 / water_institute）或用户上传的模板 JSON；空则按标准配置",
+   "title": "Title Template"
+  },
+  "schedules": {
+   "description": "设备一览表 / 管道一览表",
+   "items": {
+    "$ref": "#/$defs/Schedule"
+   },
+   "title": "Schedules",
+   "type": "array"
+  },
+  "auto_tags": {
+   "description": "位号由程序按流程顺序自动编号的设备 id",
+   "items": {
+    "type": "string"
+   },
+   "title": "Auto Tags",
+   "type": "array"
+  },
+  "notes": {
+   "description": "说明条目，只能来自用户",
+   "items": {
+    "type": "string"
+   },
+   "title": "Notes",
+   "type": "array"
+  },
+  "legend": {
+   "description": "图例（自动生成）：[{code, name}]",
+   "items": {
+    "additionalProperties": {
+     "type": "string"
+    },
+    "type": "object"
+   },
+   "title": "Legend",
+   "type": "array"
+  },
+  "legend_codes": {
+   "description": "用户要求图例里列出的代号（即使图中没用到）",
+   "items": {
+    "type": "string"
+   },
+   "title": "Legend Codes",
+   "type": "array"
+  },
+  "code_names": {
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "覆盖默认的「代号→管线名称」",
+   "title": "Code Names",
+   "type": "object"
+  },
+  "systems": {
+   "items": {
+    "$ref": "#/$defs/SystemGroup"
+   },
+   "title": "Systems",
+   "type": "array"
+  },
+  "vscale": {
+   "anyOf": [
+    {
+     "type": "number"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "高程竖向比例（图纸 mm / m），None 为自动",
+   "title": "Vscale"
+  },
+  "elev_frame": {
+   "additionalProperties": {
+    "type": "number"
+   },
+   "description": "布局结果：datum 基准高程(m)、base_y 基准的模型 y、vscale",
+   "title": "Elev Frame",
+   "type": "object"
+  },
+  "hatches": {
+   "description": "填充",
+   "items": {
+    "$ref": "#/$defs/Hatch"
+   },
+   "title": "Hatches",
+   "type": "array"
+  },
+  "dimensions": {
+   "description": "尺寸",
+   "items": {
+    "$ref": "#/$defs/Dimension"
+   },
+   "title": "Dimensions",
+   "type": "array"
+  },
+  "breaks": {
+   "default": false,
+   "description": "很长的空管段自动折断（双折线），见 cad/water.break_spans；默认不开",
+   "title": "Breaks",
+   "type": "boolean"
+  },
+  "details": {
+   "description": "局部放大图",
+   "items": {
+    "$ref": "#/$defs/DetailView"
+   },
+   "title": "Details",
+   "type": "array"
+  },
+  "standard": {
+   "default": "",
+   "description": "制图标准配置 gb_general / hg_pfd / water_supply；空为按模板默认",
+   "title": "Standard",
+   "type": "string"
+  },
+  "binding": {
+   "default": false,
+   "description": "图框留装订边（GB/T 14689：左 a=25，其余 c）",
+   "title": "Binding",
+   "type": "boolean"
+  },
+  "stage": {
+   "default": "scheme",
+   "description": "设计阶段：scheme 方案流程图 / material 物料流程图 / construction 施工流程图（管道及仪表流程图）",
+   "enum": [
+    "scheme",
+    "material",
+    "construction"
+   ],
+   "title": "Stage",
+   "type": "string"
+  },
+  "section_no": {
+   "default": "",
+   "description": "车间或工段号，两位数字（01 起），由工程总负责人给定，只能来自用户",
+   "title": "Section No",
+   "type": "string"
+  },
+  "tag_style": {
+   "default": "hg",
+   "description": "自动位号格式：hg = 分类号+工段号+序号（V0408A，文章图 2-4）；legacy = P-101",
+   "enum": [
+    "hg",
+    "legacy"
+   ],
+   "title": "Tag Style",
+   "type": "string"
+  },
+  "used_seqs": {
+   "additionalProperties": {
+    "type": "integer"
+   },
+   "description": "每类设备用过的最大序号（删除设备后位号留空、不再复用）",
+   "title": "Used Seqs",
+   "type": "object"
+  },
+  "sheet_no": {
+   "default": 1,
+   "description": "第几张（分张时）",
+   "title": "Sheet No",
+   "type": "integer"
+  },
+  "sheet_total": {
+   "default": 1,
+   "description": "共几张",
+   "title": "Sheet Total",
+   "type": "integer"
+  },
+  "zones": {
+   "anyOf": [
+    {
+     "type": "boolean"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "图幅分区（GB/T 14689）：None 自动（A2 及以上、加长幅面画），True / False 强制",
+   "title": "Zones"
+  },
+  "frame": {
+   "default": true,
+   "description": "画图框和标题栏；方案流程图可省略（文章图 3-1），物料、施工流程图必须画",
+   "title": "Frame",
+   "type": "boolean"
+  },
+  "ground": {
+   "anyOf": [
+    {
+     "type": "boolean"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "厂房地平线（细实线 + EL±0.000，文章 2.1 节）：None 自动（施工流程图，或有设备给了安装高度 / 地下设备时画）",
+   "title": "Ground"
+  },
+  "repeats": {
+   "description": "相同的局部系统（只画一套，其余画细双点画线方框）",
+   "items": {
+    "$ref": "#/$defs/RepeatSystem"
+   },
+   "title": "Repeats",
+   "type": "array"
+  },
+  "instruments": {
+   "description": "仪表控制点（文章 3.2.4 节）",
+   "items": {
+    "$ref": "#/$defs/Instrument"
+   },
+   "title": "Instruments",
+   "type": "array"
+  },
+  "stream_tables": {
+   "description": "物料组成表（物料流程图，文章图 3-2）",
+   "items": {
+    "$ref": "#/$defs/StreamTable"
+   },
+   "title": "Stream Tables",
+   "type": "array"
+  },
+  "mode": {
+   "default": "pfd",
+   "description": "pfd 化工/给水流程图；general 通用二维/三维 CAD",
+   "enum": [
+    "pfd",
+    "general"
+   ],
+   "title": "Mode",
+   "type": "string"
+  },
+  "workspace": {
+   "default": "2d_drafting",
+   "title": "Workspace",
+   "type": "string"
+  },
+  "layers": {
+   "items": {
+    "$ref": "#/$defs/Layer"
+   },
+   "title": "Layers",
+   "type": "array"
+  },
+  "current_layer": {
+   "default": "0",
+   "title": "Current Layer",
+   "type": "string"
+  },
+  "entities": {
+   "items": {
+    "$ref": "#/$defs/GeoEntity"
+   },
+   "title": "Entities",
+   "type": "array"
+  },
+  "text_styles": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Text Styles",
+   "type": "array"
+  },
+  "current_text_style": {
+   "default": "Standard",
+   "title": "Current Text Style",
+   "type": "string"
+  },
+  "dim_styles": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Dim Styles",
+   "type": "array"
+  },
+  "current_dim_style": {
+   "default": "ISO-25",
+   "title": "Current Dim Style",
+   "type": "string"
+  },
+  "ltscale": {
+   "default": 1.0,
+   "title": "Ltscale",
+   "type": "number"
+  },
+  "celtscale": {
+   "default": 1.0,
+   "title": "Celtscale",
+   "type": "number"
+  },
+  "psltscale": {
+   "default": 1,
+   "title": "Psltscale",
+   "type": "integer"
+  },
+  "limits": {
+   "default": [
+    0,
+    0,
+    420,
+    297
+   ],
+   "maxItems": 4,
+   "minItems": 4,
+   "prefixItems": [
+    {
+     "type": "number"
+    },
+    {
+     "type": "number"
+    },
+    {
+     "type": "number"
+    },
+    {
+     "type": "number"
+    }
+   ],
+   "title": "Limits",
+   "type": "array"
+  },
+  "limits_check": {
+   "default": false,
+   "title": "Limits Check",
+   "type": "boolean"
+  },
+  "background": {
+   "default": "#FFFFFF",
+   "title": "Background",
+   "type": "string"
+  },
+  "point_style": {
+   "additionalProperties": true,
+   "title": "Point Style",
+   "type": "object"
+  },
+  "blocks": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Blocks",
+   "type": "array"
+  },
+  "xrefs": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Xrefs",
+   "type": "array"
+  },
+  "layouts": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Layouts",
+   "type": "array"
+  },
+  "active_space": {
+   "default": "Model",
+   "title": "Active Space",
+   "type": "string"
+  },
+  "constraints": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Constraints",
+   "type": "array"
+  },
+  "toolset": {
+   "default": "",
+   "title": "Toolset",
+   "type": "string"
+  },
+  "draft": {
+   "$ref": "#/$defs/DraftSettings"
+  },
+  "view": {
+   "$ref": "#/$defs/ViewState"
+  },
+  "session": {
+   "$ref": "#/$defs/SessionState"
+  },
+  "mline_styles": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Mline Styles",
+   "type": "array"
+  },
+  "dynamic_blocks": {
+   "items": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "title": "Dynamic Blocks",
+   "type": "array"
+  },
+  "saved_dxf_version": {
+   "default": "R2018",
+   "title": "Saved Dxf Version",
+   "type": "string"
+  },
+  "plot_setups": {
+   "additionalProperties": true,
+   "description": "打印/出图设置：空间名（Model 或布局名）→ 设置",
+   "title": "Plot Setups",
+   "type": "object"
+  },
+  "vessel": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/VesselSpec"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "容器参数（设备图的唯一真源）；None 表示不是设备图"
+  }
+ },
+ "required": [
+  "id"
+ ],
+ "title": "Drawing",
+ "type": "object"
+}

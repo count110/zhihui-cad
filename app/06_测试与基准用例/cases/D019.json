@@ -1,0 +1,70 @@
+{
+ "id": "D019",
+ "category": "D",
+ "functions": [
+  "resolve_contextual_reference",
+  "inspect_drawing_context"
+ ],
+ "note": "“刚才画的”由会话上下文解析，不靠猜",
+ "prompt": "把刚才画的圆改成红色",
+ "prompt_asr": "把刚才画的圆改成红色",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "perceive": "inspect_drawing_context",
+   "args": {
+    "include_tables": [
+     "layers",
+     "scene_digest"
+    ]
+   }
+  },
+  {
+   "rec": "刚才画的圆"
+  },
+  {
+   "tool": "modify_entity_properties",
+   "args": {
+    "action": "set",
+    "entity_ids": "$s2.entity_ids",
+    "common_props": {
+     "color": 1
+    }
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "color": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

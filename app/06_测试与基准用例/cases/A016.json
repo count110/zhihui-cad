@@ -1,0 +1,92 @@
+{
+ "id": "A016",
+ "category": "A",
+ "functions": [
+  "create_mechanical_tolerances"
+ ],
+ "note": "公差值和粗糙度值必须来自用户，缺了就反问",
+ "prompt": "给矩形加一个平行度公差0.02，基准A，再给矩形标表面粗糙度Ra3.2",
+ "prompt_asr": "给举行加一个平行度公差零点零二，基准A，再给举行标表面粗糙度Ra三点二",
+ "intents": [
+  "engineering_specialty"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "矩形"
+  },
+  {
+   "tool": "cad_batch_execute",
+   "args": {
+    "transaction_name": "加形位公差框格等",
+    "steps": [
+     {
+      "tool": "create_mechanical_tolerances",
+      "args": {
+       "tolerance_category": "geometric_gdt",
+       "gdt_symbol": "parallelism",
+       "gdt_value": 0.02,
+       "datum_refs": [
+        "A"
+       ],
+       "target_dim_or_entity_id": "$s1.entity_ids[0]"
+      }
+     },
+     {
+      "tool": "create_mechanical_tolerances",
+      "args": {
+       "tolerance_category": "surface_roughness",
+       "roughness_param": "Ra",
+       "roughness_value": 3.2,
+       "process_symbol": "remove",
+       "target_dim_or_entity_id": "$s1.entity_ids[0]"
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "text": "0.02"
+  },
+  {
+   "text": "Ra 3.2"
+  },
+  {
+   "count": {
+    "tag": "gdt_cell",
+    "min": 2
+   }
+  },
+  {
+   "count": {
+    "tag": "roughness",
+    "min": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

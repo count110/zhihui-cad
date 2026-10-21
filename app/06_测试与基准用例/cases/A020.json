@@ -1,0 +1,77 @@
+{
+ "id": "A020",
+ "category": "A",
+ "functions": [
+  "cad_batch_execute"
+ ],
+ "note": "多个子步骤一个事务：只落一个版本 圆心由口令给出：模型不能自己算矩形中心，通过识别取中心必然要先画矩形再识别，就不是一个版本了。",
+ "prompt": "画矩形左下角在0,0长100宽60，再画圆心在50,30、直径20的圆并标上直径，一次做完",
+ "prompt_asr": "画举行左下角在零零长一百宽六十，再画圆心在五十逗号三十、直径二十的圆并标上直径，一次做完",
+ "intents": [
+  "system"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "cad_batch_execute",
+   "args": {
+    "transaction_name": "板",
+    "steps": [
+     {
+      "tool": "draw_polygons_and_meshes",
+      "args": {
+       "shape_type": "rectangle",
+       "corner1": "0,0",
+       "width": 100,
+       "height": 60
+      }
+     },
+     {
+      "tool": "draw_circular_primitives",
+      "args": {
+       "curve_type": "circle",
+       "method": "center_diameter",
+       "center": "50,30",
+       "diameter": 20
+      }
+     },
+     {
+      "tool": "create_radial_and_chain_dim",
+      "args": {
+       "dim_type": "diameter",
+       "target_entity_id": "$this[1].created[0]"
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "polyline",
+    "n": 1
+   }
+  },
+  {
+   "count": {
+    "kind": "circle",
+    "n": 1
+   }
+  },
+  {
+   "dim": {
+    "n": 1,
+    "measurements": [
+     20
+    ]
+   }
+  },
+  {
+   "revisions_added": 1
+  }
+ ],
+ "mock_ok": false
+}

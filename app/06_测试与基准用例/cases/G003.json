@@ -1,0 +1,63 @@
+{
+ "id": "G003",
+ "category": "G",
+ "prompt": "原料罐 V-101 的物料经进料泵 P-101 送到产品罐 V-102。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "V-101",
+    "symbol_id": "tank"
+   },
+   {
+    "tag": "P-101",
+    "symbol_id": "pump"
+   },
+   {
+    "tag": "V-102",
+    "symbol_id": "tank"
+   }
+  ],
+  "connections": [
+   [
+    "V-101",
+    "P-101"
+   ],
+   [
+    "P-101",
+    "V-102"
+   ]
+  ]
+ },
+ "plan": {
+  "title": "物料输送流程",
+  "equipment": [
+   {
+    "symbol_id": "tank",
+    "tag": "V-101",
+    "name": "原料罐"
+   },
+   {
+    "symbol_id": "pump",
+    "tag": "P-101",
+    "name": "进料泵"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-102",
+    "name": "产品罐"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "V-101.out",
+    "to_port": "P-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "P-101.out",
+    "to_port": "V-102.in",
+    "medium": ""
+   }
+  ]
+ }
+}

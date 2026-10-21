@@ -1,0 +1,108 @@
+{
+  "id": "pump",
+  "name_cn": "离心泵",
+  "aliases": [
+    "泵",
+    "离心泵",
+    "水泵",
+    "进料泵",
+    "循环泵",
+    "输送泵",
+    "塔底泵",
+    "回流泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 58 页 离心泵",
+  "bbox": [
+    -8,
+    -7,
+    5,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 5
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          0
+        ],
+        [
+          -5,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -4
+        ],
+        [
+          -5,
+          -7
+        ],
+        [
+          5,
+          -7
+        ],
+        [
+          3,
+          -4
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 3,
+      "y": 8,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 5.5,
+    "y": 8,
+    "align": "left"
+  },
+  "initials": [
+    "lxb",
+    "b"
+  ]
+}

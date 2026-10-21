@@ -1,0 +1,7 @@
+{
+  "found_threshold": 0.6,
+  "partial_threshold": 0.12,
+  "query_rewrites_max": 2,
+  "vectors_enabled": false,
+  "network_allowed": false
+}

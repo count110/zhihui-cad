@@ -1,0 +1,50 @@
+{
+ "id": "B001",
+ "category": "B",
+ "functions": [
+  "manage_workspace_ui"
+ ],
+ "note": "界面状态不产生版本",
+ "prompt": "切换到三维建模空间",
+ "prompt_asr": "切换到 三维建模 空间",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "manage_workspace_ui",
+   "args": {
+    "workspace": "3d_modeling",
+    "show_panels": [
+     "layers",
+     "status_bar"
+    ],
+    "explain_ui_layout": true,
+    "topic": "layers"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "workspace": "3d_modeling"
+   }
+  },
+  {
+   "drawing": {
+    "view.panels": [
+     "layers",
+     "status_bar"
+    ]
+   },
+   "scripted_only": true
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": true
+}

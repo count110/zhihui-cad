@@ -1,0 +1,141 @@
+{
+  "id": "cyclone",
+  "name_cn": "旋风分离器",
+  "aliases": [
+    "旋风分离器",
+    "旋风除尘器"
+  ],
+  "category": "V",
+  "family": "dust",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 59 页 旋风分离器",
+  "bbox": [
+    -13,
+    -12,
+    6,
+    17
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          10
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          13
+        ],
+        [
+          -10,
+          13
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          10
+        ],
+        [
+          -5,
+          0
+        ],
+        [
+          -1,
+          -9
+        ],
+        [
+          1,
+          -9
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          17
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          11.5
+        ],
+        [
+          -10,
+          11.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -9
+        ],
+        [
+          0,
+          -12
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -13,
+      "y": 11.5,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": 17,
+      "dir": "up",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "dust_out",
+      "kind": "out",
+      "x": 0,
+      "y": -12,
+      "dir": "down",
+      "semantics": "飞灰排出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 8,
+    "align": "left"
+  }
+}

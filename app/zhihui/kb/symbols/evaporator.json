@@ -1,0 +1,304 @@
+{
+  "id": "evaporator",
+  "name_cn": "蒸发器",
+  "aliases": [
+    "蒸发器",
+    "降膜蒸发器",
+    "升膜蒸发器",
+    "浓缩器"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 蒸发器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -8,
+    -13,
+    8,
+    18
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5.5,
+          14
+        ],
+        [
+          5.5,
+          14
+        ],
+        [
+          5.5,
+          15.5
+        ],
+        [
+          -5.5,
+          15.5
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          14
+        ],
+        [
+          -5,
+          -2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          14
+        ],
+        [
+          5,
+          -2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          12
+        ],
+        [
+          5,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          0
+        ],
+        [
+          -3,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -1.5,
+          0
+        ],
+        [
+          -1.5,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1.5,
+          0
+        ],
+        [
+          1.5,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          -2
+        ],
+        [
+          0,
+          -10
+        ],
+        [
+          5,
+          -2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          -2
+        ],
+        [
+          5,
+          -2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          13
+        ],
+        [
+          -8,
+          13
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15.5
+        ],
+        [
+          0,
+          18
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          10
+        ],
+        [
+          8,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -10
+        ],
+        [
+          0,
+          -13
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 13,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "vapor_out",
+      "kind": "out",
+      "x": 0,
+      "y": 18,
+      "dir": "up",
+      "semantics": "蒸发器的vapor_out出口"
+    },
+    {
+      "name": "steam_in",
+      "kind": "in",
+      "x": 8,
+      "y": 10,
+      "dir": "right",
+      "semantics": "蒸发器的steam_in入口"
+    },
+    {
+      "name": "condensate_out",
+      "kind": "out",
+      "x": 8,
+      "y": 2,
+      "dir": "right",
+      "semantics": "蒸发器的condensate_out出口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -13,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 9,
+    "y": 18,
+    "align": "left"
+  }
+}

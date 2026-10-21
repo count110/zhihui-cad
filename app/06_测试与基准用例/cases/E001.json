@@ -1,0 +1,159 @@
+{
+ "id": "E001",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 1（任务书 11 节）：立式储罐，参数齐全，一步 create。成功判据①新建：READY/READY_WITH_WARNINGS、自检 0 错误、主视图 + 管口方位图、四张表 + 标题栏、用户值都在口令里、新增 1 个版本。总高 3266 = 筒体长度 2400 + 上下封头各 433（封头总高由 head_profile 按参数算，标准表未核对）。语音写法含千帕、摄氏度和中文数字。",
+ "prompt": "画一台立式储罐的设备图，内径1600，筒体高2400，标准椭圆封头，壁厚8，材料Q345R，设计压力0.6MPa，设计温度80℃，人孔DN500，进料口DN80，出料口DN80，两个液位计口DN25，四个耳式支座",
+ "prompt_asr": "画一台立式储罐的设备图，内径一千六，筒体高两千四，标准椭圆封头，壁厚八，材料Q三四五R，设计压力600千帕，设计温度80摄氏度，人孔DN五百，进料口DN八十，出料口DN八十，两个液位计口DN二十五，四个耳式支座",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1"
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "create",
+    "spec": {
+     "kind": "vertical_vessel",
+     "shell": {
+      "inner_diameter_mm": 1600,
+      "length_mm": 2400,
+      "thickness_mm": 8,
+      "material": "Q345R"
+     },
+     "heads": [
+      {
+       "kind": "EHA"
+      }
+     ],
+     "design": {
+      "design_pressure_mpa": 0.6,
+      "design_temp_c": 80
+     },
+     "nozzles": [
+      {
+       "dn": 500,
+       "kind": "manhole",
+       "purpose_text": "人孔"
+      },
+      {
+       "dn": 80,
+       "purpose_text": "进料口"
+      },
+      {
+       "dn": 80,
+       "purpose_text": "出料口"
+      },
+      {
+       "dn": 25,
+       "kind": "level_gauge",
+       "purpose_text": "液位计口",
+       "count": 2
+      }
+     ],
+     "supports": [
+      {
+       "kind": "lug",
+       "count": 4
+      }
+     ]
+    }
+   },
+   "summary": "按参数新建立式储罐设备图"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_views": [
+    "M",
+    "O"
+   ]
+  },
+  {
+   "equip_table": [
+    "设计数据表",
+    "管口表",
+    "明细栏",
+    "技术要求"
+   ]
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_spec": {
+    "shell.inner_diameter_mm": 1600,
+    "shell.length_mm": 2400,
+    "shell.thickness_mm": 8,
+    "shell.material": "Q345R",
+    "design.design_pressure_mpa": 0.6,
+    "design.design_temp_c": 80,
+    "heads[top].kind": "EHA",
+    "supports[0].kind": "lug",
+    "supports[0].count": 4,
+    "nozzles[M1].dn": 500,
+    "nozzles[purpose=进料口].dn": 80,
+    "nozzles[purpose=出料口].dn": 80
+   }
+  },
+  {
+   "equip_sources": {
+    "shell.inner_diameter_mm": "user",
+    "shell.length_mm": "user",
+    "shell.thickness_mm": "user",
+    "design.design_pressure_mpa": "user",
+    "design.design_temp_c": "user",
+    "supports[0].count": "user",
+    "nozzles[purpose=进料口].dn": "user",
+    "heads[top].straight_flange_mm": "table",
+    "nozzles[purpose=进料口].pn": "rule",
+    "nozzles[purpose=进料口].orientation_deg": "rule"
+   }
+  },
+  {
+   "equip_nozzles": {
+    "count": 5,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c"
+    ],
+    "dn": {
+     "M1": 500,
+     "a": 80,
+     "c": 80,
+     "b1": 25,
+     "b2": 25
+    }
+   }
+  },
+  {
+   "equip_dim": {
+    "overall": 3266
+   }
+  },
+  {
+   "text": "不得直接用于制造"
+  },
+  {
+   "text": "未经核对"
+  }
+ ],
+ "mock_ok": false
+}

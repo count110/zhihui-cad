@@ -1,0 +1,79 @@
+{
+  "router": {
+    "provider_env": "ZHIHUI_ROUTER_PROVIDER",
+    "model_env": "ZHIHUI_ROUTER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "planner": {
+    "provider_env": "ZHIHUI_PLANNER_PROVIDER",
+    "model_env": "ZHIHUI_PLANNER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 8192,
+    "seconds": 60
+  },
+  "knowledge": {
+    "provider_env": "ZHIHUI_KNOWLEDGE_PROVIDER",
+    "model_env": "ZHIHUI_KNOWLEDGE_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "capability": {
+    "provider_env": "ZHIHUI_CAPABILITY_PROVIDER",
+    "model_env": "ZHIHUI_CAPABILITY_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "builder": {
+    "provider_env": "ZHIHUI_BUILDER_PROVIDER",
+    "model_env": "ZHIHUI_BUILDER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 60
+  },
+  "editor": {
+    "provider_env": "ZHIHUI_EDITOR_PROVIDER",
+    "model_env": "ZHIHUI_EDITOR_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "layout_fixer": {
+    "provider_env": "ZHIHUI_LAYOUT_FIXER_PROVIDER",
+    "model_env": "ZHIHUI_LAYOUT_FIXER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "reviewer": {
+    "provider_env": "ZHIHUI_REVIEWER_PROVIDER",
+    "model_env": "ZHIHUI_REVIEWER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "repairer": {
+    "provider_env": "ZHIHUI_REPAIRER_PROVIDER",
+    "model_env": "ZHIHUI_REPAIRER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "reporter": {
+    "provider_env": "ZHIHUI_REPORTER_PROVIDER",
+    "model_env": "ZHIHUI_REPORTER_MODEL",
+    "temperature": 0.1,
+    "max_tokens": 2048,
+    "seconds": 35
+  },
+  "symbol_designer": {
+    "provider_env": "ZHIHUI_SYMBOL_DESIGNER_PROVIDER",
+    "model_env": "ZHIHUI_SYMBOL_DESIGNER_MODEL",
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "seconds": 45
+  }
+}

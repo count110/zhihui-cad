@@ -1,0 +1,124 @@
+{
+ "id": "E009",
+ "category": "E",
+ "functions": [
+  "vessel_generate_drawing"
+ ],
+ "note": "演示口令 9：出一张管口方位图。参数不变，另出布局「管口方位图」（含方位图视口），主布局「设备图」的视图不变；新增 1 个版本。",
+ "prompt": "出一张管口方位图",
+ "prompt_asr": "出张管口方位图",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_generate_drawing",
+   "args": {
+    "views": [
+     "orientation"
+    ]
+   },
+   "summary": "另出管口方位图"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "layout": {
+    "name": "管口方位图",
+    "viewports": 1
+   }
+  },
+  {
+   "equip_views": {
+    "layout": "管口方位图",
+    "views": [
+     "O"
+    ]
+   }
+  },
+  {
+   "equip_views": [
+    "M",
+    "O"
+   ]
+  },
+  {
+   "equip_nozzles": {
+    "count": 5,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c"
+    ]
+   }
+  }
+ ],
+ "mock_ok": false
+}

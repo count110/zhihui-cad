@@ -1,0 +1,61 @@
+{
+ "id": "A014",
+ "category": "A",
+ "functions": [
+  "revolve_2d_to_3d"
+ ],
+ "note": "",
+ "prompt": "把矩形绕X轴旋转成回转体",
+ "prompt_asr": "把举行绕X轴旋转成回转体",
+ "intents": [
+  "3d_modeling"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,10",
+     "width": 40,
+     "height": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "矩形",
+   "need": [
+    "entity_ids",
+    "boundary"
+   ]
+  },
+  {
+   "tool": "revolve_2d_to_3d",
+   "args": {
+    "profile_entity_ids": [
+     "$s1.boundary.outer",
+     "$s1.boundary.islands"
+    ],
+    "axis_mode": "x_axis"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "solid3d",
+    "n": 1
+   }
+  },
+  {
+   "solid": {
+    "volume": 100531.0,
+    "rel": 0.03
+   }
+  }
+ ],
+ "mock_ok": true
+}

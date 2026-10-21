@@ -1,0 +1,145 @@
+{
+ "id": "E004",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 3：转方位。成功判据③改图：目标路径等于期望值且来源为用户，其余用户字段不变，0 个错误，新增 1 个版本；管口符号不变。setup 预置 E001 的参数（确定性，不过护栏）。",
+ "prompt": "把进料口转到90度",
+ "prompt_asr": "把进料口转到九十度",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "set": {
+     "nozzles[purpose=进料口].orientation_deg": 90
+    }
+   },
+   "summary": "进料口方位改为 90°"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_spec": {
+    "nozzles[purpose=进料口].orientation_deg": 90,
+    "shell.inner_diameter_mm": 1600,
+    "shell.length_mm": 2400,
+    "shell.thickness_mm": 8,
+    "shell.material": "Q345R",
+    "design.design_pressure_mpa": 0.6,
+    "design.design_temp_c": 80,
+    "heads[top].kind": "EHA",
+    "supports[0].kind": "lug",
+    "supports[0].count": 4
+   }
+  },
+  {
+   "equip_sources": {
+    "nozzles[purpose=进料口].orientation_deg": "user",
+    "shell.inner_diameter_mm": "user",
+    "shell.length_mm": "user",
+    "shell.thickness_mm": "user",
+    "design.design_pressure_mpa": "user",
+    "design.design_temp_c": "user",
+    "supports[0].count": "user",
+    "nozzles[purpose=进料口].pn": "rule"
+   }
+  },
+  {
+   "equip_nozzles": {
+    "count": 5,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c"
+    ]
+   }
+  },
+  {
+   "equip_views": [
+    "M",
+    "O"
+   ]
+  },
+  {
+   "equip_user_kept": {
+    "except": []
+   }
+  }
+ ],
+ "mock_ok": false
+}

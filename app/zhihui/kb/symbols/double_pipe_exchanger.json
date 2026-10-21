@@ -1,0 +1,287 @@
+{
+  "id": "double_pipe_exchanger",
+  "name_cn": "套管式换热器",
+  "aliases": [
+    "套管式换热器",
+    "套管换热器",
+    "套管式"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 套管式换热器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -16,
+    -10,
+    16,
+    10
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          10,
+          8
+        ],
+        [
+          -10,
+          8
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          5.2
+        ],
+        [
+          13,
+          5.2
+        ],
+        [
+          13,
+          6.8
+        ],
+        [
+          -13,
+          6.8
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          -2
+        ],
+        [
+          10,
+          -2
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          -10,
+          2
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          -0.8
+        ],
+        [
+          13,
+          -0.8
+        ],
+        [
+          13,
+          0.8
+        ],
+        [
+          -13,
+          0.8
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          -8
+        ],
+        [
+          10,
+          -8
+        ],
+        [
+          10,
+          -4
+        ],
+        [
+          -10,
+          -4
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          -6.8
+        ],
+        [
+          13,
+          -6.8
+        ],
+        [
+          13,
+          -5.2
+        ],
+        [
+          -13,
+          -5.2
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          13,
+          6
+        ],
+        [
+          15,
+          6
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          13,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          0
+        ],
+        [
+          -15,
+          0
+        ],
+        [
+          -15,
+          -6
+        ],
+        [
+          -13,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -13,
+          6
+        ],
+        [
+          -16,
+          6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          13,
+          -6
+        ],
+        [
+          16,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -8
+        ],
+        [
+          -6,
+          -10
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -16,
+      "y": 6,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 16,
+      "y": -6,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "shell_in",
+      "kind": "in",
+      "x": 6,
+      "y": 10,
+      "dir": "up",
+      "semantics": "套管式换热器的shell_in入口"
+    },
+    {
+      "name": "shell_out",
+      "kind": "out",
+      "x": -6,
+      "y": -10,
+      "dir": "down",
+      "semantics": "套管式换热器的shell_out出口"
+    }
+  ],
+  "label": {
+    "x": 11,
+    "y": 13,
+    "align": "left"
+  }
+}

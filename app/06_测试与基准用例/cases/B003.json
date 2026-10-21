@@ -1,0 +1,40 @@
+{
+ "id": "B003",
+ "category": "B",
+ "functions": [
+  "configure_canvas_and_limits"
+ ],
+ "note": "",
+ "prompt": "背景改成黑色，图形界限设为0,0到841,594",
+ "prompt_asr": "背景改成黑色，图形界限设为零逗号零到八百四十一逗号五百九十四",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "configure_canvas_and_limits",
+   "args": {
+    "bg_color": "黑色",
+    "limits_lower_left": "0,0",
+    "limits_upper_right": "841,594"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "background": "#000000",
+    "limits": [
+     0,
+     0,
+     841,
+     594
+    ]
+   }
+  }
+ ],
+ "mock_ok": true
+}

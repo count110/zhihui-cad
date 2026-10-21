@@ -1,0 +1,170 @@
+{
+  "id": "vessel",
+  "name_cn": "立式容器",
+  "aliases": [
+    "容器",
+    "立式容器",
+    "缓冲罐",
+    "闪蒸罐",
+    "分离罐",
+    "回流罐",
+    "气液分离器",
+    "计量罐"
+  ],
+  "category": "V",
+  "family": "vessel",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 59 页 蝶形封头容器",
+  "bbox": [
+    -10,
+    -13.5,
+    10,
+    16
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          -10
+        ],
+        [
+          -7,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7,
+          -10
+        ],
+        [
+          7,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        10
+      ],
+      "rx": 7,
+      "ry": 3.5,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -10
+      ],
+      "rx": 7,
+      "ry": 3.5,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          5
+        ],
+        [
+          -10,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7,
+          -6
+        ],
+        [
+          10,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          13.5
+        ],
+        [
+          0,
+          16
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -10,
+      "y": 5,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 10,
+      "y": -6,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "gas_out",
+      "kind": "out",
+      "x": 0,
+      "y": 16,
+      "dir": "up",
+      "semantics": "立式容器的gas_out出口"
+    }
+  ],
+  "label": {
+    "x": 8,
+    "y": 16,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": -3,
+      "y": -13.16,
+      "dir": "down",
+      "len": 3
+    },
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": -3,
+      "y": 13.16,
+      "dir": "up",
+      "len": 2.5
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": -7,
+      "y": -5,
+      "dir": "left",
+      "len": 3
+    }
+  ]
+}

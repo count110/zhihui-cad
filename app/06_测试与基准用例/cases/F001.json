@@ -1,0 +1,40 @@
+{
+ "id": "F001",
+ "base_case": "G003",
+ "prompt": "把 P-999 右移 500 mm",
+ "expected": {
+  "outcome": [
+   "WAITING_CONFIRMATION",
+   "FAILED"
+  ]
+ },
+ "note": "目标不存在",
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  [
+   {
+    "name": "find_entities",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "tag": "P-999"
+    }
+   }
+  ],
+  {
+   "ask": "图中没有 P-999，现有位号为 V-101、P-101、V-102，您要移动哪一台？",
+   "options": [
+    "V-101",
+    "P-101",
+    "V-102"
+   ]
+  }
+ ],
+ "category": "F"
+}

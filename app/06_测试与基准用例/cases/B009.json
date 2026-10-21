@@ -1,0 +1,42 @@
+{
+ "id": "B009",
+ "category": "B",
+ "functions": [
+  "configure_osnap_and_otracking"
+ ],
+ "note": "",
+ "prompt": "打开对象捕捉，只留端点、中点和交点",
+ "prompt_asr": "打开对象捕捉，只留端点中点和交点",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "configure_osnap_and_otracking",
+   "args": {
+    "osnap_on": true,
+    "active_modes": [
+     "endpoint",
+     "midpoint",
+     "intersection"
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "draft.osnap_on": true,
+    "draft.osnap_modes": [
+     "endpoint",
+     "midpoint",
+     "intersection"
+    ]
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,43 @@
+{
+ "id": "B006",
+ "category": "B",
+ "functions": [
+  "set_layer_properties"
+ ],
+ "note": "",
+ "prompt": "辅助线图层颜色设为红色",
+ "prompt_asr": "辅助线图成颜色设为红色",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "manage_layers",
+    "args": {
+     "action": "create",
+     "layer_name": "辅助线"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "set_layer_properties",
+   "args": {
+    "layer_name": "辅助线",
+    "color": 1
+   }
+  }
+ ],
+ "assert": [
+  {
+   "layer": {
+    "name": "辅助线",
+    "color": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

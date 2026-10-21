@@ -1,0 +1,243 @@
+{
+  "id": "heat_exchanger",
+  "name_cn": "列管换热器",
+  "aliases": [
+    "换热器",
+    "列管换热器",
+    "管壳式换热器",
+    "冷却器",
+    "冷凝器",
+    "预热器",
+    "加热器",
+    "再沸器"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 56 页 固定管板式列管换热器",
+  "bbox": [
+    -18,
+    -7,
+    18,
+    7
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          4
+        ],
+        [
+          11,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          -4
+        ],
+        [
+          11,
+          -4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          -4
+        ],
+        [
+          -11,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          11,
+          -4
+        ],
+        [
+          11,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        -11,
+        0
+      ],
+      "rx": 4,
+      "ry": 4,
+      "start": 90,
+      "end": 270
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        11,
+        0
+      ],
+      "rx": 4,
+      "ry": 4,
+      "start": 270,
+      "end": 90
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          -2.4
+        ],
+        [
+          11,
+          -2.4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          -0.8
+        ],
+        [
+          11,
+          -0.8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          0.8
+        ],
+        [
+          11,
+          0.8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -11,
+          2.4
+        ],
+        [
+          11,
+          2.4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -15,
+          0
+        ],
+        [
+          -18,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          15,
+          0
+        ],
+        [
+          18,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          -4
+        ],
+        [
+          -7,
+          -7
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -18,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 18,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "shell_in",
+      "kind": "in",
+      "x": 7,
+      "y": 7,
+      "dir": "up",
+      "semantics": "列管换热器的shell_in入口"
+    },
+    {
+      "name": "shell_out",
+      "kind": "out",
+      "x": -7,
+      "y": -7,
+      "dir": "down",
+      "semantics": "列管换热器的shell_out出口"
+    }
+  ],
+  "label": {
+    "x": -17,
+    "y": 11,
+    "align": "left"
+  }
+}

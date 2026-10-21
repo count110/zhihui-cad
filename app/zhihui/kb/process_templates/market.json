@@ -1,0 +1,100 @@
+{
+  "id": "market",
+  "name": "农贸市场及小型餐饮污水处理",
+  "keywords": [
+    "农贸市场",
+    "小型餐饮",
+    "餐饮污水"
+  ],
+  "initials": [
+    "nmsc",
+    "cyws"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "tank",
+      "name": "隔油池",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "tank",
+      "name": "调节池",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "reactor",
+      "name": "生化池",
+      "tag_prefix": "R",
+      "family": "reactor",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "floc_sed_tank",
+      "name": "沉淀池",
+      "tag_prefix": "V",
+      "family": "floc_sed_tank",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "tank",
+      "name": "消毒池",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "公用工程接口",
+      "requirement": "根据用户确认的冷却、加热或药剂需要补充，不自动添加设计参数"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "进料",
+      "direction": "in",
+      "medium": "用户确认介质",
+      "equipment_index": 0
+    },
+    {
+      "name": "产物流",
+      "direction": "out",
+      "medium": "用户确认介质",
+      "equipment_index": 4
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [
+    {
+      "target_index": 0,
+      "region": "fill"
+    },
+    {
+      "target_index": 1,
+      "region": "fill"
+    },
+    {
+      "target_index": 3,
+      "region": "fill"
+    },
+    {
+      "target_index": 4,
+      "region": "fill"
+    }
+  ],
+  "source": "团队整理，待专业确认；仅为工艺方案示意，不含工程设计参数",
+  "requires_confirmation": true
+}

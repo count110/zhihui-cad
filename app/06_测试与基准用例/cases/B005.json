@@ -1,0 +1,50 @@
+{
+ "id": "B005",
+ "category": "B",
+ "functions": [
+  "manage_layers"
+ ],
+ "note": "",
+ "prompt": "建一套国标机械图层，再新建图层辅助线",
+ "prompt_asr": "建一套国标机械图成，再新建图成辅助线",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "manage_layers",
+   "args": {
+    "action": "create_standard_preset",
+    "preset_standard": "GB_MECH"
+   }
+  },
+  {
+   "tool": "manage_layers",
+   "args": {
+    "action": "create",
+    "layer_name": "辅助线"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "layer": {
+    "name": "粗实线"
+   }
+  },
+  {
+   "layer": {
+    "name": "中心线"
+   }
+  },
+  {
+   "layer": {
+    "name": "辅助线"
+   }
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,70 @@
+{
+ "_说明": "设备图表格的表头和列宽（图纸 mm）。表结构依据任务书 5.2 节（HG/T 20668-2000 原文尚未核对，核对后再改），总宽 180 与标题栏同宽。表头里的 \\n 是手工换行（列窄时避免把一个词拆开）。",
+ "verified": false,
+ "row_h": 7.0,
+ "text_h": 3.5,
+ "title_h": 5.0,
+ "nozzle_table": {
+  "title": "管口表",
+  "cols": [
+   ["符号", 10],
+   ["公称\n尺寸DN", 15],
+   ["公称\n压力PN", 15],
+   ["连接标准", 28],
+   ["法兰\n型式", 14],
+   ["连接面\n形式", 14],
+   ["用途或名称", 26],
+   ["设备中心线\n（封头管口为\n基准线）至法兰\n面距离", 30],
+   ["备注", 28]
+  ]
+ },
+ "parts_table": {
+  "title": "明细栏",
+  "cols": [
+   ["件号", 10],
+   ["图号或标准号", 32],
+   ["名称", 44],
+   ["数量", 10],
+   ["材料", 22],
+   ["单件\n质量kg", 15],
+   ["总计\n质量kg", 15],
+   ["备注", 32]
+  ]
+ },
+ "design_table": {
+  "title": "设计数据表",
+  "cols": [
+   ["项目", 46],
+   ["数值", 44],
+   ["项目", 46],
+   ["数值", 44]
+  ],
+  "rows": [
+   ["设计、制造与检验标准", "design_standard"],
+   ["容器类别", "vessel_category"],
+   ["工作压力 MPa", "working_pressure_mpa"],
+   ["设计压力 MPa", "design_pressure_mpa"],
+   ["工作温度 ℃", "working_temp_c"],
+   ["设计温度 ℃", "design_temp_c"],
+   ["介质", "medium"],
+   ["介质特性", "medium_property"],
+   ["主要受压元件材料", "main_material"],
+   ["腐蚀裕量 mm", "corrosion_allowance_mm"],
+   ["焊接接头系数", "weld_joint_coeff"],
+   ["热处理", "heat_treatment"],
+   ["无损检测", "ndt"],
+   ["耐压试验（型式/压力 MPa）", "test"],
+   ["泄漏试验", "leak_test"],
+   ["保温层厚度 mm", "insulation_thickness_mm"],
+   ["全容积（立方米）", "_volume"],
+   ["充装系数", "fill_coeff"],
+   ["设计使用年限 年", "design_life_years"],
+   ["基本风压 kPa / 地震设防烈度", "wind_seismic"],
+   ["安全阀整定压力 MPa", "safety_valve_set_mpa"],
+   ["设备质量 kg", "_mass"]
+  ]
+ },
+ "tech_requirements": {
+  "title": "技术要求"
+ }
+}

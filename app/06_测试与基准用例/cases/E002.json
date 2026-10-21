@@ -1,0 +1,122 @@
+{
+ "id": "E002",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 8：卧式储罐，切线长 6000 → 筒体长度 = 6000 − 2×25 = 5950（直边 25 查表，来源 calc）；主视图 + 左视图；鞍座 2 个。设计压力没给 → 照常出图，PN 等写“待定”并警告。总长 7020 = 5950 + 2×535（封头总高 = 曲面 500 + 直边 25 + 壁厚 10）。",
+ "prompt": "画一个卧式储罐装配图，内径2000，切线长6000，壁厚10，两个鞍座，管口有进料DN100、出料DN100、人孔DN500",
+ "prompt_asr": "画一个卧式储罐装配图，内径两千，切线长六千，壁厚十，两个鞍座，管口有进料DN一百、出料DN一百、人孔DN五百",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1"
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "create",
+    "spec": {
+     "kind": "horizontal_vessel",
+     "shell": {
+      "inner_diameter_mm": 2000,
+      "tangent_length_mm": 6000,
+      "thickness_mm": 10
+     },
+     "nozzles": [
+      {
+       "dn": 100,
+       "purpose_text": "进料"
+      },
+      {
+       "dn": 100,
+       "purpose_text": "出料"
+      },
+      {
+       "dn": 500,
+       "kind": "manhole",
+       "purpose_text": "人孔"
+      }
+     ],
+     "supports": [
+      {
+       "kind": "saddle",
+       "count": 2
+      }
+     ]
+    }
+   },
+   "summary": "按参数新建卧式储罐设备图"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_views": [
+    "M",
+    "L"
+   ]
+  },
+  {
+   "equip_table": [
+    "设计数据表",
+    "管口表",
+    "明细栏",
+    "技术要求"
+   ]
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_spec": {
+    "kind": "horizontal_vessel",
+    "shell.inner_diameter_mm": 2000,
+    "shell.tangent_length_mm": 6000,
+    "shell.length_mm": 5950,
+    "shell.thickness_mm": 10,
+    "supports[0].kind": "saddle",
+    "supports[0].count": 2
+   }
+  },
+  {
+   "equip_sources": {
+    "shell.tangent_length_mm": "user",
+    "shell.length_mm": "calc",
+    "shell.inner_diameter_mm": "user",
+    "supports[0].count": "user"
+   }
+  },
+  {
+   "equip_nozzles": {
+    "count": 3,
+    "marks": [
+     "M1",
+     "a",
+     "b"
+    ],
+    "dn": {
+     "a": 100,
+     "b": 100,
+     "M1": 500
+    }
+   }
+  },
+  {
+   "equip_dim": {
+    "overall": 7020
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,83 @@
+{
+  "id": "stack",
+  "name_cn": "烟囱",
+  "aliases": [
+    "烟囱",
+    "排气筒",
+    "排放烟囱"
+  ],
+  "category": "S",
+  "family": "stack",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 56 页 烟囱；原图被水印遮挡，待核对",
+  "bbox": [
+    -7,
+    -28,
+    7,
+    28
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          -28
+        ],
+        [
+          -2.5,
+          28
+        ],
+        [
+          2.5,
+          28
+        ],
+        [
+          5,
+          -28
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          -28
+        ],
+        [
+          7,
+          -28
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          -20
+        ],
+        [
+          -4.64,
+          -20
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -7,
+      "y": -20,
+      "dir": "left",
+      "semantics": "主物料入口"
+    }
+  ],
+  "label": {
+    "x": 4,
+    "y": 31,
+    "align": "left"
+  }
+}

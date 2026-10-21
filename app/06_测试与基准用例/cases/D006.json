@@ -1,0 +1,44 @@
+{
+ "id": "D006",
+ "category": "D",
+ "functions": [
+  "parse_coordinate_input"
+ ],
+ "note": "坐标换算由确定性函数完成",
+ "prompt": "从点10,10出发，相对极坐标50<30是哪个点",
+ "prompt_asr": "从点十逗号十出发，相对极坐标五十小于三十是哪个点",
+ "intents": [
+  "precision_snap"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "parse_coordinate_input",
+   "args": {
+    "coord_expressions": [
+     "@50<30"
+    ],
+    "last_point": "10,10"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "result": {
+    "step": "s1",
+    "path": "data.points.0.point",
+    "value": [
+     53.30127018922193,
+     35.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": false
+}

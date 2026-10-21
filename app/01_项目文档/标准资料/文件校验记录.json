@@ -1,0 +1,18 @@
+[
+  {
+    "file": "已取得标准文本/GB_T 14691-1993_技术制图_字体.pdf",
+    "pages": 13,
+    "bytes": 1080049,
+    "sha256": "d8d20f343e43a0e9a735bd1fb6e83d2cc5aaea9e4ec08af757072f48493a2bd1",
+    "source_url": "https://eol.ctbu.edu.cn/meol/analytics/resPdfShow.do?resId=1925504674&lid=51594",
+    "validation": "PDF签名、全部页面可解析及渲染；首末页与正文视觉核对；未修改源文件"
+  },
+  {
+    "file": "已取得标准文本/GB_T 17450-1998_技术制图_图线.pdf",
+    "pages": 10,
+    "bytes": 270777,
+    "sha256": "292ba376af0d5acea700d7c6131906586cf4d3c3ed12796ed6f960798d3a752f",
+    "source_url": "https://eol.ctbu.edu.cn/meol/analytics/resPdfShow.do?resId=1925504677&lid=51594",
+    "validation": "PDF签名、全部页面可解析及渲染；首末页与正文视觉核对；未修改源文件"
+  }
+]

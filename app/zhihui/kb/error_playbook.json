@@ -1,0 +1,23 @@
+{
+  "default": {"max_attempts": 2, "actions": ["inspect_local_target", "ask_user"], "escalate": "ask_user"},
+  "E_HATCH_NO_BOUNDARY": {"max_attempts": 1, "actions": ["use_named_region", "skip_hatch_and_record_gap"], "escalate": "degrade"},
+  "E_HATCH_ON_BOUNDARY": {"max_attempts": 1, "actions": ["use_named_region", "skip_hatch_and_record_gap"], "escalate": "degrade"},
+  "E_HATCH_NOT_CLOSED": {"max_attempts": 1, "actions": ["use_named_region", "skip_hatch_and_record_gap"], "escalate": "degrade"},
+  "E_REGION_UNKNOWN": {"max_attempts": 1, "actions": ["list_available_regions", "skip_hatch_and_record_gap"], "escalate": "degrade"},
+  "E_LAYOUT_OVERFLOW": {"max_attempts": 1, "actions": ["calculate_compliant_paper", "split_or_ask_user"], "escalate": "layout_fixer"},
+  "E_LAYOUT_TOO_LONG": {"max_attempts": 1, "actions": ["calculate_compliant_paper", "split_or_ask_user"], "escalate": "layout_fixer"},
+  "E_BAD_PAPER": {"max_attempts": 1, "actions": ["calculate_compliant_paper"], "escalate": "layout_fixer"},
+  "E_ROUTE_FAILED": {"max_attempts": 1, "actions": ["deterministic_layout", "ask_user"], "escalate": "layout_fixer"},
+  "E_OVERLAP": {"max_attempts": 1, "actions": ["deterministic_layout", "ask_user"], "escalate": "layout_fixer"},
+  "E_TEXT_OVERLAP": {"max_attempts": 1, "actions": ["deterministic_label_offsets", "ask_user"], "escalate": "layout_fixer"},
+  "E_SELF_LOOP": {"max_attempts": 0, "actions": ["express_boundary_as_terminal"], "escalate": "ask_user"},
+  "E_PORT_INVALID": {"max_attempts": 2, "actions": ["use_returned_legal_ports", "ask_user"], "escalate": "ask_user"},
+  "E_SYMBOL_UNKNOWN": {"max_attempts": 1, "actions": ["search_symbol_family", "ask_user"], "escalate": "knowledge"},
+  "E_UNSOURCED_VALUE": {"max_attempts": 0, "actions": ["request_user_value"], "escalate": "ask_user"},
+  "E_PLACEHOLDER_VALUE": {"max_attempts": 0, "actions": ["request_user_value"], "escalate": "ask_user"},
+  "E_TARGET_UNCONFIRMED": {"max_attempts": 0, "actions": ["request_target_selection"], "escalate": "ask_user"},
+  "E_RELAYOUT_UNCONFIRMED": {"max_attempts": 0, "actions": ["request_relayout_consent"], "escalate": "ask_user"},
+  "E_FULL_RELAYOUT": {"max_attempts": 0, "actions": ["request_relayout_consent"], "escalate": "ask_user"},
+  "E_CAPABILITY_MISSING": {"max_attempts": 0, "actions": ["explain_capability_and_options"], "escalate": "ask_user"},
+  "E_NOT_ALLOWED": {"max_attempts": 0, "actions": ["explain_capability_and_options"], "escalate": "degrade"}
+}

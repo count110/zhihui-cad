@@ -1,0 +1,190 @@
+{
+  "id": "fixed_bed_reactor",
+  "name_cn": "固定床反应器",
+  "aliases": [
+    "固定床反应器",
+    "催化反应器",
+    "SCR反应器",
+    "脱硝反应器",
+    "SCR脱硝反应器"
+  ],
+  "category": "R",
+  "family": "reactor",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 56 页 固定床反应器",
+  "bbox": [
+    -6,
+    -18,
+    6,
+    18
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          -6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -12
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -8
+        ],
+        [
+          6,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          8
+        ],
+        [
+          6,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -8
+        ],
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          18
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -15
+        ],
+        [
+          0,
+          -18
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 0,
+      "y": 18,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -18,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 12,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": 4,
+      "y": 14.2,
+      "dir": "up",
+      "len": 2
+    },
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": -4,
+      "y": -14.2,
+      "dir": "down",
+      "len": 2
+    }
+  ]
+}

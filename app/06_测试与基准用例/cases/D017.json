@@ -1,0 +1,79 @@
+{
+ "id": "D017",
+ "category": "D",
+ "functions": [
+  "match_entity_properties"
+ ],
+ "note": "",
+ "prompt": "把C2的图层和颜色刷成跟C1一样",
+ "prompt_asr": "把C2的图成和颜色刷成跟C1一样",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "gb_a3_mech",
+  "calls": [
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "150,30",
+     "diameter": 20
+    }
+   },
+   {
+    "tool": "modify_entity_properties",
+    "args": {
+     "action": "set",
+     "entity_ids": [
+      "C1"
+     ],
+     "common_props": {
+      "layer": "中心线",
+      "color": 1
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "C1"
+  },
+  {
+   "rec": "C2"
+  },
+  {
+   "tool": "match_entity_properties",
+   "args": {
+    "source_entity_id": "$s1.entity_ids[0]",
+    "target_entity_ids": "$s2.entity_ids",
+    "property_filter": [
+     "layer",
+     "color"
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "id": "C2",
+    "layer": "中心线",
+    "color": 1
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,234 @@
+{
+  "id": "u_tube_exchanger",
+  "name_cn": "U 形管式换热器",
+  "aliases": [
+    "U形管式换热器",
+    "U形管换热器",
+    "U型管换热器",
+    "U 形管式"
+  ],
+  "category": "E",
+  "family": "exchanger",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 U 形管式换热器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -20,
+    -9,
+    17,
+    9
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -14,
+          6
+        ],
+        [
+          14,
+          6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -14,
+          -6
+        ],
+        [
+          14,
+          -6
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        14,
+        0
+      ],
+      "rx": 3,
+      "ry": 6,
+      "start": 270,
+      "end": 90
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        -14,
+        0
+      ],
+      "rx": 3,
+      "ry": 6,
+      "start": 90,
+      "end": 270
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -14,
+          -6
+        ],
+        [
+          -14,
+          6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -17,
+          0
+        ],
+        [
+          -14,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -14,
+          2.5
+        ],
+        [
+          11,
+          2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -14,
+          -2.5
+        ],
+        [
+          11,
+          -2.5
+        ]
+      ]
+    },
+    {
+      "type": "arc",
+      "c": [
+        11,
+        0
+      ],
+      "r": 2.5,
+      "start": 270,
+      "end": 90
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -16.6,
+          -3
+        ],
+        [
+          -20,
+          -3
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -16.6,
+          3
+        ],
+        [
+          -20,
+          3
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          10,
+          -6
+        ],
+        [
+          10,
+          -9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          6
+        ],
+        [
+          -6,
+          9
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -20,
+      "y": -3,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": -20,
+      "y": 3,
+      "dir": "left",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "shell_in",
+      "kind": "in",
+      "x": 10,
+      "y": -9,
+      "dir": "down",
+      "semantics": "U 形管式换热器的shell_in入口"
+    },
+    {
+      "name": "shell_out",
+      "kind": "out",
+      "x": -6,
+      "y": 9,
+      "dir": "up",
+      "semantics": "U 形管式换热器的shell_out出口"
+    }
+  ],
+  "label": {
+    "x": 2,
+    "y": 12,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": 4,
+      "y": -6,
+      "dir": "down",
+      "len": 2
+    }
+  ]
+}

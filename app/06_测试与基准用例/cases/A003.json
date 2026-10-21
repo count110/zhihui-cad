@@ -1,0 +1,67 @@
+{
+ "id": "A003",
+ "category": "A",
+ "functions": [
+  "create_linear_and_angular_dim"
+ ],
+ "note": "整体长宽标注，尺寸线位置自动避让",
+ "prompt": "标注矩形的长和宽",
+ "prompt_asr": "标住举行的长和宽",
+ "intents": [
+  "annotation_dimension"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "矩形"
+  },
+  {
+   "tool": "create_linear_and_angular_dim",
+   "args": {
+    "dim_type": "linear_horizontal",
+    "target_entity_id": "$s1.entity_ids[0]"
+   }
+  },
+  {
+   "tool": "create_linear_and_angular_dim",
+   "args": {
+    "dim_type": "linear_vertical",
+    "target_entity_id": "$s1.entity_ids[0]"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "dim": {
+    "n": 2,
+    "measurements": [
+     60,
+     100
+    ]
+   }
+  }
+ ],
+ "mock_ok": true
+}

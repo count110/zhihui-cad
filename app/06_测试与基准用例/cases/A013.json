@@ -1,0 +1,71 @@
+{
+ "id": "A013",
+ "category": "A",
+ "functions": [
+  "extrude_2d_to_3d"
+ ],
+ "note": "带孔的板：孔自动成为通孔",
+ "prompt": "把带圆孔的矩形拉伸30变成实体",
+ "prompt_asr": "把 带 圆孔 的 矩形 拉伸 30 变成 实体",
+ "intents": [
+  "3d_modeling"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "矩形",
+   "need": [
+    "entity_ids",
+    "boundary"
+   ]
+  },
+  {
+   "tool": "extrude_2d_to_3d",
+   "args": {
+    "profile_entity_ids": [
+     "$s1.boundary.outer",
+     "$s1.boundary.islands"
+    ],
+    "include_islands": true,
+    "height": 30
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "solid3d",
+    "n": 1
+   }
+  },
+  {
+   "solid": {
+    "volume": 170575.0,
+    "rel": 0.01
+   }
+  }
+ ],
+ "mock_ok": true
+}

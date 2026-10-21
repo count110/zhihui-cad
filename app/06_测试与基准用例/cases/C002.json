@@ -1,0 +1,335 @@
+{
+ "id": "C002",
+ "category": "C",
+ "source": "文章《化工工艺流程图制图标准》第三章「物料残液蒸馏处理系统」（数据按文章图转录，算作用户给的数据）",
+ "prompt": "画物料残液蒸馏处理系统的物料流程图（按文章图 3-2），工段号 06，画图框和标题栏。设备：反应蒸馏釜 R0601（带搅拌和夹套）、冷凝器 E0601、真空受槽 V0605A 和 V0605B（2 台相同，只画一套，位号写 V0605AB）。流程：上水和物料残液从左边来，一起从釜顶进反应蒸馏釜；上水另分一路去冷凝器壳程；蒸汽进釜的夹套，夹套底部出冷凝水；釜顶放空接放空总管，釜顶气相去冷凝器；冷凝器出循环冷却水，冷凝液进真空受槽；真空受槽顶部放空接放空总管、另一管口接真空槽，底部出液态物料去物料贮槽；釜底出料去残渣受槽。设备特性参数：R0601 F=110m²，E0601 F=60m²，V0605AB F=150m²。物料残液进料处画物料组成表：组分1 流量 18.52 kg/h、摩尔分率 32.5%；组分2 32.42 kg/h、16.8%；组分3 2.34 kg/h、24.3%；组分4 1.76 kg/h、26.4%。液态物料去物料贮槽处画物料组成表：组分1 38.03 kg/h、96.32%；组分2 1.24 kg/h、2.15%；组分3 0.82 kg/h、1.53%；组分4 0 kg/h、0%。",
+ "reference": "reference/C002_图3-2_物料流程图.png",
+ "plan": {
+  "title": "物料残液蒸馏处理系统 物料流程图",
+  "paper_size": "A2",
+  "stage": "material",
+  "section_no": "06",
+  "equipment": [
+   {
+    "symbol_id": "kettle_jacketed",
+    "tag": "R0601",
+    "name": "反应蒸馏釜",
+    "params": {
+     "feature": "F=110m²"
+    }
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E0601",
+    "name": "冷凝器",
+    "params": {
+     "feature": "F=60m²"
+    }
+   },
+   {
+    "symbol_id": "vacuum_receiver",
+    "tag": "V0605AB",
+    "name": "真空受槽",
+    "params": {
+     "units": 2,
+     "feature": "F=150m²"
+    }
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X1",
+    "name": "上水"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X2",
+    "name": "物料残液"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X3",
+    "name": "蒸汽"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X4",
+    "name": "放空"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X5",
+    "name": "循环冷却水"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X6",
+    "name": "接真空槽"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X7",
+    "name": "液态物料去物料贮槽"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X8",
+    "name": "去残渣受槽"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X9",
+    "name": "冷凝水"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "X1.out",
+    "to_port": "R0601.feed",
+    "medium": "上水",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "X1.out",
+    "to_port": "E0601.shell_in",
+    "medium": "上水",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "X2.out",
+    "to_port": "R0601.feed",
+    "medium": "物料残液"
+   },
+   {
+    "from_port": "X3.out",
+    "to_port": "R0601.steam_in",
+    "medium": "蒸汽",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "R0601.vent",
+    "to_port": "X4.in",
+    "medium": "放空",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "R0601.vapor_out",
+    "to_port": "E0601.in",
+    "medium": ""
+   },
+   {
+    "from_port": "E0601.shell_out",
+    "to_port": "X5.in",
+    "medium": "循环冷却水",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "E0601.out",
+    "to_port": "V0605AB.in",
+    "medium": ""
+   },
+   {
+    "from_port": "V0605AB.vent",
+    "to_port": "X4.in",
+    "medium": "放空",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "V0605AB.vac_out",
+    "to_port": "X6.in",
+    "medium": "接真空槽",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "V0605AB.out",
+    "to_port": "X7.in",
+    "medium": "液态物料去物料贮槽"
+   },
+   {
+    "from_port": "R0601.out",
+    "to_port": "X8.in",
+    "medium": "去残渣受槽"
+   },
+   {
+    "from_port": "R0601.cond_out",
+    "to_port": "X9.in",
+    "medium": "冷凝水",
+    "line_type": "utility"
+   }
+  ],
+  "stream_tables": [
+   {
+    "anchor": "X2.out→R0601.feed",
+    "rows": [
+     {
+      "name": "组分1",
+      "flow_kg_h": "18.52",
+      "mole_pct": "32.5"
+     },
+     {
+      "name": "组分2",
+      "flow_kg_h": "32.42",
+      "mole_pct": "16.8"
+     },
+     {
+      "name": "组分3",
+      "flow_kg_h": "2.34",
+      "mole_pct": "24.3"
+     },
+     {
+      "name": "组分4",
+      "flow_kg_h": "1.76",
+      "mole_pct": "26.4"
+     }
+    ]
+   },
+   {
+    "anchor": "V0605AB.out→X7.in",
+    "rows": [
+     {
+      "name": "组分1",
+      "flow_kg_h": "38.03",
+      "mole_pct": "96.32"
+     },
+     {
+      "name": "组分2",
+      "flow_kg_h": "1.24",
+      "mole_pct": "2.15"
+     },
+     {
+      "name": "组分3",
+      "flow_kg_h": "0.82",
+      "mole_pct": "1.53"
+     },
+     {
+      "name": "组分4",
+      "flow_kg_h": "0",
+      "mole_pct": "0"
+     }
+    ]
+   }
+  ]
+ },
+ "expected": {
+  "stage": "material",
+  "equipment": [
+   {
+    "tag": "R0601",
+    "symbol_id": "kettle_jacketed"
+   },
+   {
+    "tag": "E0601",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "V0605AB",
+    "symbol_id": "vacuum_receiver"
+   },
+   {
+    "tag": "X1",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X2",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X3",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X4",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X5",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X6",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X7",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X8",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X9",
+    "symbol_id": "pipe_terminal"
+   }
+  ],
+  "connections": [
+   [
+    "X1",
+    "R0601"
+   ],
+   [
+    "X1",
+    "E0601"
+   ],
+   [
+    "X2",
+    "R0601"
+   ],
+   [
+    "X3",
+    "R0601"
+   ],
+   [
+    "R0601",
+    "X4"
+   ],
+   [
+    "R0601",
+    "E0601"
+   ],
+   [
+    "E0601",
+    "X5"
+   ],
+   [
+    "E0601",
+    "V0605AB"
+   ],
+   [
+    "V0605AB",
+    "X4"
+   ],
+   [
+    "V0605AB",
+    "X6"
+   ],
+   [
+    "V0605AB",
+    "X7"
+   ],
+   [
+    "R0601",
+    "X8"
+   ],
+   [
+    "R0601",
+    "X9"
+   ]
+  ],
+  "require": [
+   "frame",
+   "features",
+   "stream_tables"
+  ],
+  "stream_totals": [
+   [
+    "55.04",
+    "100.0"
+   ],
+   [
+    "40.09",
+    "100.00"
+   ]
+  ],
+  "self_check_errors": 0
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "F006",
+ "file": "foreign",
+ "prompt": "把右边那台设备上移 200 mm",
+ "expected": {
+  "outcome": [
+   "WAITING_CONFIRMATION",
+   "FAILED"
+  ]
+ },
+ "note": "第三方 DXF（MVP 不支持，应如实拒绝）",
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  {
+   "say": "这张图不是智绘CAD 生成的，当前版本暂不支持修改第三方图纸。"
+  }
+ ],
+ "category": "F"
+}

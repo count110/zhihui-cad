@@ -1,0 +1,154 @@
+{
+  "id": "mixer",
+  "name_cn": "混合器",
+  "aliases": [
+    "混合器",
+    "混合机",
+    "混合段",
+    "喷射混合器",
+    "活性炭喷射",
+    "活性炭喷射混合段",
+    "静态混合器"
+  ],
+  "category": "M",
+  "family": "mixer",
+  "status": "simplified",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 62 页 混合机（其他机械），加顶部加料口",
+  "bbox": [
+    -12,
+    -4,
+    12,
+    7
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          -4
+        ],
+        [
+          9,
+          -4
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          -9,
+          4
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          0
+        ],
+        [
+          -5,
+          2
+        ],
+        [
+          -3,
+          -2
+        ],
+        [
+          -1,
+          2
+        ],
+        [
+          1,
+          -2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          -2
+        ],
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          0
+        ],
+        [
+          -9,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          9,
+          0
+        ],
+        [
+          12,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          7
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -12,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 12,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "additive_in",
+      "kind": "in",
+      "x": 0,
+      "y": 7,
+      "dir": "up",
+      "semantics": "混合器的additive_in入口"
+    }
+  ],
+  "label": {
+    "x": -12,
+    "y": 9,
+    "align": "left"
+  }
+}

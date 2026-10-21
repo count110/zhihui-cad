@@ -1,0 +1,40 @@
+{
+ "id": "A006",
+ "category": "A",
+ "functions": [
+  "switch_model_and_layout_space"
+ ],
+ "note": "",
+ "prompt": "建一个布局，A3横向",
+ "prompt_asr": "建一个布局，A3横向",
+ "intents": [
+  "layout_plotting"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "switch_model_and_layout_space",
+   "args": {
+    "target_space": "Model",
+    "layout_action": "create",
+    "new_layout_name": "布局1",
+    "paper_size": "ISO_A3"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "layout": {
+    "name": "布局1",
+    "size": [
+     420,
+     297
+    ],
+    "viewports": 0
+   }
+  }
+ ],
+ "mock_ok": true
+}

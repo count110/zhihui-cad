@@ -1,0 +1,506 @@
+{
+ "id": "W001",
+ "category": "G",
+ "template_id": "water_elevation",
+ "prompt": "画一张农村饮水安全工程的工艺流程及高程布置图，A3。主流程：取水头部 → 进水管(YS, DN200) → 管道混合器 → 絮凝沉淀池 → 出水管(QS, DN250) → 无阀滤池 → 加药点 → 600t 清水池 → 至配水管网(QS)。高程：沉淀池进水 292.90、沉淀池出水 292.25、地面 288.40；滤池进水 291.67、滤池出水 289.30、地面 286.00；清水池最高水位 288.92、最低水位 285.22、池顶 288.35。PAC 投药系统：自厂区给水管接 2 个聚合氯化铝溶液池（带搅拌机），各接 1 台计量泵，计量泵组用虚线框，PAC 投加管接管道混合器。二氧化氯投药系统：2 台二氧化氯发生器，各配氯酸钠罐和盐酸罐，CL 投加管接加药点。图例列出 YS、QS、FX、CL、PAC、Q。说明：1. 本图除高程以 m 计外，其余均以 mm 计；2. 本图为黄海高程系统。标题栏：设计阶段 技施阶段，专业 水工部分，图名 工艺流程设计图，比例 见图。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "X-101",
+    "symbol_id": "intake_head"
+   },
+   {
+    "tag": "M-101",
+    "symbol_id": "pipe_mixer"
+   },
+   {
+    "tag": "V-101",
+    "symbol_id": "floc_sed_tank"
+   },
+   {
+    "tag": "X-102",
+    "symbol_id": "valveless_filter"
+   },
+   {
+    "tag": "X-103",
+    "symbol_id": "dosing_point"
+   },
+   {
+    "tag": "V-102",
+    "symbol_id": "clear_well"
+   },
+   {
+    "tag": "X-104",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X-201",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "V-201",
+    "symbol_id": "solution_tank"
+   },
+   {
+    "tag": "V-202",
+    "symbol_id": "solution_tank"
+   },
+   {
+    "tag": "P-201",
+    "symbol_id": "metering_pump"
+   },
+   {
+    "tag": "P-202",
+    "symbol_id": "metering_pump"
+   },
+   {
+    "tag": "V-301",
+    "symbol_id": "chem_drum"
+   },
+   {
+    "tag": "V-302",
+    "symbol_id": "chem_drum"
+   },
+   {
+    "tag": "M-301",
+    "symbol_id": "clo2_generator"
+   },
+   {
+    "tag": "V-303",
+    "symbol_id": "chem_drum"
+   },
+   {
+    "tag": "V-304",
+    "symbol_id": "chem_drum"
+   },
+   {
+    "tag": "M-302",
+    "symbol_id": "clo2_generator"
+   }
+  ],
+  "connections": [
+   [
+    "X-101",
+    "M-101"
+   ],
+   [
+    "M-101",
+    "V-101"
+   ],
+   [
+    "V-101",
+    "X-102"
+   ],
+   [
+    "X-102",
+    "X-103"
+   ],
+   [
+    "X-103",
+    "V-102"
+   ],
+   [
+    "V-102",
+    "X-104"
+   ],
+   [
+    "X-201",
+    "V-201"
+   ],
+   [
+    "X-201",
+    "V-202"
+   ],
+   [
+    "V-201",
+    "P-201"
+   ],
+   [
+    "V-202",
+    "P-202"
+   ],
+   [
+    "P-201",
+    "M-101"
+   ],
+   [
+    "P-202",
+    "M-101"
+   ],
+   [
+    "V-301",
+    "M-301"
+   ],
+   [
+    "V-302",
+    "M-301"
+   ],
+   [
+    "V-303",
+    "M-302"
+   ],
+   [
+    "V-304",
+    "M-302"
+   ],
+   [
+    "M-301",
+    "X-103"
+   ],
+   [
+    "M-302",
+    "X-103"
+   ]
+  ],
+  "connection_codes": [
+   [
+    "X-101",
+    "M-101",
+    "YS"
+   ],
+   [
+    "M-101",
+    "V-101",
+    "YS"
+   ],
+   [
+    "V-101",
+    "X-102",
+    "QS"
+   ],
+   [
+    "X-102",
+    "X-103",
+    "QS"
+   ],
+   [
+    "X-103",
+    "V-102",
+    "QS"
+   ],
+   [
+    "V-102",
+    "X-104",
+    "QS"
+   ],
+   [
+    "X-201",
+    "V-201",
+    ""
+   ],
+   [
+    "X-201",
+    "V-202",
+    ""
+   ],
+   [
+    "V-201",
+    "P-201",
+    ""
+   ],
+   [
+    "V-202",
+    "P-202",
+    ""
+   ],
+   [
+    "P-201",
+    "M-101",
+    "PAC"
+   ],
+   [
+    "P-202",
+    "M-101",
+    "PAC"
+   ],
+   [
+    "V-301",
+    "M-301",
+    ""
+   ],
+   [
+    "V-302",
+    "M-301",
+    ""
+   ],
+   [
+    "V-303",
+    "M-302",
+    ""
+   ],
+   [
+    "V-304",
+    "M-302",
+    ""
+   ],
+   [
+    "M-301",
+    "X-103",
+    "CL"
+   ],
+   [
+    "M-302",
+    "X-103",
+    "CL"
+   ]
+  ],
+  "legend": [
+   "YS",
+   "QS",
+   "FX",
+   "CL",
+   "PAC",
+   "Q"
+  ],
+  "match": "structure"
+ },
+ "plan": {
+  "title": "工艺流程及高程布置图",
+  "paper_size": "A3",
+  "template_id": "water_elevation",
+  "title_block": {
+   "stage": "技施阶段",
+   "discipline": "水工部分",
+   "drawing_name": "工艺流程设计图",
+   "scale_text": "见图"
+  },
+  "notes": [
+   "本图除高程以 m 计外，其余均以 mm 计；",
+   "本图为黄海高程系统。"
+  ],
+  "legend_codes": [
+   "YS",
+   "QS",
+   "FX",
+   "CL",
+   "PAC",
+   "Q"
+  ],
+  "equipment": [
+   {
+    "symbol_id": "intake_head",
+    "tag": "X-101",
+    "name": "取水头部"
+   },
+   {
+    "symbol_id": "pipe_mixer",
+    "tag": "M-101",
+    "name": "管道混合器"
+   },
+   {
+    "symbol_id": "floc_sed_tank",
+    "tag": "V-101",
+    "name": "絮凝沉淀池",
+    "params": {
+     "elevations": {
+      "water": 292.9,
+      "water_out": 292.25,
+      "ground": 288.4
+     }
+    }
+   },
+   {
+    "symbol_id": "valveless_filter",
+    "tag": "X-102",
+    "name": "无阀滤池",
+    "params": {
+     "elevations": {
+      "water_in": 291.67,
+      "water_out": 289.3,
+      "ground": 286.0
+     }
+    }
+   },
+   {
+    "symbol_id": "dosing_point",
+    "tag": "X-103",
+    "name": "加药点"
+   },
+   {
+    "symbol_id": "clear_well",
+    "tag": "V-102",
+    "name": "600t清水池",
+    "params": {
+     "elevations": {
+      "max_water": 288.92,
+      "min_water": 285.22,
+      "top": 288.35
+     }
+    }
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X-104",
+    "name": "至配水管网"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X-201",
+    "name": "自厂区给水管",
+    "system": "PAC投药系统"
+   },
+   {
+    "symbol_id": "solution_tank",
+    "tag": "V-201",
+    "name": "聚合氯化铝溶液池",
+    "system": "PAC投药系统"
+   },
+   {
+    "symbol_id": "solution_tank",
+    "tag": "V-202",
+    "name": "聚合氯化铝溶液池",
+    "system": "PAC投药系统"
+   },
+   {
+    "symbol_id": "metering_pump",
+    "tag": "P-201",
+    "name": "计量泵",
+    "system": "PAC投药系统",
+    "boxed": true
+   },
+   {
+    "symbol_id": "metering_pump",
+    "tag": "P-202",
+    "name": "计量泵",
+    "system": "PAC投药系统",
+    "boxed": true
+   },
+   {
+    "symbol_id": "chem_drum",
+    "tag": "V-301",
+    "name": "盐酸",
+    "system": "二氧化氯投药系统"
+   },
+   {
+    "symbol_id": "chem_drum",
+    "tag": "V-302",
+    "name": "氯酸钠",
+    "system": "二氧化氯投药系统"
+   },
+   {
+    "symbol_id": "clo2_generator",
+    "tag": "M-301",
+    "name": "二氧化氯发生器",
+    "system": "二氧化氯投药系统"
+   },
+   {
+    "symbol_id": "chem_drum",
+    "tag": "V-303",
+    "name": "盐酸",
+    "system": "二氧化氯投药系统"
+   },
+   {
+    "symbol_id": "chem_drum",
+    "tag": "V-304",
+    "name": "氯酸钠",
+    "system": "二氧化氯投药系统"
+   },
+   {
+    "symbol_id": "clo2_generator",
+    "tag": "M-302",
+    "name": "二氧化氯发生器",
+    "system": "二氧化氯投药系统"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "X-101.out",
+    "to_port": "M-101.in",
+    "code": "YS",
+    "medium": "进水管",
+    "spec": "DN200"
+   },
+   {
+    "from_port": "M-101.out",
+    "to_port": "V-101.in",
+    "code": "YS"
+   },
+   {
+    "from_port": "V-101.out",
+    "to_port": "X-102.in",
+    "code": "QS",
+    "medium": "出水管",
+    "spec": "DN250"
+   },
+   {
+    "from_port": "X-102.out",
+    "to_port": "X-103.main_in",
+    "code": "QS"
+   },
+   {
+    "from_port": "X-103.main_out",
+    "to_port": "V-102.in",
+    "code": "QS"
+   },
+   {
+    "from_port": "V-102.out",
+    "to_port": "X-104.in",
+    "code": "QS"
+   },
+   {
+    "from_port": "X-201.out",
+    "to_port": "V-201.water_in",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "X-201.out",
+    "to_port": "V-202.water_in",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "V-201.out",
+    "to_port": "P-201.in",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "V-202.out",
+    "to_port": "P-202.in",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "P-201.out",
+    "to_port": "M-101.dose",
+    "code": "PAC",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "P-202.out",
+    "to_port": "M-101.dose",
+    "code": "PAC",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "V-301.out",
+    "to_port": "M-301.acid_in",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "V-302.out",
+    "to_port": "M-301.chlorate_in",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "V-303.out",
+    "to_port": "M-302.acid_in",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "V-304.out",
+    "to_port": "M-302.chlorate_in",
+    "line_type": "auxiliary"
+   },
+   {
+    "from_port": "M-301.out",
+    "to_port": "X-103.dose",
+    "code": "CL",
+    "line_type": "utility"
+   },
+   {
+    "from_port": "M-302.out",
+    "to_port": "X-103.dose",
+    "code": "CL",
+    "line_type": "utility"
+   }
+  ]
+ }
+}

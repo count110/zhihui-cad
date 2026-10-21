@@ -1,0 +1,89 @@
+{
+ "id": "D012",
+ "category": "D",
+ "functions": [
+  "adjust_line_lengths"
+ ],
+ "note": "修剪沿用原图元编号（改原对象，关联填充和引用不丢）",
+ "prompt": "把横线L1超出竖线L2的部分剪掉，拾取点在100,0",
+ "prompt_asr": "把横线L1超出竖线L2的部分修建掉，拾取点在一百逗号零",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_linear_primitives",
+    "args": {
+     "primitive_type": "line",
+     "points": [
+      "0,0",
+      "100,0"
+     ]
+    }
+   },
+   {
+    "tool": "draw_linear_primitives",
+    "args": {
+     "primitive_type": "line",
+     "points": [
+      "50,-10",
+      "50,10"
+     ]
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "L1"
+  },
+  {
+   "rec": "L2"
+  },
+  {
+   "tool": "adjust_line_lengths",
+   "args": {
+    "operation": "trim",
+    "target_entities": [
+     {
+      "entity_id": "$s1.entity_ids[0]",
+      "pick_point": "100,0"
+     }
+    ],
+    "boundary_entity_ids": [
+     "$s2.entity_ids[0]"
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "line",
+    "nth": 0,
+    "id": "L1",
+    "data": {
+     "p1": [
+      0,
+      0,
+      0
+     ],
+     "p2": [
+      50,
+      0,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "count": {
+    "kind": "line",
+    "n": 2
+   }
+  }
+ ],
+ "mock_ok": false
+}

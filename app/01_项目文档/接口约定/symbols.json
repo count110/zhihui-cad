@@ -1,0 +1,1377 @@
+[
+ {
+  "symbol_id": "air_cooler",
+  "name": "空冷器",
+  "category": "E",
+  "aliases": [
+   "空冷器",
+   "空气冷却器",
+   "翅片管空冷器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "boiler",
+  "name": "余热锅炉",
+  "category": "F",
+  "aliases": [
+   "锅炉",
+   "余热锅炉",
+   "废热锅炉",
+   "蒸汽锅炉"
+  ],
+  "ports": [
+   "in(in,left)",
+   "flue_out(out,right)",
+   "out(out,up)",
+   "water_in(in,left)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "flue_out": "烟气出口",
+   "out": "主物料出口",
+   "water_in": "余热锅炉的water_in入口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "box_furnace",
+  "name": "箱式炉",
+  "category": "F",
+  "aliases": [
+   "箱式炉",
+   "箱式加热炉",
+   "方箱炉"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "fuel_in(in,down)",
+   "flue_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "fuel_in": "箱式炉的fuel_in入口",
+   "flue_out": "烟气出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "chem_drum",
+  "name": "药剂罐",
+  "category": "V",
+  "aliases": [
+   "药剂罐",
+   "氯酸钠罐",
+   "盐酸罐",
+   "药桶"
+  ],
+  "ports": [
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "clear_well",
+  "name": "清水池",
+  "category": "V",
+  "aliases": [
+   "清水池",
+   "清水库",
+   "蓄水池",
+   "调节池",
+   "清水箱"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "clo2_generator",
+  "name": "二氧化氯发生器",
+  "category": "M",
+  "aliases": [
+   "二氧化氯发生器",
+   "消毒设备",
+   "二氧化氯消毒设备",
+   "ClO2发生器",
+   "消毒器"
+  ],
+  "ports": [
+   "acid_in(in,up)",
+   "chlorate_in(in,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "acid_in": "二氧化氯发生器的acid_in入口",
+   "chlorate_in": "二氧化氯发生器的chlorate_in入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "compressor",
+  "name": "离心式压缩机",
+  "category": "C",
+  "aliases": [
+   "压缩机",
+   "离心式压缩机",
+   "空压机",
+   "气体压缩机",
+   "循环压缩机"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "cooler",
+  "name": "喷淋式冷却器",
+  "category": "E",
+  "aliases": [
+   "冷却器",
+   "喷淋式冷却器",
+   "喷淋冷却器"
+  ],
+  "ports": [
+   "in(in,right)",
+   "out(out,left)",
+   "water_in(in,up)",
+   "water_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "water_in": "喷淋式冷却器的water_in入口",
+   "water_out": "喷淋式冷却器的water_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "cyclone",
+  "name": "旋风分离器",
+  "category": "V",
+  "aliases": [
+   "旋风分离器",
+   "旋风除尘器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,up)",
+   "dust_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "dust_out": "飞灰排出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "demister_separator",
+  "name": "除沫分离器",
+  "category": "V",
+  "aliases": [
+   "除沫分离器",
+   "除沫器",
+   "气液分离器",
+   "分离器",
+   "丝网除沫器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "gas_out(out,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "gas_out": "除沫分离器的gas_out出口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "dosing_point",
+  "name": "加药点",
+  "category": "X",
+  "aliases": [
+   "加药点",
+   "投加点",
+   "投药点",
+   "加氯点"
+  ],
+  "ports": [
+   "main_in(in,left)",
+   "main_out(out,right)",
+   "dose(in,up)"
+  ],
+  "port_semantics": {
+   "main_in": "加药点的main_in入口",
+   "main_out": "加药点的main_out出口",
+   "dose": "加药入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "double_pipe_exchanger",
+  "name": "套管式换热器",
+  "category": "E",
+  "aliases": [
+   "套管式换热器",
+   "套管换热器",
+   "套管式"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "shell_in(in,up)",
+   "shell_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "套管式换热器的shell_in入口",
+   "shell_out": "套管式换热器的shell_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "dust_collector",
+  "name": "布袋除尘器",
+  "category": "V",
+  "aliases": [
+   "除尘器",
+   "布袋除尘器",
+   "袋式除尘器",
+   "脉冲布袋除尘器",
+   "袋滤器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "dust_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "dust_out": "飞灰排出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "esp",
+  "name": "电除尘器",
+  "category": "V",
+  "aliases": [
+   "电除尘器",
+   "静电除尘器",
+   "干式电除尘器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "dust_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "dust_out": "飞灰排出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "evaporator",
+  "name": "蒸发器",
+  "category": "E",
+  "aliases": [
+   "蒸发器",
+   "降膜蒸发器",
+   "升膜蒸发器",
+   "浓缩器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "vapor_out(out,up)",
+   "steam_in(in,right)",
+   "condensate_out(out,right)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "vapor_out": "蒸发器的vapor_out出口",
+   "steam_in": "蒸发器的steam_in入口",
+   "condensate_out": "蒸发器的condensate_out出口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "fan",
+  "name": "风机",
+  "category": "C",
+  "aliases": [
+   "风机",
+   "鼓风机",
+   "引风机",
+   "送风机",
+   "离心风机",
+   "烟气引风机",
+   "增压风机"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "fixed_bed_reactor",
+  "name": "固定床反应器",
+  "category": "R",
+  "aliases": [
+   "固定床反应器",
+   "催化反应器",
+   "SCR反应器",
+   "脱硝反应器",
+   "SCR脱硝反应器"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "floating_head_exchanger",
+  "name": "浮头式换热器",
+  "category": "E",
+  "aliases": [
+   "浮头式换热器",
+   "浮头换热器",
+   "浮头式"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,left)",
+   "shell_in(in,down)",
+   "shell_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "浮头式换热器的shell_in入口",
+   "shell_out": "浮头式换热器的shell_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "floc_sed_tank",
+  "name": "絮凝沉淀池",
+  "category": "V",
+  "aliases": [
+   "絮凝沉淀池",
+   "反应沉淀池",
+   "斜管沉淀池",
+   "沉淀池",
+   "絮凝池",
+   "反应池"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "dose(in,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "dose": "加药入口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "fluidized_bed_reactor",
+  "name": "流化床反应器",
+  "category": "R",
+  "aliases": [
+   "流化床反应器",
+   "流化床"
+  ],
+  "ports": [
+   "in(in,down)",
+   "out(out,up)",
+   "solid_in(in,left)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "solid_in": "流化床反应器的solid_in入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "furnace",
+  "name": "圆筒炉",
+  "category": "F",
+  "aliases": [
+   "炉",
+   "加热炉",
+   "圆筒炉",
+   "管式炉",
+   "裂解炉"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "fuel_in(in,left)",
+   "flue_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "fuel_in": "圆筒炉的fuel_in入口",
+   "flue_out": "烟气出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "gas_holder",
+  "name": "湿式气柜",
+  "category": "V",
+  "aliases": [
+   "湿式气柜",
+   "气柜",
+   "储气柜"
+  ],
+  "ports": [
+   "in(in,down)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "gear_pump",
+  "name": "齿轮泵（旋转泵）",
+  "category": "P",
+  "aliases": [
+   "齿轮泵",
+   "旋转泵",
+   "螺杆泵",
+   "转子泵"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "grate_incinerator",
+  "name": "机械炉排焚烧炉",
+  "category": "F",
+  "aliases": [
+   "焚烧炉",
+   "炉排炉",
+   "垃圾焚烧炉",
+   "机械炉排焚烧炉",
+   "炉排焚烧炉"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,up)",
+   "air_in(in,down)",
+   "ash_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "air_in": "助燃空气入口",
+   "ash_out": "机械炉排焚烧炉的ash_out出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "heat_exchanger",
+  "name": "列管换热器",
+  "category": "E",
+  "aliases": [
+   "换热器",
+   "列管换热器",
+   "管壳式换热器",
+   "冷却器",
+   "冷凝器",
+   "预热器",
+   "加热器",
+   "再沸器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "shell_in(in,up)",
+   "shell_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "列管换热器的shell_in入口",
+   "shell_out": "列管换热器的shell_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "heat_exchanger_simple",
+  "name": "换热器（简图）",
+  "category": "E",
+  "aliases": [
+   "换热器简图"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "shell_in(in,down)",
+   "shell_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "换热器（简图）的shell_in入口",
+   "shell_out": "换热器（简图）的shell_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "horizontal_vessel",
+  "name": "卧式容器",
+  "category": "V",
+  "aliases": [
+   "卧式容器",
+   "卧式罐",
+   "卧式储罐"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,down)",
+   "gas_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "gas_out": "卧式容器的gas_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "horizontal_vessel_boot",
+  "name": "卧式槽（带集液包）",
+  "category": "V",
+  "aliases": [
+   "带集液包卧式槽",
+   "卧式分离罐",
+   "回流罐"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,down)",
+   "gas_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "gas_out": "卧式槽（带集液包）的gas_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "intake_head",
+  "name": "取水头部",
+  "category": "X",
+  "aliases": [
+   "取水头部",
+   "取水口",
+   "集水井",
+   "取水构筑物",
+   "溪河取水"
+  ],
+  "ports": [
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "kettle_jacketed",
+  "name": "夹套反应釜（多管口）",
+  "category": "R",
+  "aliases": [
+   "反应蒸馏釜",
+   "蒸馏釜",
+   "夹套反应釜",
+   "夹套釜",
+   "带夹套反应釜"
+  ],
+  "ports": [
+   "feed(in,up)",
+   "vent(out,up)",
+   "vapor_out(out,up)",
+   "steam_in(in,left)",
+   "cond_out(out,down)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "feed": "进料口",
+   "vent": "夹套反应釜（多管口）的vent出口",
+   "vapor_out": "夹套反应釜（多管口）的vapor_out出口",
+   "steam_in": "夹套反应釜（多管口）的steam_in入口",
+   "cond_out": "夹套反应釜（多管口）的cond_out出口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "kettle_reboiler",
+  "name": "釜式换热器（再沸器）",
+  "category": "E",
+  "aliases": [
+   "釜式换热器",
+   "釜式再沸器",
+   "再沸器",
+   "釜式"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,left)",
+   "shell_in(in,down)",
+   "shell_out(out,up)",
+   "liquid_out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "釜式换热器（再沸器）的shell_in入口",
+   "shell_out": "釜式换热器（再沸器）的shell_out出口",
+   "liquid_out": "釜式换热器（再沸器）的liquid_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "metering_pump",
+  "name": "计量泵",
+  "category": "P",
+  "aliases": [
+   "计量泵",
+   "加药泵",
+   "投药泵",
+   "隔膜计量泵"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "mixer",
+  "name": "混合器",
+  "category": "M",
+  "aliases": [
+   "混合器",
+   "混合机",
+   "混合段",
+   "喷射混合器",
+   "活性炭喷射",
+   "活性炭喷射混合段",
+   "静态混合器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "additive_in(in,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "additive_in": "混合器的additive_in入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "offsheet",
+  "name": "图纸接续（空心箭头，向右）",
+  "category": "X",
+  "aliases": [
+   "图纸接续",
+   "接续标记",
+   "空心箭头",
+   "去其他图纸",
+   "来自其他图纸"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "offsheet_left",
+  "name": "图纸接续（空心箭头，向左）",
+  "category": "X",
+  "aliases": [
+   "向左的接续标记"
+  ],
+  "ports": [
+   "in(in,right)",
+   "out(out,left)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "packed_tower",
+  "name": "填料塔",
+  "category": "T",
+  "aliases": [
+   "填料塔",
+   "吸收塔",
+   "解吸塔",
+   "洗涤塔",
+   "脱硫塔",
+   "湿法脱硫塔"
+  ],
+  "ports": [
+   "feed(in,left)",
+   "reflux_in(in,left)",
+   "top_out(out,up)",
+   "bottom_out(out,down)",
+   "reboil_in(in,left)"
+  ],
+  "port_semantics": {
+   "feed": "进料口",
+   "reflux_in": "填料塔的reflux_in入口",
+   "top_out": "塔顶出口",
+   "bottom_out": "塔底出口",
+   "reboil_in": "再沸返回入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "pipe_mixer",
+  "name": "管道混合器",
+  "category": "M",
+  "aliases": [
+   "管道混合器",
+   "静态混合器",
+   "管式静态混合器",
+   "管式混合器"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "dose(in,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "dose": "加药入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "pipe_terminal",
+  "name": "管道去向",
+  "category": "X",
+  "aliases": [
+   "管道去向",
+   "管道来源",
+   "至配水管网",
+   "配水管网",
+   "自厂区给水管",
+   "厂区给水管"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "piston_pump",
+  "name": "活塞泵（比例泵）",
+  "category": "P",
+  "aliases": [
+   "活塞泵",
+   "比例泵",
+   "柱塞泵",
+   "往复泵"
+  ],
+  "ports": [
+   "in(in,down)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "pit",
+  "name": "池、槽、坑（地下）",
+  "category": "V",
+  "aliases": [
+   "坑",
+   "池",
+   "储坑",
+   "垃圾坑",
+   "垃圾池",
+   "垃圾储坑",
+   "地下槽",
+   "集水池"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "pump",
+  "name": "离心泵",
+  "category": "P",
+  "aliases": [
+   "泵",
+   "离心泵",
+   "水泵",
+   "进料泵",
+   "循环泵",
+   "输送泵",
+   "塔底泵",
+   "回流泵"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "reactor",
+  "name": "反应釜（带搅拌、夹套）",
+  "category": "R",
+  "aliases": [
+   "反应器",
+   "反应釜",
+   "釜",
+   "搅拌釜",
+   "聚合釜"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "recip_compressor",
+  "name": "单级往复压缩机",
+  "category": "C",
+  "aliases": [
+   "单级往复压缩机",
+   "往复压缩机",
+   "活塞式压缩机",
+   "往复式压缩机"
+  ],
+  "ports": [
+   "in(in,down)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "recip_compressor_4",
+  "name": "四级往复压缩机",
+  "category": "C",
+  "aliases": [
+   "四级往复压缩机",
+   "多级往复压缩机"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "retaining_wall",
+  "name": "挡土墙",
+  "category": "X",
+  "aliases": [
+   "挡土墙",
+   "挡墙"
+  ],
+  "ports": [],
+  "port_semantics": {},
+  "regions": []
+ },
+ {
+  "symbol_id": "rotary_compressor_h",
+  "name": "卧式旋转式压缩机",
+  "category": "C",
+  "aliases": [
+   "卧式旋转式压缩机",
+   "罗茨鼓风机",
+   "旋转式压缩机",
+   "螺杆压缩机"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "rotary_compressor_v",
+  "name": "立式旋转式压缩机",
+  "category": "C",
+  "aliases": [
+   "立式旋转式压缩机"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "solution_tank",
+  "name": "溶液池",
+  "category": "V",
+  "aliases": [
+   "溶液池",
+   "溶药池",
+   "PAC溶液池",
+   "PAC 溶液池",
+   "聚合氯化铝溶液池",
+   "溶液箱",
+   "加药箱"
+  ],
+  "ports": [
+   "water_in(in,up)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "water_in": "溶液池的water_in入口",
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "sphere_tank",
+  "name": "球罐",
+  "category": "V",
+  "aliases": [
+   "球罐",
+   "球形储罐",
+   "球形罐"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "spray_tower",
+  "name": "喷洒塔",
+  "category": "T",
+  "aliases": [
+   "喷洒塔",
+   "喷淋塔",
+   "空塔",
+   "急冷塔",
+   "脱酸塔",
+   "反应塔",
+   "半干法脱酸塔",
+   "喷雾干燥塔"
+  ],
+  "ports": [
+   "feed(in,left)",
+   "spray_in(in,left)",
+   "top_out(out,up)",
+   "bottom_out(out,down)"
+  ],
+  "port_semantics": {
+   "feed": "进料口",
+   "spray_in": "喷淋/急冷水入口",
+   "top_out": "塔顶出口",
+   "bottom_out": "塔底出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "stack",
+  "name": "烟囱",
+  "category": "S",
+  "aliases": [
+   "烟囱",
+   "排气筒",
+   "排放烟囱"
+  ],
+  "ports": [
+   "in(in,left)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "submerged_pump",
+  "name": "液下泵",
+  "category": "P",
+  "aliases": [
+   "液下泵",
+   "潜液泵",
+   "立式液下泵"
+  ],
+  "ports": [
+   "in(in,down)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "tank",
+  "name": "锥顶罐",
+  "category": "V",
+  "aliases": [
+   "罐",
+   "储罐",
+   "贮罐",
+   "锥顶罐",
+   "原料罐",
+   "产品罐",
+   "中间罐",
+   "水箱"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "tower",
+  "name": "板式塔",
+  "category": "T",
+  "aliases": [
+   "塔",
+   "板式塔",
+   "精馏塔",
+   "蒸馏塔",
+   "提馏塔"
+  ],
+  "ports": [
+   "feed(in,left)",
+   "reflux_in(in,left)",
+   "top_out(out,up)",
+   "bottom_out(out,down)",
+   "reboil_in(in,left)"
+  ],
+  "port_semantics": {
+   "feed": "进料口",
+   "reflux_in": "板式塔的reflux_in入口",
+   "top_out": "塔顶出口",
+   "bottom_out": "塔底出口",
+   "reboil_in": "再沸返回入口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "tubular_reactor",
+  "name": "列管式反应器",
+  "category": "R",
+  "aliases": [
+   "列管式反应器",
+   "列管反应器",
+   "管式反应器"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "u_tube_exchanger",
+  "name": "U 形管式换热器",
+  "category": "E",
+  "aliases": [
+   "U形管式换热器",
+   "U形管换热器",
+   "U型管换热器",
+   "U 形管式"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,left)",
+   "shell_in(in,down)",
+   "shell_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "shell_in": "U 形管式换热器的shell_in入口",
+   "shell_out": "U 形管式换热器的shell_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "vacuum_receiver",
+  "name": "真空受槽（立式，多管口）",
+  "category": "V",
+  "aliases": [
+   "真空受槽",
+   "受槽",
+   "接收槽",
+   "真空接收罐"
+  ],
+  "ports": [
+   "in(in,up)",
+   "vent(out,up)",
+   "vac_out(out,up)",
+   "out(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "vent": "真空受槽（立式，多管口）的vent出口",
+   "vac_out": "真空受槽（立式，多管口）的vac_out出口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "valve",
+  "name": "阀门",
+  "category": "X",
+  "aliases": [
+   "阀",
+   "阀门",
+   "闸阀",
+   "调节阀",
+   "截止阀"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "valveless_filter",
+  "name": "无阀滤池",
+  "category": "X",
+  "aliases": [
+   "无阀滤池",
+   "重力式无阀滤池",
+   "滤池",
+   "过滤池",
+   "快滤池"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,up)",
+   "backwash(out,down)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "backwash": "无阀滤池的backwash出口"
+  },
+  "regions": [
+   "fill",
+   "wall"
+  ]
+ },
+ {
+  "symbol_id": "vessel",
+  "name": "立式容器",
+  "category": "V",
+  "aliases": [
+   "容器",
+   "立式容器",
+   "缓冲罐",
+   "闪蒸罐",
+   "分离罐",
+   "回流罐",
+   "气液分离器",
+   "计量罐"
+  ],
+  "ports": [
+   "in(in,left)",
+   "out(out,right)",
+   "gas_out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口",
+   "gas_out": "立式容器的gas_out出口"
+  },
+  "regions": []
+ },
+ {
+  "symbol_id": "water_ring_vacuum_pump",
+  "name": "水环真空泵（纳氏泵）",
+  "category": "P",
+  "aliases": [
+   "水环真空泵",
+   "纳氏泵",
+   "真空泵"
+  ],
+  "ports": [
+   "in(in,up)",
+   "out(out,up)"
+  ],
+  "port_semantics": {
+   "in": "主物料入口",
+   "out": "主物料出口"
+  },
+  "regions": []
+ }
+]

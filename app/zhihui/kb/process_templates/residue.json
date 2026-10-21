@@ -1,0 +1,68 @@
+{
+  "id": "residue",
+  "name": "蒸馏残液处理",
+  "keywords": [
+    "蒸馏残液",
+    "物料残液",
+    "残液蒸馏"
+  ],
+  "initials": [
+    "zlcy"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "kettle_jacketed",
+      "name": "反应蒸馏釜",
+      "tag_prefix": "R",
+      "family": "reactor",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "heat_exchanger",
+      "name": "冷凝器",
+      "tag_prefix": "E",
+      "family": "exchanger",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "vacuum_receiver",
+      "name": "真空受槽",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "公用工程接口",
+      "requirement": "根据用户确认的冷却、加热或药剂需要补充，不自动添加设计参数"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "进料",
+      "direction": "in",
+      "medium": "用户确认介质",
+      "equipment_index": 0
+    },
+    {
+      "name": "产物流",
+      "direction": "out",
+      "medium": "用户确认介质",
+      "equipment_index": 2
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [],
+  "source": "项目既有 C001/C002/C003：文章第三章物料残液蒸馏处理示例；数值参数未移入模板",
+  "requires_confirmation": true
+}

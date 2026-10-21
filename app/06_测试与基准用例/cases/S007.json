@@ -1,0 +1,18 @@
+{
+  "id": "S007",
+  "category": "S",
+  "prompt": "把图纸整体旋转 90°",
+  "source": {
+    "type": "user_specified_robustness_case"
+  },
+  "expected": {
+    "outcome": [
+      "READY",
+      "READY_WITH_WARNINGS",
+      "WAITING_CONFIRMATION"
+    ],
+    "max_tool_calls": 40,
+    "max_seconds": 180
+  },
+  "base_case": "G001"
+}

@@ -1,0 +1,53 @@
+{
+ "id": "A011",
+ "category": "A",
+ "functions": [
+  "manage_external_references"
+ ],
+ "note": "口令里带上传文件的 file_ref（没说是哪个文件时模型应该反问）。",
+ "prompt": "把文件$XREF_FILE作为外部参照附着在200,0，比例2",
+ "prompt_asr": "把文件$XREF_FILE作为外部参照附着在二百逗号零，比例二",
+ "intents": [
+  "block_xref_constraint"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   }
+  ],
+  "xref_source": true
+ },
+ "steps": [
+  {
+   "tool": "manage_external_references",
+   "args": {
+    "action": "attach",
+    "xref_path_or_name": "$XREF_FILE",
+    "insert_point": "200,0",
+    "scale": 2
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "xrefs.0.status": "loaded"
+   }
+  },
+  {
+   "count": {
+    "kind": "insert",
+    "n": 1
+   }
+  }
+ ],
+ "mock_ok": false
+}

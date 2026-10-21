@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>智绘CAD · 化工设计绘图</title>
+  <link rel="stylesheet" href="cad.css" />
+  <link rel="stylesheet" href="shell.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">智绘CAD <span class="sub">化工设计绘图</span></div>
+    <select id="dwgSel" class="sel" title="选择图纸"></select>
+    <button id="btnNew" class="btn accent" type="button">＋ 新建</button>
+    <div class="seg wssub" id="wsSub" title="绘图工具：二维草图 / 注释 / 三维建模（流程图、设备图由对话直接生成，不用切换）">
+      <button data-ws="2d_drafting" type="button">二维草图</button><button data-ws="annotation" type="button">注释</button><button data-ws="3d_modeling" type="button">三维建模</button>
+    </div>
+    <button id="btnUndo" class="btn cadonly" type="button" title="撤销 (Ctrl+Z)">↶ 撤销</button>
+    <button id="btnRedo" class="btn cadonly" type="button" title="重做 (Ctrl+Y)">↷ 重做</button>
+    <span class="spacer"></span>
+    <span id="health" class="badge">…</span>
+    <button id="btnExport" class="btn cadonly" type="button" title="导出当前图纸；化工设备图的 PDF/PNG 从布局「设备图」出图">导出 DXF / PDF</button>
+    <button id="btnSettings" class="btn" type="button" title="API Key、模型、接口地址（两个页面共用）">⚙ 设置</button>
+    <button id="btnHelp" class="btn" type="button">帮助</button>
+  </header>
+
+  <div class="main">
+    <nav class="tools" id="tools"></nav>
+
+    <section class="center">
+      <div class="tabsbar" id="spaceTabs"></div>
+      <div class="stage" id="stage">
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg">
+          <defs id="defs"></defs>
+          <g id="paperG"></g>
+          <g id="world"><g id="gridG"></g><g id="entG"></g><g id="vpG"></g><g id="overG"></g></g>
+        </svg>
+        <img id="img3d" class="r3d" alt="三维视图" hidden />
+        <div class="sheetwrap" id="sheetWrap" hidden><img id="imgSheet" alt="设备图布局预览" draggable="false" /><div class="sheetmsg" id="sheetMsg"></div></div>
+        <div class="equipempty" id="equipEmpty" hidden></div>
+        <div class="pfdwrap" id="pfdWrap" hidden><img id="imgPfd" alt="工艺流程图预览" /><div class="pfdmsg" id="pfdMsg"></div></div>
+        <div class="hud" id="hud">未打开图纸</div>
+        <div class="viewctl" id="viewctl">
+          <button id="zIn" type="button" title="放大">＋</button><button id="zOut" type="button" title="缩小">－</button><button id="zExt" type="button" title="全部显示 (Z E)">⤢</button>
+        </div>
+        <div class="v3d" id="v3d" hidden></div>
+        <div class="tip" id="tip" hidden></div>
+      </div>
+      <div class="cmd">
+        <div class="cmdlog" id="cmdlog"></div>
+        <div class="cmdrow">
+          <span class="prompt" id="prompt">命令：</span>
+          <input id="cmdin" type="text" autocomplete="off" placeholder="直接说话：画一台立式储罐的设备图，内径1600…；画精馏工段的工艺流程图；也可输入命令 L 0,0 @100,0" />
+          <button id="btnMic" class="mic" type="button" title="语音输入（浏览器自带识别，说完可修改再发送）">🎤</button>
+          <label class="auto"><input id="autoSend" type="checkbox" /> 说完自动发送</label>
+          <button id="btnSend" class="btn accent" type="button">发送</button>
+        </div>
+        <div class="status" id="status">
+          <span class="coord" id="coord">X: —  Y: —</span>
+          <button data-flag="snap" title="捕捉 (F9)">SNAP</button><button data-flag="grid" title="栅格 (F7)">GRID</button><button data-flag="ortho" title="正交 (F8)">ORTHO</button>
+          <button data-flag="polar" title="极轴 (F10)">POLAR</button><button data-flag="osnap" title="对象捕捉 (F3)">OSNAP</button><button data-flag="otrack" title="对象追踪 (F11)">OTRACK</button>
+          <button data-flag="dyn" title="动态输入 (F12)">DYN</button><button data-flag="lw" title="显示线宽">LWT</button>
+          <span class="msg" id="smsg"></span>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="stabs" id="stabs">
+        <button data-p="vessel" type="button" hidden>设备参数</button><button data-p="chat" class="on" type="button">对话</button><button data-p="layers" type="button">图层</button><button data-p="props" type="button">特性</button><button data-p="info" type="button">信息</button>
+      </div>
+      <div class="pane" id="pane-chat"><div class="chatlog" id="chatlog"><div class="empty">用口语说就行，点一下例子会填进输入框：
+        <div class="examples">
+          <button type="button" data-ex="画一台立式储罐的设备图，内径1600，筒体高2400，标准椭圆封头，壁厚8，材料Q345R，设计压力0.6MPa，设计温度80℃，人孔DN500，进料口DN80，出料口DN80，两个液位计口DN25，四个耳式支座"><b>立式储罐设备图</b><span>参数齐全，直接出装配图</span></button>
+          <button type="button" data-ex="画一个卧式储罐装配图，内径2000，切线长6000，壁厚10，两个鞍座，管口有进料DN100、出料DN100、人孔DN500"><b>卧式储罐装配图</b><span>鞍座、切线长</span></button>
+          <button type="button" data-ex="画一个立式储罐"><b>只说设备名</b><span>系统一次问清图种和必填参数</span></button>
+          <button type="button" data-ex="画精馏工段的工艺流程图"><b>工艺流程图</b><span>同一个对话框里直接出流程图</span></button>
+        </div>
+        <span class="sub">出图后接着说就能改：“把进料口转到90度”“筒体加长500”“出一张管口方位图”“导出 DXF 和 PDF”。</span></div></div></div>
+      <div class="pane" id="pane-vessel" hidden></div>
+      <div class="pane" id="pane-layers" hidden></div>
+      <div class="pane props" id="pane-props" hidden></div>
+      <div class="pane" id="pane-info" hidden></div>
+    </aside>
+  </div>
+
+  <dialog id="dlgNew" style="border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel);color:var(--text)">
+    <form method="dialog">
+      <h3 style="margin:0 0 8px">新建图纸</h3>
+      <label>样板 <select id="tplSel" class="sel"></select></label><br /><br />
+      <label>标题 <input id="tplTitle" type="text" placeholder="可不填" style="border:1px solid var(--line);border-radius:6px;padding:3px 8px;background:var(--panel);color:var(--text)" /></label>
+      <div style="margin-top:14px;display:flex;gap:8px;justify-content:flex-end"><button class="btn" value="cancel">取消</button><button class="btn accent" id="tplOk" value="ok">新建</button></div>
+    </form>
+  </dialog>
+  <dialog id="dlgHelp" style="border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel);color:var(--text);max-width:760px;width:92vw">
+    <form method="dialog"><h3 style="margin:0 0 8px">帮助</h3><div id="helpBody" class="helpbox"></div><div style="margin-top:12px;text-align:right"><button class="btn accent">关闭</button></div></form>
+  </dialog>
+  <script src="shell.js"></script>
+  <script src="cad.js"></script>
+</body>
+</html>

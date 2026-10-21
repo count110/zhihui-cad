@@ -1,0 +1,120 @@
+{
+ "id": "E008",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 7：设计压力改成 1.0MPa。规则给的默认 PN 重新取档（10 → 16），用户指定过的 PN 不动（setup 里出料口 PN25 由用户指定，来源 user 且值不变）。语音写法用 kPa。",
+ "prompt": "设计压力改成1.0MPa",
+ "prompt_asr": "设计压力改成1000kPa",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口",
+        "pn": 25
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "set": {
+     "design.design_pressure_mpa": 1.0
+    }
+   },
+   "summary": "设计压力改为 1.0MPa"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_spec": {
+    "design.design_pressure_mpa": 1.0,
+    "nozzles[purpose=进料口].pn": 16,
+    "nozzles[M1].pn": 16,
+    "nozzles[purpose=出料口].pn": 25
+   }
+  },
+  {
+   "equip_sources": {
+    "design.design_pressure_mpa": "user",
+    "nozzles[purpose=进料口].pn": "rule",
+    "nozzles[M1].pn": "rule",
+    "nozzles[purpose=出料口].pn": "user"
+   }
+  },
+  {
+   "equip_user_kept": {
+    "except": [
+     "design.design_pressure_mpa"
+    ]
+   }
+  }
+ ],
+ "mock_ok": false
+}

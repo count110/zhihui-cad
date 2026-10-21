@@ -1,0 +1,128 @@
+{
+  "id": "recip_compressor",
+  "name_cn": "单级往复压缩机",
+  "aliases": [
+    "单级往复压缩机",
+    "往复压缩机",
+    "活塞式压缩机",
+    "往复式压缩机"
+  ],
+  "category": "C",
+  "family": "blower",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 单级往复压缩机（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -9,
+    -7,
+    8,
+    7
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        -6,
+        0
+      ],
+      "r": 3
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1,
+          -3
+        ],
+        [
+          8,
+          -3
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          4,
+          -2.5
+        ],
+        [
+          4,
+          2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -3
+        ],
+        [
+          6,
+          -7
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 6,
+      "y": -7,
+      "dir": "down",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6,
+      "y": 7,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 8,
+    "y": 9,
+    "align": "left"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "id": "submerged_pump",
+  "name_cn": "液下泵",
+  "aliases": [
+    "液下泵",
+    "潜液泵",
+    "立式液下泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 液下泵（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -2,
+    -13,
+    6,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -1,
+          -6
+        ],
+        [
+          1,
+          -6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          -1,
+          8
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          -10
+        ],
+        [
+          2,
+          -10
+        ],
+        [
+          2,
+          -6
+        ],
+        [
+          -2,
+          -6
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1,
+          7
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -10
+        ],
+        [
+          0,
+          -13
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 0,
+      "y": -13,
+      "dir": "down",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6,
+      "y": 7,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 2,
+    "y": 11,
+    "align": "left"
+  }
+}

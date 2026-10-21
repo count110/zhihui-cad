@@ -1,0 +1,17 @@
+{
+ "id": "F003",
+ "prompt": "画一个储罐，并标注它的直径和容积",
+ "expected": {
+  "outcome": [
+   "WAITING_CONFIRMATION",
+   "FAILED"
+  ]
+ },
+ "note": "缺少尺寸",
+ "steps": [
+  {
+   "ask": "请提供储罐的直径和容积数值，我不会自行假设。"
+  }
+ ],
+ "category": "F"
+}

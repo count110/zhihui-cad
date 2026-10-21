@@ -1,0 +1,163 @@
+{
+  "id": "sphere_tank",
+  "name_cn": "球罐",
+  "aliases": [
+    "球罐",
+    "球形储罐",
+    "球形罐"
+  ],
+  "category": "V",
+  "family": "sphere_tank",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 球罐（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -9.5,
+    -9,
+    9.5,
+    13
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        2
+      ],
+      "r": 8
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          2
+        ],
+        [
+          -8.5,
+          -7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          2
+        ],
+        [
+          8.5,
+          -7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9.5,
+          -7
+        ],
+        [
+          -7.5,
+          -7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7.5,
+          -7
+        ],
+        [
+          9.5,
+          -7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          13
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -6
+        ],
+        [
+          0,
+          -9
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 0,
+      "y": 13,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -9,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "axes": [
+    [
+      [
+        -10.5,
+        2
+      ],
+      [
+        10.5,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        -7
+      ],
+      [
+        0,
+        11
+      ]
+    ]
+  ],
+  "label": {
+    "x": 7,
+    "y": 13,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 5.66,
+      "y": 7.66,
+      "dir": "right",
+      "len": 3
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "id": "horizontal_vessel",
+  "name_cn": "卧式容器",
+  "aliases": [
+    "卧式容器",
+    "卧式罐",
+    "卧式储罐"
+  ],
+  "category": "V",
+  "family": "vessel",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 59 页 卧式容器",
+  "bbox": [
+    -15,
+    -8,
+    15,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          5
+        ],
+        [
+          12,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          -5
+        ],
+        [
+          12,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        -12,
+        0
+      ],
+      "rx": 3,
+      "ry": 5,
+      "start": 90,
+      "end": 270
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        12,
+        0
+      ],
+      "rx": 3,
+      "ry": 5,
+      "start": 270,
+      "end": 90
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          5
+        ],
+        [
+          -8,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          -5
+        ],
+        [
+          8,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 8,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 8,
+      "y": -8,
+      "dir": "down",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "gas_out",
+      "kind": "out",
+      "x": 8,
+      "y": 8,
+      "dir": "up",
+      "semantics": "卧式容器的gas_out出口"
+    }
+  ],
+  "axes": [
+    [
+      [
+        -17,
+        0
+      ],
+      [
+        17,
+        0
+      ]
+    ]
+  ],
+  "label": {
+    "x": -15,
+    "y": -9,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": -2,
+      "y": -5,
+      "dir": "down",
+      "len": 3
+    },
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": 0,
+      "y": 5,
+      "dir": "up",
+      "len": 3
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": -4,
+      "y": -5,
+      "dir": "down",
+      "len": 3
+    }
+  ]
+}

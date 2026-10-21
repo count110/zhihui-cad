@@ -1,0 +1,232 @@
+[
+  {
+    "operation": "new_drawing",
+    "tool": "create_drawing",
+    "phrases": [
+      "生成",
+      "画图"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "提供明确设备与连接或确认模板"
+  },
+  {
+    "operation": "place",
+    "tool": "place_equipment",
+    "phrases": [
+      "放设备",
+      "加设备"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "使用已有图元或通用同族替代"
+  },
+  {
+    "operation": "connect",
+    "tool": "connect_ports",
+    "phrases": [
+      "连接",
+      "管线"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "确认端口和边界终端"
+  },
+  {
+    "operation": "layout",
+    "tool": "auto_layout",
+    "phrases": [
+      "布局",
+      "排版"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "程序选合规图幅或请求分张"
+  },
+  {
+    "operation": "edit_title_block",
+    "tool": "edit_title_block",
+    "phrases": [
+      "设计单位",
+      "标题栏",
+      "工程名称",
+      "图号"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "仅填写用户明确提供的字段"
+  },
+  {
+    "operation": "delete_annotation",
+    "tool": "delete_annotation",
+    "phrases": [
+      "删标注",
+      "删除标注"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "明确确认实体 ID 后删除"
+  },
+  {
+    "operation": "edit_annotation",
+    "tool": "edit_annotation",
+    "phrases": [
+      "改标注",
+      "修改文字"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按实体 ID 改用户提供的文字"
+  },
+  {
+    "operation": "add_hatch",
+    "tool": "add_hatch",
+    "phrases": [
+      "填充",
+      "剖面线"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "使用设备命名区域；无区域时带警告跳过"
+  },
+  {
+    "operation": "move",
+    "tool": "move_equipment",
+    "phrases": [
+      "移动",
+      "挪动"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "请给出目标、方向和距离"
+  },
+  {
+    "operation": "rotate",
+    "tool": "unsupported",
+    "phrases": [
+      "图纸逆时针",
+      "图纸顺时针",
+      "整体旋转",
+      "整图旋转",
+      "整张图纸旋转",
+      "旋转整张",
+      "旋转整张图纸",
+      "逆时针旋转整",
+      "顺时针旋转整"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "当前不支持整图旋转；请导出 DXF 后在 CAD 软件中旋转",
+    "options": [
+      "导出 DXF 后在 CAD 中旋转",
+      "保留当前图纸"
+    ]
+  },
+  {
+    "operation": "inspect_drawing",
+    "tool": "inspect_drawing",
+    "phrases": [
+      "inspect_drawing"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "find_entities",
+    "tool": "find_entities",
+    "phrases": [
+      "find_entities"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "edit_equipment",
+    "tool": "edit_equipment",
+    "phrases": [
+      "edit_equipment"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "edit_hatch",
+    "tool": "edit_hatch",
+    "phrases": [
+      "edit_hatch"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "add_dimension",
+    "tool": "add_dimension",
+    "phrases": [
+      "add_dimension"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "add_detail_view",
+    "tool": "add_detail_view",
+    "phrases": [
+      "add_detail_view"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "add_schedule",
+    "tool": "add_schedule",
+    "phrases": [
+      "add_schedule"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "repeat_system",
+    "tool": "repeat_system",
+    "phrases": [
+      "repeat_system"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "add_instrument",
+    "tool": "add_instrument",
+    "phrases": [
+      "add_instrument"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "migrate_valves",
+    "tool": "migrate_valves",
+    "phrases": [
+      "migrate_valves"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "add_stream_table",
+    "tool": "add_stream_table",
+    "phrases": [
+      "add_stream_table"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "validate_drawing",
+    "tool": "validate_drawing",
+    "phrases": [
+      "validate_drawing"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  },
+  {
+    "operation": "export_artifacts",
+    "tool": "export_artifacts",
+    "phrases": [
+      "export_artifacts"
+    ],
+    "boundary": "仅支持本工具契约内的语义对象；校验与导出仅由调度器调用",
+    "fallback": "按工具契约使用；缺少必要参数时询问用户"
+  }
+]

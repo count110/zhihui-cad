@@ -1,0 +1,249 @@
+{
+  "id": "packed_tower",
+  "name_cn": "填料塔",
+  "aliases": [
+    "填料塔",
+    "吸收塔",
+    "解吸塔",
+    "洗涤塔",
+    "脱硫塔",
+    "湿法脱硫塔"
+  ],
+  "category": "T",
+  "family": "tower",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 54 页 填料塔",
+  "bbox": [
+    -9,
+    -26,
+    6,
+    26
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -20
+        ],
+        [
+          -6,
+          20
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -20
+        ],
+        [
+          6,
+          20
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        20
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -20
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          12
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          6,
+          -12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          12
+        ],
+        [
+          6,
+          -12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          23
+        ],
+        [
+          0,
+          26
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -23
+        ],
+        [
+          0,
+          -26
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -15
+        ],
+        [
+          -9,
+          -15
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          15
+        ],
+        [
+          -9,
+          15
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "feed",
+      "kind": "in",
+      "x": -9,
+      "y": -15,
+      "dir": "left",
+      "semantics": "进料口"
+    },
+    {
+      "name": "reflux_in",
+      "kind": "in",
+      "x": -9,
+      "y": 15,
+      "dir": "left",
+      "semantics": "填料塔的reflux_in入口"
+    },
+    {
+      "name": "top_out",
+      "kind": "out",
+      "x": 0,
+      "y": 26,
+      "dir": "up",
+      "semantics": "塔顶出口"
+    },
+    {
+      "name": "bottom_out",
+      "kind": "out",
+      "x": 0,
+      "y": -26,
+      "dir": "down",
+      "semantics": "塔底出口"
+    },
+    {
+      "name": "reboil_in",
+      "kind": "in",
+      "x": -9,
+      "y": -14,
+      "dir": "left",
+      "semantics": "再沸返回入口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 23,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": -3,
+      "y": 22.6,
+      "dir": "up",
+      "len": 2.5
+    },
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": 3,
+      "y": -22.6,
+      "dir": "down",
+      "len": 2.5
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 6,
+      "y": -18,
+      "dir": "right",
+      "len": 3
+    }
+  ]
+}

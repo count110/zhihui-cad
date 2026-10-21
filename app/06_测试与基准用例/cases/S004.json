@@ -1,0 +1,1089 @@
+{
+  "id": "S004",
+  "category": "S",
+  "name": "未确认的菜市场污水工艺",
+  "prompt": "生成菜市场污水工艺流程图",
+  "source": {
+    "type": "sqlite_events",
+    "task_id": "t_6b3dfab9d882",
+    "database_sha256": "0b387f6a26aa924663426a13d8bc6d158b6770336aaedc413aa47fb2df3b3182",
+    "original_status": "WAITING_CONFIRMATION",
+    "observed_tool_calls": 22,
+    "tool_counts": {
+      "create_drawing": 1,
+      "place_equipment": 1,
+      "connect_ports": 1,
+      "auto_layout": 7,
+      "validate_drawing": 5,
+      "move_equipment": 7
+    },
+    "reported_usage": {
+      "tool_calls": 22,
+      "prompt_tokens": 317270,
+      "completion_tokens": 3046,
+      "seconds": 141.6,
+      "models": [
+        "deepseek:deepseek-chat"
+      ]
+    },
+    "evidence_limits": "原库事件保存参数和摘要；缺失完整返回值时不补造。事件可能跨多次用户续接；reported_usage 为最后一次执行的统计。"
+  },
+  "historical_events": [
+    {
+      "id": 720,
+      "ts": 1792281681.1863406,
+      "kind": "status",
+      "payload": {
+        "status": "QUEUED"
+      }
+    },
+    {
+      "id": 721,
+      "ts": 1792281682.614218,
+      "kind": "status",
+      "payload": {
+        "status": "PLANNING"
+      }
+    },
+    {
+      "id": 722,
+      "ts": 1792281685.0569866,
+      "kind": "assistant",
+      "payload": {
+        "text": "我先创建图纸，并查看可用的图元。"
+      }
+    },
+    {
+      "id": 723,
+      "ts": 1792281685.0618486,
+      "kind": "status",
+      "payload": {
+        "status": "RUNNING"
+      }
+    },
+    {
+      "id": 724,
+      "ts": 1792281685.0896754,
+      "kind": "tool_call",
+      "payload": {
+        "name": "create_drawing",
+        "arguments": {
+          "title": "菜市场污水处理工艺流程图"
+        },
+        "ok": true,
+        "summary": "ok",
+        "ms": 20
+      }
+    },
+    {
+      "id": 725,
+      "ts": 1792281689.3246062,
+      "kind": "tool_call",
+      "payload": {
+        "name": "place_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "items": [
+            {
+              "symbol_id": "pit",
+              "tag": "V-101",
+              "name": "格栅集水井"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-102",
+              "name": "隔油调节池"
+            },
+            {
+              "symbol_id": "pump",
+              "tag": "P-101",
+              "name": "提升泵"
+            },
+            {
+              "symbol_id": "floc_sed_tank",
+              "tag": "V-103",
+              "name": "混凝沉淀池"
+            },
+            {
+              "symbol_id": "pipe_mixer",
+              "tag": "M-101",
+              "name": "管道混合器"
+            },
+            {
+              "symbol_id": "solution_tank",
+              "tag": "V-104",
+              "name": "PAC溶液池"
+            },
+            {
+              "symbol_id": "metering_pump",
+              "tag": "P-102",
+              "name": "PAC计量泵"
+            },
+            {
+              "symbol_id": "tank",
+              "tag": "V-105",
+              "name": "中间水池"
+            },
+            {
+              "symbol_id": "pump",
+              "tag": "P-103",
+              "name": "中间提升泵"
+            },
+            {
+              "symbol_id": "packed_tower",
+              "tag": "T-101",
+              "name": "生物接触氧化塔"
+            },
+            {
+              "symbol_id": "fan",
+              "tag": "C-101",
+              "name": "鼓风机"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-106",
+              "name": "二沉池"
+            },
+            {
+              "symbol_id": "valveless_filter",
+              "tag": "X-101",
+              "name": "砂滤池"
+            },
+            {
+              "symbol_id": "dosing_point",
+              "tag": "X-102",
+              "name": "消毒加药点"
+            },
+            {
+              "symbol_id": "clo2_generator",
+              "tag": "M-102",
+              "name": "二氧化氯发生器"
+            },
+            {
+              "symbol_id": "chem_drum",
+              "tag": "V-107",
+              "name": "盐酸罐"
+            },
+            {
+              "symbol_id": "chem_drum",
+              "tag": "V-108",
+              "name": "氯酸钠罐"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-109",
+              "name": "清水池"
+            },
+            {
+              "symbol_id": "pipe_terminal",
+              "tag": "X-103",
+              "name": "达标排放"
+            }
+          ]
+        },
+        "ok": true,
+        "summary": "equipment × 19",
+        "ms": 91
+      }
+    },
+    {
+      "id": 726,
+      "ts": 1792281689.3361254,
+      "kind": "tool_call",
+      "payload": {
+        "name": "connect_ports",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "items": [
+            {
+              "from_port": "V-101.out",
+              "to_port": "V-102.in",
+              "medium": "菜市场污水"
+            },
+            {
+              "from_port": "V-102.out",
+              "to_port": "P-101.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "P-101.out",
+              "to_port": "M-101.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "M-101.out",
+              "to_port": "V-103.in",
+              "medium": "加药污水"
+            },
+            {
+              "from_port": "V-104.out",
+              "to_port": "P-102.in",
+              "medium": "PAC溶液",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "P-102.out",
+              "to_port": "M-101.dose",
+              "medium": "PAC溶液",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "V-103.out",
+              "to_port": "V-105.in",
+              "medium": "沉淀出水"
+            },
+            {
+              "from_port": "V-105.out",
+              "to_port": "P-103.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "P-103.out",
+              "to_port": "T-101.feed",
+              "medium": "污水"
+            },
+            {
+              "from_port": "C-101.out",
+              "to_port": "T-101.reflux_in",
+              "medium": "空气",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "T-101.bottom_out",
+              "to_port": "V-106.in",
+              "medium": "生化出水"
+            },
+            {
+              "from_port": "V-106.out",
+              "to_port": "X-101.in",
+              "medium": "二沉出水"
+            },
+            {
+              "from_port": "X-101.out",
+              "to_port": "X-102.main_in",
+              "medium": "滤后水"
+            },
+            {
+              "from_port": "V-107.out",
+              "to_port": "M-102.acid_in",
+              "medium": "盐酸",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "V-108.out",
+              "to_port": "M-102.chlorate_in",
+              "medium": "氯酸钠",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "M-102.out",
+              "to_port": "X-102.dose",
+              "medium": "二氧化氯",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "X-102.main_out",
+              "to_port": "V-109.in",
+              "medium": "消毒水"
+            },
+            {
+              "from_port": "V-109.out",
+              "to_port": "X-103.in",
+              "medium": "达标出水"
+            }
+          ]
+        },
+        "ok": true,
+        "summary": "connections × 18",
+        "ms": 7
+      }
+    },
+    {
+      "id": 727,
+      "ts": 1792281690.6296012,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 355×364 mm，A3 可用 392×207 mm",
+        "ms": 6
+      }
+    },
+    {
+      "id": 728,
+      "ts": 1792281692.192392,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A2"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 355×364 mm，A2 可用 398×225 mm",
+        "ms": 4
+      }
+    },
+    {
+      "id": 729,
+      "ts": 1792281693.4446537,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A2",
+          "spacing": "compact"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 315×310 mm，A2 可用 398×225 mm",
+        "ms": 4
+      }
+    },
+    {
+      "id": 730,
+      "ts": 1792281694.687621,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A1",
+          "spacing": "compact"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 315×310 mm，A1 可用 392×227 mm",
+        "ms": 4
+      }
+    },
+    {
+      "id": 731,
+      "ts": 1792281696.2527332,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A1",
+          "spacing": "compact",
+          "direction": "LR"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 315×310 mm，A1 可用 392×227 mm",
+        "ms": 4
+      }
+    },
+    {
+      "id": 732,
+      "ts": 1792281697.8722117,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A0",
+          "spacing": "compact"
+        },
+        "ok": false,
+        "summary": "E_LAYOUT_OVERFLOW: 布局超出图幅：需要 315×310 mm，A0 可用 398×239 mm",
+        "ms": 4
+      }
+    },
+    {
+      "id": 733,
+      "ts": 1792281703.4172826,
+      "kind": "tool_call",
+      "payload": {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "mode": "full",
+          "paper_size": "A3x3",
+          "spacing": "compact"
+        },
+        "ok": true,
+        "summary": "full 布局 19 台，布线 18 条",
+        "ms": 4466
+      }
+    },
+    {
+      "id": 734,
+      "ts": 1792281705.0061002,
+      "kind": "tool_call",
+      "payload": {
+        "name": "validate_drawing",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "check_profile": "generate"
+        },
+        "ok": true,
+        "summary": "未通过：1 个错误",
+        "ms": 391
+      }
+    },
+    {
+      "id": 735,
+      "ts": 1792281706.4695342,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "equipment_ref": "C-101",
+          "dx": 0,
+          "dy": -2500
+        },
+        "ok": false,
+        "summary": "E_OVERLAP: C-101 会与 V-101 重叠",
+        "ms": 5
+      }
+    },
+    {
+      "id": 736,
+      "ts": 1792281708.956182,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": 0,
+          "dy": 2500,
+          "equipment_ref": "C-101"
+        },
+        "ok": true,
+        "summary": "C-101 → [4362.5, 17012.5]，重连 1 条",
+        "ms": 1242
+      }
+    },
+    {
+      "id": 737,
+      "ts": 1792281710.5462382,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": -2500,
+          "dy": 0,
+          "equipment_ref": "V-104"
+        },
+        "ok": true,
+        "summary": "V-104 → [1675.0, 10950.0]，重连 1 条",
+        "ms": 331
+      }
+    },
+    {
+      "id": 738,
+      "ts": 1792281711.9742546,
+      "kind": "tool_call",
+      "payload": {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "dwg_b79a4f0260"
+        },
+        "ok": true,
+        "summary": "未通过：1 个错误",
+        "ms": 218
+      }
+    },
+    {
+      "id": 739,
+      "ts": 1792281715.2474182,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": -3000,
+          "dy": 0,
+          "equipment_ref": "C-101"
+        },
+        "ok": true,
+        "summary": "C-101 → [1362.5, 17012.5]，重连 1 条",
+        "ms": 1288
+      }
+    },
+    {
+      "id": 740,
+      "ts": 1792281719.372761,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": 0,
+          "dy": -2500,
+          "equipment_ref": "M-102"
+        },
+        "ok": true,
+        "summary": "M-102 → [7775.0, 5387.5]，重连 3 条",
+        "ms": 2522
+      }
+    },
+    {
+      "id": 741,
+      "ts": 1792281720.9935434,
+      "kind": "tool_call",
+      "payload": {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "dwg_b79a4f0260"
+        },
+        "ok": true,
+        "summary": "未通过：2 个错误",
+        "ms": 203
+      }
+    },
+    {
+      "id": 742,
+      "ts": 1792281815.8726094,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": 0,
+          "dy": -2500,
+          "equipment_ref": "P-102"
+        },
+        "ok": true,
+        "summary": "P-102 → [7775.0, 7325.0]，重连 2 条",
+        "ms": 1431
+      }
+    },
+    {
+      "id": 743,
+      "ts": 1792281817.5123844,
+      "kind": "tool_call",
+      "payload": {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "dwg_b79a4f0260"
+        },
+        "ok": true,
+        "summary": "未通过：2 个错误",
+        "ms": 202
+      }
+    },
+    {
+      "id": 744,
+      "ts": 1792281819.7488463,
+      "kind": "tool_call",
+      "payload": {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "dwg_b79a4f0260",
+          "dx": -3000,
+          "dy": 0,
+          "equipment_ref": "V-102"
+        },
+        "ok": true,
+        "summary": "V-102 → [4775.0, 11450.0]，重连 2 条",
+        "ms": 665
+      }
+    },
+    {
+      "id": 745,
+      "ts": 1792281821.0489001,
+      "kind": "tool_call",
+      "payload": {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "dwg_b79a4f0260"
+        },
+        "ok": true,
+        "summary": "未通过：2 个错误",
+        "ms": 211
+      }
+    },
+    {
+      "id": 746,
+      "ts": 1792281822.776781,
+      "kind": "status",
+      "payload": {
+        "status": "WAITING_CONFIRMATION",
+        "question": "图已生成（A3x3 加长幅面，19 台设备、18 条管线），但左侧投药/集水区几台设备的文字互相压盖，微调两次仍未消除。您希望怎么处理？",
+        "options": [
+          "允许整图重新排布（auto_layout 全图重排，设备位置会整体变化）",
+          "保持现状，先导出看效果，文字压盖后续再调",
+          "把 PAC 投药系统、二氧化氯投药系统合并简化（减少设备数量）"
+        ]
+      }
+    }
+  ],
+  "historical_result": {
+    "message": "图已生成（A3x3 加长幅面，19 台设备、18 条管线），但左侧投药/集水区几台设备的文字互相压盖，微调两次仍未消除。您希望怎么处理？",
+    "drawing_id": "dwg_b79a4f0260",
+    "question": {
+      "question": "图已生成（A3x3 加长幅面，19 台设备、18 条管线），但左侧投药/集水区几台设备的文字互相压盖，微调两次仍未消除。您希望怎么处理？",
+      "options": [
+        "允许整图重新排布（auto_layout 全图重排，设备位置会整体变化）",
+        "保持现状，先导出看效果，文字压盖后续再调",
+        "把 PAC 投药系统、二氧化氯投药系统合并简化（减少设备数量）"
+      ]
+    },
+    "artifacts": [],
+    "validation": null,
+    "diff": null,
+    "usage": {
+      "tool_calls": 22,
+      "prompt_tokens": 317270,
+      "completion_tokens": 3046,
+      "seconds": 141.6,
+      "models": [
+        "deepseek:deepseek-chat"
+      ]
+    }
+  },
+  "inputs": [],
+  "steps": [
+    [
+      {
+        "name": "create_drawing",
+        "arguments": {
+          "title": "菜市场污水处理工艺流程图"
+        }
+      }
+    ],
+    [
+      {
+        "name": "place_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "items": [
+            {
+              "symbol_id": "pit",
+              "tag": "V-101",
+              "name": "格栅集水井"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-102",
+              "name": "隔油调节池"
+            },
+            {
+              "symbol_id": "pump",
+              "tag": "P-101",
+              "name": "提升泵"
+            },
+            {
+              "symbol_id": "floc_sed_tank",
+              "tag": "V-103",
+              "name": "混凝沉淀池"
+            },
+            {
+              "symbol_id": "pipe_mixer",
+              "tag": "M-101",
+              "name": "管道混合器"
+            },
+            {
+              "symbol_id": "solution_tank",
+              "tag": "V-104",
+              "name": "PAC溶液池"
+            },
+            {
+              "symbol_id": "metering_pump",
+              "tag": "P-102",
+              "name": "PAC计量泵"
+            },
+            {
+              "symbol_id": "tank",
+              "tag": "V-105",
+              "name": "中间水池"
+            },
+            {
+              "symbol_id": "pump",
+              "tag": "P-103",
+              "name": "中间提升泵"
+            },
+            {
+              "symbol_id": "packed_tower",
+              "tag": "T-101",
+              "name": "生物接触氧化塔"
+            },
+            {
+              "symbol_id": "fan",
+              "tag": "C-101",
+              "name": "鼓风机"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-106",
+              "name": "二沉池"
+            },
+            {
+              "symbol_id": "valveless_filter",
+              "tag": "X-101",
+              "name": "砂滤池"
+            },
+            {
+              "symbol_id": "dosing_point",
+              "tag": "X-102",
+              "name": "消毒加药点"
+            },
+            {
+              "symbol_id": "clo2_generator",
+              "tag": "M-102",
+              "name": "二氧化氯发生器"
+            },
+            {
+              "symbol_id": "chem_drum",
+              "tag": "V-107",
+              "name": "盐酸罐"
+            },
+            {
+              "symbol_id": "chem_drum",
+              "tag": "V-108",
+              "name": "氯酸钠罐"
+            },
+            {
+              "symbol_id": "clear_well",
+              "tag": "V-109",
+              "name": "清水池"
+            },
+            {
+              "symbol_id": "pipe_terminal",
+              "tag": "X-103",
+              "name": "达标排放"
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "connect_ports",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "items": [
+            {
+              "from_port": "V-101.out",
+              "to_port": "V-102.in",
+              "medium": "菜市场污水"
+            },
+            {
+              "from_port": "V-102.out",
+              "to_port": "P-101.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "P-101.out",
+              "to_port": "M-101.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "M-101.out",
+              "to_port": "V-103.in",
+              "medium": "加药污水"
+            },
+            {
+              "from_port": "V-104.out",
+              "to_port": "P-102.in",
+              "medium": "PAC溶液",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "P-102.out",
+              "to_port": "M-101.dose",
+              "medium": "PAC溶液",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "V-103.out",
+              "to_port": "V-105.in",
+              "medium": "沉淀出水"
+            },
+            {
+              "from_port": "V-105.out",
+              "to_port": "P-103.in",
+              "medium": "污水"
+            },
+            {
+              "from_port": "P-103.out",
+              "to_port": "T-101.feed",
+              "medium": "污水"
+            },
+            {
+              "from_port": "C-101.out",
+              "to_port": "T-101.reflux_in",
+              "medium": "空气",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "T-101.bottom_out",
+              "to_port": "V-106.in",
+              "medium": "生化出水"
+            },
+            {
+              "from_port": "V-106.out",
+              "to_port": "X-101.in",
+              "medium": "二沉出水"
+            },
+            {
+              "from_port": "X-101.out",
+              "to_port": "X-102.main_in",
+              "medium": "滤后水"
+            },
+            {
+              "from_port": "V-107.out",
+              "to_port": "M-102.acid_in",
+              "medium": "盐酸",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "V-108.out",
+              "to_port": "M-102.chlorate_in",
+              "medium": "氯酸钠",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "M-102.out",
+              "to_port": "X-102.dose",
+              "medium": "二氧化氯",
+              "line_type": "utility"
+            },
+            {
+              "from_port": "X-102.main_out",
+              "to_port": "V-109.in",
+              "medium": "消毒水"
+            },
+            {
+              "from_port": "V-109.out",
+              "to_port": "X-103.in",
+              "medium": "达标出水"
+            }
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A2"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A2",
+          "spacing": "compact"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A1",
+          "spacing": "compact"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A1",
+          "spacing": "compact",
+          "direction": "LR"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A0",
+          "spacing": "compact"
+        }
+      }
+    ],
+    [
+      {
+        "name": "auto_layout",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "mode": "full",
+          "paper_size": "A3x3",
+          "spacing": "compact"
+        }
+      }
+    ],
+    [
+      {
+        "name": "validate_drawing",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "check_profile": "generate"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "equipment_ref": "C-101",
+          "dx": 0,
+          "dy": -2500
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": 0,
+          "dy": 2500,
+          "equipment_ref": "C-101"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": -2500,
+          "dy": 0,
+          "equipment_ref": "V-104"
+        }
+      }
+    ],
+    [
+      {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "$drawing_id"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": -3000,
+          "dy": 0,
+          "equipment_ref": "C-101"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": 0,
+          "dy": -2500,
+          "equipment_ref": "M-102"
+        }
+      }
+    ],
+    [
+      {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "$drawing_id"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": 0,
+          "dy": -2500,
+          "equipment_ref": "P-102"
+        }
+      }
+    ],
+    [
+      {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "$drawing_id"
+        }
+      }
+    ],
+    [
+      {
+        "name": "move_equipment",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "dx": -3000,
+          "dy": 0,
+          "equipment_ref": "V-102"
+        }
+      }
+    ],
+    [
+      {
+        "name": "validate_drawing",
+        "arguments": {
+          "check_profile": "generate",
+          "drawing_id": "$drawing_id"
+        }
+      }
+    ],
+    {
+      "ask": "图已生成（A3x3 加长幅面，19 台设备、18 条管线），但左侧投药/集水区几台设备的文字互相压盖，微调两次仍未消除。您希望怎么处理？",
+      "options": [
+        "允许整图重新排布（auto_layout 全图重排，设备位置会整体变化）",
+        "保持现状，先导出看效果，文字压盖后续再调",
+        "把 PAC 投药系统、二氧化氯投药系统合并简化（减少设备数量）"
+      ]
+    }
+  ],
+  "expected": {
+    "outcome": [
+      "READY",
+      "SUCCEEDED",
+      "READY_WITH_WARNINGS",
+      "WAITING_CONFIRMATION",
+      "ASK_USER"
+    ],
+    "max_tool_calls": 40,
+    "max_seconds": 180
+  }
+}

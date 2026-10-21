@@ -1,0 +1,43 @@
+{
+ "id": "B007",
+ "category": "B",
+ "functions": [
+  "set_layer_state"
+ ],
+ "note": "",
+ "prompt": "冻结辅助线图层",
+ "prompt_asr": "冻结辅助线图成",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "manage_layers",
+    "args": {
+     "action": "create",
+     "layer_name": "辅助线"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "set_layer_state",
+   "args": {
+    "layer_name": "辅助线",
+    "is_frozen": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "layer": {
+    "name": "辅助线",
+    "frozen": true
+   }
+  }
+ ],
+ "mock_ok": true
+}

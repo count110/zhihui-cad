@@ -1,0 +1,1148 @@
+{
+  "id": "S001",
+  "category": "S",
+  "name": "修改设计单位时盲搜标题栏",
+  "prompt": "设计单位写广东石油化工学院",
+  "source": {
+    "type": "sqlite_events",
+    "task_id": "t_df0ba4f400b9",
+    "database_sha256": "0b387f6a26aa924663426a13d8bc6d158b6770336aaedc413aa47fb2df3b3182",
+    "original_status": "FAILED",
+    "observed_tool_calls": 40,
+    "tool_counts": {
+      "inspect_drawing": 1,
+      "find_entities": 39
+    },
+    "reported_usage": {
+      "tool_calls": 41,
+      "prompt_tokens": 573463,
+      "completion_tokens": 3448,
+      "seconds": 66.8,
+      "models": [
+        "deepseek:deepseek-chat"
+      ]
+    },
+    "evidence_limits": "原库事件保存参数和摘要；缺失完整返回值时不补造。事件可能跨多次用户续接；reported_usage 为最后一次执行的统计。"
+  },
+  "historical_events": [
+    {
+      "id": 770,
+      "ts": 1792292565.6287062,
+      "kind": "status",
+      "payload": {
+        "status": "QUEUED"
+      }
+    },
+    {
+      "id": 771,
+      "ts": 1792292567.0504215,
+      "kind": "status",
+      "payload": {
+        "status": "PLANNING"
+      }
+    },
+    {
+      "id": 772,
+      "ts": 1792292569.4879909,
+      "kind": "assistant",
+      "payload": {
+        "text": "我先读取这张图纸，确认标题栏和现有内容。"
+      }
+    },
+    {
+      "id": 773,
+      "ts": 1792292569.4924943,
+      "kind": "status",
+      "payload": {
+        "status": "RUNNING"
+      }
+    },
+    {
+      "id": 774,
+      "ts": 1792292569.570705,
+      "kind": "tool_call",
+      "payload": {
+        "name": "inspect_drawing",
+        "arguments": {
+          "file_ref": "drawings/dwg_dd6c3a060a/exports/r4/dwg_dd6c3a060a_r4.dxf"
+        },
+        "ok": true,
+        "summary": "equipment × 13",
+        "ms": 71
+      }
+    },
+    {
+      "id": 775,
+      "ts": 1792292571.1207666,
+      "kind": "assistant",
+      "payload": {
+        "text": "这张图是污水厂高程图，标题栏里的设计单位需要改成「广东石油化工学院」。我先确认标题栏文字对象的位置。"
+      }
+    },
+    {
+      "id": 776,
+      "ts": 1792292571.1322932,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 7
+      }
+    },
+    {
+      "id": 777,
+      "ts": 1792292572.467947,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "单位名称"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 778,
+      "ts": 1792292573.9000428,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计",
+          "layer": "TITLE"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 779,
+      "ts": 1792292575.3008032,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "广东石油化工学院"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 780,
+      "ts": 1792292576.9165242,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "污水厂高程图"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 781,
+      "ts": 1792292578.4441001,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "kind": "connection"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 782,
+      "ts": 1792292579.7717013,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "kind": "hatch"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 3
+      }
+    },
+    {
+      "id": 783,
+      "ts": 1792292581.3668945,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "GB_TEXT"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 784,
+      "ts": 1792292583.0991478,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 785,
+      "ts": 1792292584.980479,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TEXT"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 786,
+      "ts": 1792292587.1692493,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "0"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 787,
+      "ts": 1792292588.8195987,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 5
+      }
+    },
+    {
+      "id": 788,
+      "ts": 1792292590.6050885,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLEBLOCK"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 789,
+      "ts": 1792292592.4079971,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "GB_TITLE"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 790,
+      "ts": 1792292594.1388621,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BAR"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 791,
+      "ts": 1792292595.6475306,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TEXT_TITLE"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 792,
+      "ts": 1792292597.1230066,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_TEXT"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 793,
+      "ts": 1792292598.5214307,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_LINE"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 794,
+      "ts": 1792292600.1799824,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_1"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 795,
+      "ts": 1792292601.699174,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_2"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 796,
+      "ts": 1792292603.0173032,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_3"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 797,
+      "ts": 1792292604.6215262,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_4"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 798,
+      "ts": 1792292606.212953,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_5"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 799,
+      "ts": 1792292607.91782,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_6"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 800,
+      "ts": 1792292609.6129715,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_7"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 5
+      }
+    },
+    {
+      "id": 801,
+      "ts": 1792292611.1683428,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_8"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 802,
+      "ts": 1792292612.5099385,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_9"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 803,
+      "ts": 1792292613.9903316,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_10"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 804,
+      "ts": 1792292615.6268446,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_11"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 805,
+      "ts": 1792292617.2880883,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_12"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 806,
+      "ts": 1792292618.9105947,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_13"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 5
+      }
+    },
+    {
+      "id": 807,
+      "ts": 1792292620.426192,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_14"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 808,
+      "ts": 1792292622.042809,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_15"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 809,
+      "ts": 1792292623.5479918,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_16"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 810,
+      "ts": 1792292625.1265583,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_17"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 811,
+      "ts": 1792292626.5810785,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_18"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 812,
+      "ts": 1792292628.142563,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_19"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 813,
+      "ts": 1792292629.6199942,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_20"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 814,
+      "ts": 1792292631.017932,
+      "kind": "tool_call",
+      "payload": {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "dwg_3716af8bf8",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_21"
+        },
+        "ok": true,
+        "summary": "candidates × 0",
+        "ms": 4
+      }
+    },
+    {
+      "id": 815,
+      "ts": 1792292632.8339374,
+      "kind": "status",
+      "payload": {
+        "status": "FAILED",
+        "reason": "工具调用超过 40 次"
+      }
+    }
+  ],
+  "historical_result": {
+    "message": "工具调用超过 40 次",
+    "drawing_id": "dwg_3716af8bf8",
+    "question": null,
+    "artifacts": [],
+    "validation": null,
+    "diff": null,
+    "usage": {
+      "tool_calls": 41,
+      "prompt_tokens": 573463,
+      "completion_tokens": 3448,
+      "seconds": 66.8,
+      "models": [
+        "deepseek:deepseek-chat"
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "token": "$file_ref",
+      "original_file_ref": "drawings/dwg_dd6c3a060a/exports/r4/dwg_dd6c3a060a_r4.dxf",
+      "available": true,
+      "path": "replay_inputs/S001_1.dxf",
+      "sha256": "03c9c4db3e4ebbac603a0376d8dc65d61dbd41f756997d0bd84aa7a97e437388"
+    }
+  ],
+  "steps": [
+    [
+      {
+        "name": "inspect_drawing",
+        "arguments": {
+          "file_ref": "$file_ref"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "单位名称"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计",
+          "layer": "TITLE"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "广东石油化工学院"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "污水厂高程图"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "kind": "connection"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "kind": "hatch"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "GB_TEXT"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TEXT"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "0"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLEBLOCK"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "GB_TITLE"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BAR"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TEXT_TITLE"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_TEXT"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_LINE"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_1"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_2"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_3"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_4"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_5"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_6"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_7"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_8"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_9"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_10"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_11"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_12"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_13"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_14"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_15"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_16"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_17"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_18"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_19"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_20"
+        }
+      }
+    ],
+    [
+      {
+        "name": "find_entities",
+        "arguments": {
+          "drawing_id": "$drawing_id",
+          "query": "设计单位",
+          "layer": "TITLE_BLOCK_TEXT_21"
+        }
+      }
+    ],
+    {
+      "say": "回放的历史工具序列已结束，请程序审图并交付。"
+    }
+  ],
+  "expected": {
+    "outcome": [
+      "READY",
+      "SUCCEEDED",
+      "READY_WITH_WARNINGS",
+      "WAITING_CONFIRMATION",
+      "ASK_USER"
+    ],
+    "max_tool_calls": 40,
+    "max_seconds": 180
+  }
+}

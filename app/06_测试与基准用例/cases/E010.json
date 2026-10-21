@@ -1,0 +1,120 @@
+{
+ "id": "E010",
+ "category": "E",
+ "functions": [
+  "vessel_generate_drawing"
+ ],
+ "note": "演示口令 10：导出 DXF 和 PDF。成功判据⑥：产出 DXF 和 PDF，PDF 来源标记为 layout:设备图（从布局渲染）；DXF 读回能看到布局「设备图」和管口表等文字。导出不改图，不落版本。",
+ "prompt": "导出 DXF 和 PDF",
+ "prompt_asr": "导出 dxf 和 pdf 文件",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_generate_drawing",
+   "args": {
+    "export": [
+     "dxf",
+     "pdf"
+    ]
+   },
+   "summary": "导出 DXF 和 PDF"
+  }
+ ],
+ "assert": [
+  {
+   "artifact": "dxf"
+  },
+  {
+   "artifact": "pdf"
+  },
+  {
+   "artifact_source": {
+    "format": "pdf",
+    "source": "layout:设备图"
+   }
+  },
+  {
+   "artifact_source": {
+    "format": "dxf",
+    "source": "model+layouts",
+    "layouts_has": [
+     "设备图"
+    ],
+    "texts_has": [
+     "管口表",
+     "设计数据表",
+     "技术要求",
+     "方案图"
+    ]
+   }
+  },
+  {
+   "revisions_added": 0
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  }
+ ],
+ "mock_ok": false
+}

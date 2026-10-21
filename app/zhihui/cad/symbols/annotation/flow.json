@@ -1,0 +1,34 @@
+{
+ "id": "flow",
+ "name_cn": "流向半箭头",
+ "source": "按参考图画法",
+ "graphics": [
+  {
+   "type": "polyline",
+   "points": [
+    [
+     -4,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     4,
+     0
+    ],
+    [
+     1.8,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "attribs": []
+}

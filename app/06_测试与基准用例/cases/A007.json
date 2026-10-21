@@ -1,0 +1,74 @@
+{
+ "id": "A007",
+ "category": "A",
+ "functions": [
+  "manage_layout_viewports"
+ ],
+ "note": "",
+ "prompt": "开一个1比2的视口并锁定",
+ "prompt_asr": "开一个一比二的视口并锁定",
+ "intents": [
+  "layout_plotting"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   },
+   {
+    "tool": "switch_model_and_layout_space",
+    "args": {
+     "target_space": "Model",
+     "layout_action": "create",
+     "new_layout_name": "布局1",
+     "paper_size": "ISO_A3"
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "manage_layout_viewports",
+   "args": {
+    "layout_name": "布局1",
+    "action": "create",
+    "standard_scale": "1:2"
+   }
+  },
+  {
+   "tool": "manage_layout_viewports",
+   "args": {
+    "layout_name": "布局1",
+    "action": "lock",
+    "viewport_id": "$s1.data.viewport_id"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "layout": {
+    "name": "布局1",
+    "viewports": 1,
+    "scale": "1:2",
+    "locked": true
+   }
+  }
+ ],
+ "mock_ok": true
+}

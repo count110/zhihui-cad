@@ -1,0 +1,51 @@
+{
+ "id": "D003",
+ "category": "D",
+ "functions": [
+  "draw_polygons_and_meshes"
+ ],
+ "note": "",
+ "prompt": "画一个矩形，左下角在0,0，长120宽80",
+ "prompt_asr": "画一个举行，左下角在零零，长一百二十宽八十",
+ "intents": [
+  "2d_drafting"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "draw_polygons_and_meshes",
+   "args": {
+    "shape_type": "rectangle",
+    "corner1": "0,0",
+    "width": 120,
+    "height": 80
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "polyline",
+    "n": 1
+   }
+  },
+  {
+   "entity": {
+    "kind": "polyline",
+    "tags_has": [
+     "rectangle"
+    ],
+    "data": {
+     "vertices.2.p": [
+      120,
+      80,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

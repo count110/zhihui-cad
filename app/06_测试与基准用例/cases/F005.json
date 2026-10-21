@@ -1,0 +1,26 @@
+{
+ "id": "F005",
+ "file": "corrupt",
+ "prompt": "把 P-101 右移 100 mm",
+ "expected": {
+  "outcome": [
+   "WAITING_CONFIRMATION",
+   "FAILED"
+  ]
+ },
+ "note": "文件损坏",
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  {
+   "say": "上传的文件已损坏，无法读取，原件未改动。"
+  }
+ ],
+ "category": "F"
+}

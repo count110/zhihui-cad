@@ -1,0 +1,518 @@
+{
+ "id": "C003",
+ "category": "C",
+ "source": "文章《化工工艺流程图制图标准》第三章「物料残液蒸馏处理系统」（数据按文章图转录，算作用户给的数据）",
+ "prompt": "画物料残液蒸馏处理系统的施工流程图（带控制点的工艺流程图，按文章图 3-4），工段号 06。设备：反应蒸馏釜 R0601（F=110m²）、冷凝器 E0601（F=60m²）、真空受槽 V0605A、V0605B（各 F=150m²，两台都画）。管道（材料 B）：第 5 张图 P0601 来的循环冷却水上水 CW0601-57×3.5 进釜顶，另一路 CW0602-32×3.5 进冷凝器壳程；第 5 张图 V0606 来的工艺液体 PL0601-57×3.5B 进釜顶；第 5 张图 F0601 来的低压蒸汽 LS0601 进夹套（夹套前加检修用法兰）；釜顶放空 VT0601-57×3.5B 接放空总管；釜顶工艺气体 PG0601-57×3.5B 去冷凝器；冷凝器出循环冷却水回水 HW0601-32×3.5，循环冷却水下水；冷凝液 PL0602-32×3.5B（带视镜）分别进 V0605A、V0605B；V0605A、V0605B 放空 VT0602-32×3.5B、VT0603-32×3.5B 接放空总管；抽真空 VE0601-32×3.5B、VE0602-32×3.5B 去第 6 张图 P0602；V0605A 出料 PL0604-32×3.5B 去第 6 张图 V0610，V0605B 出料 PL0603-32×3.5B 去第 6 张图 V0609；釜底出料 PL0606 向左去第 5 张图 V0607；夹套冷凝水 SC0601 排出（蒸汽冷凝水）。每根管线上都有截止阀。仪表：R0601 温度指示 TI 0601，V0605A 压力指示 PI 0601，V0605B 压力指示 PI 0602。",
+ "reference": [
+  "reference/C003_图3-4_施工流程图_左.png",
+  "reference/C003_图3-4_施工流程图_右.png"
+ ],
+ "plan": {
+  "title": "物料残液蒸馏处理系统 施工流程图",
+  "paper_size": "A1",
+  "stage": "construction",
+  "section_no": "06",
+  "equipment": [
+   {
+    "symbol_id": "kettle_jacketed",
+    "tag": "R0601",
+    "name": "反应蒸馏釜",
+    "params": {
+     "feature": "F=110m²"
+    }
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E0601",
+    "name": "冷凝器",
+    "params": {
+     "feature": "F=60m²"
+    }
+   },
+   {
+    "symbol_id": "vacuum_receiver",
+    "tag": "V0605A",
+    "name": "真空受槽",
+    "params": {
+     "feature": "F=150m²"
+    }
+   },
+   {
+    "symbol_id": "vacuum_receiver",
+    "tag": "V0605B",
+    "name": "真空受槽",
+    "params": {
+     "feature": "F=150m²"
+    }
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X4",
+    "name": "放空"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X5",
+    "name": "循环冷却水下水"
+   },
+   {
+    "symbol_id": "pipe_terminal",
+    "tag": "X9",
+    "name": "蒸汽冷凝水"
+   }
+  ],
+  "connections": [
+   {
+    "from_sheet": {
+     "sheet": "5",
+     "ref": "P0601"
+    },
+    "to_port": "R0601.feed",
+    "medium": "循环冷却水上水",
+    "line_type": "utility",
+    "pipe_no": "CW0601",
+    "od": "57",
+    "wall": "3.5",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "to-12"
+     }
+    ]
+   },
+   {
+    "from_port": "P0601.out",
+    "to_port": "E0601.shell_in",
+    "medium": "循环冷却水上水",
+    "line_type": "utility",
+    "pipe_no": "CW0602",
+    "od": "32",
+    "wall": "3.5",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "to-12"
+     }
+    ]
+   },
+   {
+    "from_sheet": {
+     "sheet": "5",
+     "ref": "V0606"
+    },
+    "to_port": "R0601.feed",
+    "medium": "工艺液体",
+    "pipe_no": "PL0601",
+    "od": "57",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "to-12"
+     }
+    ]
+   },
+   {
+    "from_sheet": {
+     "sheet": "5",
+     "ref": "F0601"
+    },
+    "to_port": "R0601.steam_in",
+    "medium": "低压蒸汽",
+    "line_type": "utility",
+    "pipe_no": "LS0601",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "to-16"
+     },
+     {
+      "type": "flange",
+      "at": "to-7",
+      "for_maintenance": true
+     }
+    ]
+   },
+   {
+    "from_port": "R0601.vent",
+    "to_port": "X4.in",
+    "medium": "放空气",
+    "line_type": "auxiliary",
+    "pipe_no": "VT0601",
+    "od": "57",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+10"
+     }
+    ]
+   },
+   {
+    "from_port": "R0601.vapor_out",
+    "to_port": "E0601.in",
+    "medium": "工艺气体",
+    "pipe_no": "PG0601",
+    "od": "57",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+10"
+     }
+    ]
+   },
+   {
+    "from_port": "E0601.shell_out",
+    "to_port": "X5.in",
+    "medium": "循环冷却水回水",
+    "line_type": "utility",
+    "pipe_no": "HW0601",
+    "od": "32",
+    "wall": "3.5"
+   },
+   {
+    "from_port": "E0601.out",
+    "to_port": "V0605A.in",
+    "medium": "工艺液体",
+    "pipe_no": "PL0602",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "sight_glass",
+      "at": "from+12"
+     },
+     {
+      "type": "globe_valve",
+      "at": "to-10"
+     }
+    ]
+   },
+   {
+    "from_port": "E0601.out",
+    "to_port": "V0605B.in",
+    "medium": "工艺液体",
+    "pipe_no": "PL0602",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "to-10"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605A.vent",
+    "to_port": "X4.in",
+    "medium": "放空气",
+    "line_type": "auxiliary",
+    "pipe_no": "VT0602",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605B.vent",
+    "to_port": "X4.in",
+    "medium": "放空气",
+    "line_type": "auxiliary",
+    "pipe_no": "VT0603",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605A.vac_out",
+    "to_sheet": {
+     "sheet": "6",
+     "ref": "P0602"
+    },
+    "medium": "真空排放气",
+    "line_type": "auxiliary",
+    "pipe_no": "VE0601",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605B.vac_out",
+    "to_port": "P0602.in",
+    "medium": "真空排放气",
+    "line_type": "auxiliary",
+    "pipe_no": "VE0602",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605A.out",
+    "to_sheet": {
+     "sheet": "6",
+     "ref": "V0610"
+    },
+    "medium": "工艺液体",
+    "pipe_no": "PL0604",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "V0605B.out",
+    "to_sheet": {
+     "sheet": "6",
+     "ref": "V0609"
+    },
+    "medium": "工艺液体",
+    "pipe_no": "PL0603",
+    "od": "32",
+    "wall": "3.5",
+    "material": "B",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "R0601.out",
+    "to_sheet": {
+     "sheet": "5",
+     "ref": "V0607",
+     "side": "left"
+    },
+    "medium": "工艺液体",
+    "pipe_no": "PL0606",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   },
+   {
+    "from_port": "R0601.cond_out",
+    "to_port": "X9.in",
+    "medium": "蒸汽冷凝水",
+    "line_type": "utility",
+    "pipe_no": "SC0601",
+    "fittings": [
+     {
+      "type": "globe_valve",
+      "at": "from+8"
+     }
+    ]
+   }
+  ],
+  "instruments": [
+   {
+    "letters": "TI",
+    "attach_to": "R0601",
+    "loop_no": "0601"
+   },
+   {
+    "letters": "PI",
+    "attach_to": "V0605A",
+    "loop_no": "0601"
+   },
+   {
+    "letters": "PI",
+    "attach_to": "V0605B",
+    "loop_no": "0602"
+   }
+  ]
+ },
+ "expected": {
+  "stage": "construction",
+  "equipment": [
+   {
+    "tag": "R0601",
+    "symbol_id": "kettle_jacketed"
+   },
+   {
+    "tag": "E0601",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "V0605A",
+    "symbol_id": "vacuum_receiver"
+   },
+   {
+    "tag": "V0605B",
+    "symbol_id": "vacuum_receiver"
+   },
+   {
+    "tag": "X4",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X5",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "X9",
+    "symbol_id": "pipe_terminal"
+   },
+   {
+    "tag": "P0601",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "V0606",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "F0601",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "P0602",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "V0610",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "V0609",
+    "symbol_id": "offsheet"
+   },
+   {
+    "tag": "V0607",
+    "symbol_id": "offsheet_left"
+   }
+  ],
+  "connections": [
+   [
+    "P0601",
+    "R0601"
+   ],
+   [
+    "P0601",
+    "E0601"
+   ],
+   [
+    "V0606",
+    "R0601"
+   ],
+   [
+    "F0601",
+    "R0601"
+   ],
+   [
+    "R0601",
+    "X4"
+   ],
+   [
+    "R0601",
+    "E0601"
+   ],
+   [
+    "E0601",
+    "X5"
+   ],
+   [
+    "E0601",
+    "V0605A"
+   ],
+   [
+    "E0601",
+    "V0605B"
+   ],
+   [
+    "V0605A",
+    "X4"
+   ],
+   [
+    "V0605B",
+    "X4"
+   ],
+   [
+    "V0605A",
+    "P0602"
+   ],
+   [
+    "V0605B",
+    "P0602"
+   ],
+   [
+    "V0605A",
+    "V0610"
+   ],
+   [
+    "V0605B",
+    "V0609"
+   ],
+   [
+    "R0601",
+    "V0607"
+   ],
+   [
+    "R0601",
+    "X9"
+   ]
+  ],
+  "require": [
+   "frame",
+   "features",
+   "nozzles",
+   "fittings",
+   "instruments",
+   "pipe_labels",
+   "legend",
+   "offsheet"
+  ],
+  "pipe_labels": [
+   "CW0601-57×3.5",
+   "PL0601-57×3.5B",
+   "LS0601",
+   "PG0601-57×3.5B",
+   "PL0602-32×3.5B",
+   "VE0601-32×3.5B",
+   "SC0601"
+  ],
+  "instruments": [
+   "TI0601",
+   "PI0601",
+   "PI0602"
+  ],
+  "self_check_errors": 0
+ }
+}

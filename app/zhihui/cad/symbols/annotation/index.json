@@ -1,0 +1,50 @@
+{
+ "id": "index",
+ "name_cn": "索引符号",
+ "source": "GB/T 50001-2017 第 7.2 节 索引符号与详图符号",
+ "graphics": [
+  {
+   "type": "circle",
+   "c": [
+    0,
+    0
+   ],
+   "r": 5
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     -5,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ]
+  }
+ ],
+ "attribs": [
+  {
+   "tag": "NO",
+   "p": [
+    0,
+    0.8
+   ],
+   "role": "small",
+   "align": "BOTTOM_CENTER",
+   "default": "1"
+  },
+  {
+   "tag": "SHEET",
+   "p": [
+    0,
+    -0.8
+   ],
+   "role": "small",
+   "align": "TOP_CENTER",
+   "default": "-"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "id": "A001",
+ "category": "A",
+ "functions": [
+  "create_text_annotation"
+ ],
+ "note": "",
+ "prompt": "在10,10处写文字技术要求，字高5",
+ "prompt_asr": "在十逗号十处写文字技术要求，字高五",
+ "intents": [
+  "annotation_dimension"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "create_text_annotation",
+   "args": {
+    "text_type": "single_line",
+    "content": "技术要求",
+    "insert_point": "10,10",
+    "height": 5
+   }
+  }
+ ],
+ "assert": [
+  {
+   "text": "技术要求"
+  },
+  {
+   "entity": {
+    "kind": "text",
+    "data": {
+     "height": 5,
+     "p": [
+      10,
+      10,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

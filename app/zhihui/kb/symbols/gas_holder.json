@@ -1,0 +1,271 @@
+{
+  "id": "gas_holder",
+  "name_cn": "湿式气柜",
+  "aliases": [
+    "湿式气柜",
+    "气柜",
+    "储气柜"
+  ],
+  "category": "V",
+  "family": "gas_holder",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 湿式气柜（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -8,
+    -11,
+    8,
+    10
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          1
+        ],
+        [
+          -8,
+          -8
+        ],
+        [
+          8,
+          -8
+        ],
+        [
+          8,
+          1
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -6
+        ],
+        [
+          -6,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -6
+        ],
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "type": "arc",
+      "c": [
+        0,
+        4
+      ],
+      "r": 6,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          -4
+        ],
+        [
+          -6,
+          -4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -4
+        ],
+        [
+          8,
+          -4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          -5
+        ],
+        [
+          -4,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -5
+        ],
+        [
+          -2,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -1,
+          -5
+        ],
+        [
+          0,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          1,
+          -5
+        ],
+        [
+          2,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          -5
+        ],
+        [
+          4,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -6.5
+        ],
+        [
+          -3,
+          -6.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          -6.5
+        ],
+        [
+          -1,
+          -6.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -6.5
+        ],
+        [
+          1,
+          -6.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          2,
+          -6.5
+        ],
+        [
+          3,
+          -6.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -3,
+          -8
+        ],
+        [
+          -3,
+          -11
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          -8
+        ],
+        [
+          3,
+          -11
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -3,
+      "y": -11,
+      "dir": "down",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 3,
+      "y": -11,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 10,
+    "align": "left"
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "id": "solution_tank",
+  "name_cn": "溶液池",
+  "aliases": [
+    "溶液池",
+    "溶药池",
+    "PAC溶液池",
+    "PAC 溶液池",
+    "聚合氯化铝溶液池",
+    "溶液箱",
+    "加药箱"
+  ],
+  "category": "V",
+  "family": "solution_tank",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -10,
+    -12,
+    13,
+    15
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -10,
+          -12
+        ],
+        [
+          10,
+          -12
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          -10,
+          10
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9.5,
+          7
+        ],
+        [
+          9.5,
+          7
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          8.5
+        ],
+        [
+          7,
+          8.5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2,
+          10
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          -2,
+          14
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          -4
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -2.5
+        ],
+        [
+          4,
+          -5.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -4,
+          -5.5
+        ],
+        [
+          4,
+          -2.5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          10
+        ],
+        [
+          -6,
+          15
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          10,
+          -9
+        ],
+        [
+          13,
+          -9
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "water_in",
+      "kind": "in",
+      "x": -6,
+      "y": 15,
+      "dir": "up",
+      "semantics": "溶液池的water_in入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 13,
+      "y": -9,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 14,
+    "y": 15,
+    "align": "left"
+  },
+  "regions": {
+    "fill": {
+      "points": [
+        [
+          -9.4,
+          -11.4
+        ],
+        [
+          -9.4,
+          9.4
+        ],
+        [
+          9.4,
+          9.4
+        ],
+        [
+          9.4,
+          -11.4
+        ]
+      ],
+      "description": "图元内部填充区域（图纸几何定义，不代表工艺设计数值）"
+    },
+    "wall": {
+      "points": [
+        [
+          -8,
+          -12
+        ],
+        [
+          11,
+          -12
+        ],
+        [
+          11,
+          -11.4
+        ],
+        [
+          -8,
+          -11.4
+        ]
+      ],
+      "description": "池壁/设备壳体剖面区域"
+    }
+  }
+}

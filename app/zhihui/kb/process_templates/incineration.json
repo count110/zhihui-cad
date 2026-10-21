@@ -1,0 +1,158 @@
+{
+  "id": "incineration",
+  "name": "生活垃圾焚烧烟气处理",
+  "keywords": [
+    "垃圾焚烧",
+    "焚烧烟气",
+    "烟气处理"
+  ],
+  "initials": [
+    "ljfs",
+    "yqcl"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "pit",
+      "name": "垃圾储坑",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "grate_incinerator",
+      "name": "焚烧炉",
+      "tag_prefix": "F",
+      "family": "furnace",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "boiler",
+      "name": "余热锅炉",
+      "tag_prefix": "F",
+      "family": "boiler",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "spray_tower",
+      "name": "急冷塔",
+      "tag_prefix": "T",
+      "family": "tower",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "dust_collector",
+      "name": "布袋除尘器",
+      "tag_prefix": "V",
+      "family": "dust",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "fan",
+      "name": "引风机",
+      "tag_prefix": "C",
+      "family": "blower",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "stack",
+      "name": "烟囱",
+      "tag_prefix": "S",
+      "family": "stack",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "助燃空气",
+      "direction": "in",
+      "medium": "助燃空气",
+      "equipment_index": 1,
+      "port": "air_in"
+    },
+    {
+      "name": "蒸汽外送",
+      "direction": "out",
+      "medium": "蒸汽",
+      "equipment_index": 2,
+      "port": "out"
+    },
+    {
+      "name": "急冷水",
+      "direction": "in",
+      "medium": "急冷水",
+      "equipment_index": 3,
+      "port": "spray_in"
+    },
+    {
+      "name": "飞灰",
+      "direction": "out",
+      "medium": "飞灰",
+      "equipment_index": 4,
+      "port": "dust_out"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "助燃空气",
+      "direction": "in",
+      "medium": "助燃空气",
+      "equipment_index": 1,
+      "port": "air_in"
+    },
+    {
+      "name": "蒸汽外送",
+      "direction": "out",
+      "medium": "蒸汽",
+      "equipment_index": 2,
+      "port": "out"
+    },
+    {
+      "name": "急冷水",
+      "direction": "in",
+      "medium": "急冷水",
+      "equipment_index": 3,
+      "port": "spray_in"
+    },
+    {
+      "name": "飞灰",
+      "direction": "out",
+      "medium": "飞灰",
+      "equipment_index": 4,
+      "port": "dust_out"
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [
+    {
+      "target_index": 0,
+      "region": "fill"
+    },
+    {
+      "target_index": 1,
+      "region": "fill"
+    },
+    {
+      "target_index": 2,
+      "region": "fill"
+    },
+    {
+      "target_index": 3,
+      "region": "fill"
+    },
+    {
+      "target_index": 4,
+      "region": "fill"
+    }
+  ],
+  "source": "团队整理，待专业确认；仅为工艺方案示意，不含工程设计参数",
+  "requires_confirmation": true
+}

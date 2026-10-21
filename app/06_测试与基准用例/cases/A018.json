@@ -1,0 +1,35 @@
+{
+ "id": "A018",
+ "category": "A",
+ "functions": [
+  "manage_symbol_library"
+ ],
+ "note": "",
+ "prompt": "插入电阻符号到50,50",
+ "prompt_asr": "插入电阻符号到五十逗号五十",
+ "intents": [
+  "engineering_specialty"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "manage_symbol_library",
+   "args": {
+    "action": "insert_symbol",
+    "symbol_keyword_or_id": "电阻",
+    "insert_point": "50,50"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "block": {
+    "name": "SYM_resistor",
+    "inserts": 1
+   }
+  }
+ ],
+ "mock_ok": true
+}

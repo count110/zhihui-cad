@@ -1,0 +1,43 @@
+{
+ "id": "B002",
+ "category": "B",
+ "functions": [
+  "manage_document_file"
+ ],
+ "note": "",
+ "prompt": "新建一张A3建筑图，导出成DXF",
+ "prompt_asr": "新建一张 A3 建筑图，导出成 DXF 文件",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": null,
+ "steps": [
+  {
+   "tool": "manage_document_file",
+   "args": {
+    "action": "new",
+    "template_name": "gb_a3_arch"
+   }
+  },
+  {
+   "tool": "manage_document_file",
+   "args": {
+    "action": "save",
+    "drawing_id": "$s1.drawing_id",
+    "format": "dxf",
+    "dxf_version": "R2018"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "artifact": "dxf"
+  },
+  {
+   "drawing": {
+    "mode": "general"
+   }
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,209 @@
+{
+ "id": "gb10609",
+ "name": "GB/T 10609.1 标题栏（简化，180×40）",
+ "source": "GB/T 10609.1-2008 第 4、5 条：标题栏位于图框右下角，外框粗实线、内格细实线；签字区、名称及代号区、其他区",
+ "size": [
+  180,
+  40
+ ],
+ "skip_edges": [
+  "right",
+  "bottom"
+ ],
+ "required": [
+  "drawing_name",
+  "drawing_no",
+  "scale_text",
+  "date"
+ ],
+ "auto": {
+  "drawing_name": "title",
+  "drawing_no": "revision_no",
+  "scale_text": "not_to_scale",
+  "date": "today"
+ },
+ "sign_area": {
+  "x": [
+   0,
+   12,
+   37,
+   55
+  ],
+  "y": [
+   0,
+   40
+  ],
+  "roles": [
+   "设计",
+   "校核",
+   "审核",
+   "批准"
+  ],
+  "date_column": true
+ },
+ "cells": [
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    30,
+    40
+   ],
+   "field": "unit_name",
+   "role": "unit_name",
+   "placeholder": "（设计单位名称）"
+  },
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    8,
+    30
+   ],
+   "field": "drawing_name",
+   "role": "drawing_name",
+   "placeholder": "（图样名称）"
+  },
+  {
+   "x": [
+    55,
+    125
+   ],
+   "y": [
+    0,
+    8
+   ],
+   "text": "示意图，工程使用需专业审核",
+   "role": "title_block_note"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "text": "工程名称",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "field": "project",
+   "role": "title_block_value",
+   "placeholder": "（工程名称）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "text": "设计阶段",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "field": "stage",
+   "role": "title_block_value",
+   "default": "工艺流程图"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    16,
+    24
+   ],
+   "text": "图号",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    16,
+    24
+   ],
+   "field": "drawing_no",
+   "role": "title_block_value",
+   "placeholder": "（图号）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    8,
+    16
+   ],
+   "text": "比例",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    8,
+    16
+   ],
+   "field": "scale_text",
+   "role": "title_block_value",
+   "placeholder": "（比例）"
+  },
+  {
+   "x": [
+    125,
+    143
+   ],
+   "y": [
+    0,
+    8
+   ],
+   "text": "日期",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    143,
+    180
+   ],
+   "y": [
+    0,
+    8
+   ],
+   "field": "date",
+   "role": "title_block_value",
+   "placeholder": "（日期）"
+  }
+ ]
+}

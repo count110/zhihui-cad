@@ -1,0 +1,213 @@
+{
+  "id": "demister_separator",
+  "name_cn": "除沫分离器",
+  "aliases": [
+    "除沫分离器",
+    "除沫器",
+    "气液分离器",
+    "分离器",
+    "丝网除沫器"
+  ],
+  "category": "V",
+  "family": "vessel",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 除沫分离器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -8,
+    -16,
+    5,
+    16
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          -10
+        ],
+        [
+          -5,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          -10
+        ],
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        10
+      ],
+      "rx": 5,
+      "ry": 2.5,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -10
+      ],
+      "rx": 5,
+      "ry": 2.5,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "hatch",
+      "pattern": "ANSI37",
+      "paper_spacing": 0.8,
+      "boundary": [
+        [
+          -5,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          -5,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          8
+        ],
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          2
+        ],
+        [
+          -8,
+          2
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          12.5
+        ],
+        [
+          0,
+          16
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -12.5
+        ],
+        [
+          0,
+          -16
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 2,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "gas_out",
+      "kind": "out",
+      "x": 0,
+      "y": 16,
+      "dir": "up",
+      "semantics": "除沫分离器的gas_out出口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": -16,
+      "dir": "down",
+      "semantics": "主物料出口"
+    }
+  ],
+  "axes": [
+    [
+      [
+        0,
+        -13.5
+      ],
+      [
+        0,
+        13.5
+      ]
+    ]
+  ],
+  "label": {
+    "x": 6,
+    "y": 14,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 5,
+      "y": -4,
+      "dir": "right",
+      "len": 3
+    }
+  ]
+}

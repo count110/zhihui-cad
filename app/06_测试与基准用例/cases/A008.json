@@ -1,0 +1,54 @@
+{
+ "id": "A008",
+ "category": "A",
+ "functions": [
+  "configure_plot_and_export"
+ ],
+ "note": "出图不改图，不产生版本",
+ "prompt": "输出PDF",
+ "prompt_asr": "输出 PDF 文件",
+ "intents": [
+  "layout_plotting"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "configure_plot_and_export",
+   "args": {
+    "space_or_layout": "Model",
+    "device": "pdf"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "artifact": "pdf"
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": true
+}

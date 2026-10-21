@@ -1,0 +1,2292 @@
+{
+ "_source": "文章表 2-11「常用阀门、管件和管道附件的图形符号」（第 12～13 页），按扫描图绘制，未与标准原文核对",
+ "verified": false,
+ "_units": "阀门框 6×3 时的图纸 mm（文章 3.2.3 节：阀门长 6 宽 3，或长 8 宽 4，由配置 hg_pfd.fittings.valve_mm 选），管线沿 +x",
+ "fittings": {
+  "gate_valve": {
+   "name_cn": "闸阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1.5
+      ],
+      [
+       0,
+       1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": [
+    "闸板阀"
+   ]
+  },
+  "globe_valve": {
+   "name_cn": "截止阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": [
+    "阀门",
+    "阀",
+    "调节阀",
+    "手动阀"
+   ]
+  },
+  "ball_valve": {
+   "name_cn": "球阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1
+    }
+   ],
+   "aliases": []
+  },
+  "plug_valve": {
+   "name_cn": "旋塞阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1,
+     "fill": true
+    }
+   ],
+   "aliases": []
+  },
+  "diaphragm_valve": {
+   "name_cn": "隔膜阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "arc",
+     "c": [
+      0,
+      0.2
+     ],
+     "r": 2.6,
+     "start": 15,
+     "end": 165
+    }
+   ],
+   "aliases": []
+  },
+  "three_way_globe": {
+   "name_cn": "三通截止阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "three_way_ball": {
+   "name_cn": "三通球阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "three_way_plug": {
+   "name_cn": "三通旋塞阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1,
+     "fill": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "four_way_globe": {
+   "name_cn": "四通截止阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       3
+      ],
+      [
+       1.5,
+       3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       3
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "four_way_ball": {
+   "name_cn": "四通球阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       3
+      ],
+      [
+       1.5,
+       3
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       3
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "four_way_plug": {
+   "name_cn": "四通旋塞阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       3
+      ],
+      [
+       1.5,
+       3
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1,
+     "fill": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -3
+      ],
+      [
+       0,
+       -4
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       3
+      ],
+      [
+       0,
+       4
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "angle_globe": {
+   "name_cn": "角式截止阀",
+   "kind": "corner",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": []
+  },
+  "angle_ball": {
+   "name_cn": "角式球阀",
+   "kind": "corner",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       -1
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1
+    }
+   ],
+   "aliases": []
+  },
+  "angle_safety_spring": {
+   "name_cn": "角式弹簧安全阀",
+   "kind": "corner",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       3.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       2,
+       0.3
+      ],
+      [
+       1.6,
+       1.2
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       2.6,
+       0.6
+      ],
+      [
+       2.2,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       3.2,
+       0.85
+      ],
+      [
+       2.8,
+       1.75
+      ]
+     ]
+    }
+   ],
+   "aliases": [
+    "安全阀",
+    "弹簧安全阀"
+   ]
+  },
+  "angle_safety_weight": {
+   "name_cn": "角式重锤安全阀",
+   "kind": "corner",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       -3,
+       1.5
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -3
+      ],
+      [
+       1.5,
+       -3
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       3.2,
+       1.4
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      3.6,
+      1.6
+     ],
+     "r": 0.5,
+     "fill": true
+    }
+   ],
+   "aliases": [
+    "重锤安全阀"
+   ]
+  },
+  "pressure_reducing": {
+   "name_cn": "减压阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -3,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       1.5
+      ],
+      [
+       3,
+       0
+      ],
+      [
+       -3,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "steam_trap": {
+   "name_cn": "疏水阀",
+   "kind": "inline",
+   "cut": 1.5,
+   "graphics": [
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1.5
+    },
+    {
+     "type": "fill",
+     "points": [
+      [
+       -1.06,
+       1.06
+      ],
+      [
+       1.06,
+       -1.06
+      ],
+      [
+       0.55,
+       -1.4
+      ],
+      [
+       0,
+       -1.5
+      ],
+      [
+       -0.55,
+       -1.4
+      ],
+      [
+       -1.06,
+       -1.06
+      ],
+      [
+       -1.4,
+       -0.55
+      ],
+      [
+       -1.5,
+       0
+      ],
+      [
+       -1.4,
+       0.55
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "reducer": {
+   "name_cn": "同心异径管",
+   "kind": "inline",
+   "cut": 2.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -2,
+       -1.5
+      ],
+      [
+       -2,
+       1.5
+      ],
+      [
+       2,
+       0.6
+      ],
+      [
+       2,
+       -0.6
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": [
+    "异径管",
+    "大小头"
+   ],
+   "_note": "规格写「大端公称直径×小端公称直径」（size_class，只能来自用户），标在符号上方"
+  },
+  "blind_round_open": {
+   "name_cn": "圆形盲板正常开",
+   "kind": "across",
+   "cut": 0.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.5,
+       -1.5
+      ],
+      [
+       -0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.5,
+       -1.5
+      ],
+      [
+       0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       3
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      3.7
+     ],
+     "r": 0.7
+    }
+   ],
+   "aliases": []
+  },
+  "blind_round_closed": {
+   "name_cn": "圆形盲板正常关",
+   "kind": "across",
+   "cut": 0.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.5,
+       -1.5
+      ],
+      [
+       -0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.5,
+       -1.5
+      ],
+      [
+       0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       3
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      3.7
+     ],
+     "r": 0.7,
+     "fill": true
+    }
+   ],
+   "aliases": []
+  },
+  "blind_8_open": {
+   "name_cn": "8 字盲板正常开",
+   "kind": "across",
+   "cut": 0.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.5,
+       -1.5
+      ],
+      [
+       -0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.5,
+       -1.5
+      ],
+      [
+       0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       2.4
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      3.1
+     ],
+     "r": 0.7
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      4.5
+     ],
+     "r": 0.7,
+     "fill": true
+    }
+   ],
+   "aliases": []
+  },
+  "blind_8_closed": {
+   "name_cn": "8 字盲板正常关",
+   "kind": "across",
+   "cut": 0.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.5,
+       -1.5
+      ],
+      [
+       -0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.5,
+       -1.5
+      ],
+      [
+       0.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       2.4
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      3.1
+     ],
+     "r": 0.7,
+     "fill": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      4.5
+     ],
+     "r": 0.7
+    }
+   ],
+   "aliases": []
+  },
+  "swing_check": {
+   "name_cn": "旋启式止回阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -3,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       1.5
+      ],
+      [
+       3,
+       -1.5
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      -3,
+      1.5
+     ],
+     "r": 0.4,
+     "fill": true
+    }
+   ],
+   "aliases": [
+    "止回阀",
+    "单向阀"
+   ]
+  },
+  "butterfly_valve": {
+   "name_cn": "蝶阀",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -3,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 0.4,
+     "fill": true
+    }
+   ],
+   "aliases": []
+  },
+  "flame_arrester": {
+   "name_cn": "阻火器",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -3,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       1.5
+      ],
+      [
+       3,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "sight_glass": {
+   "name_cn": "视镜",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -3,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "circle",
+     "c": [
+      0,
+      0
+     ],
+     "r": 0.8
+    }
+   ],
+   "aliases": []
+  },
+  "ejector": {
+   "name_cn": "喷射管",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       -0.8
+      ],
+      [
+       -1.5,
+       -0.8
+      ],
+      [
+       -1.5,
+       0.8
+      ],
+      [
+       -3,
+       0.8
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -0.6
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       -1.5,
+       0.6
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": [
+    "喷射器"
+   ]
+  },
+  "venturi": {
+   "name_cn": "文氏管",
+   "kind": "inline",
+   "cut": 3.0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -3,
+       1.5
+      ],
+      [
+       -1,
+       0.6
+      ],
+      [
+       1,
+       0.6
+      ],
+      [
+       3,
+       1.5
+      ],
+      [
+       3,
+       -1.5
+      ],
+      [
+       1,
+       -0.6
+      ],
+      [
+       -1,
+       -0.6
+      ],
+      [
+       -3,
+       -1.5
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": []
+  },
+  "cone_strainer": {
+   "name_cn": "锥型过滤器",
+   "kind": "inline",
+   "cut": 1.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -1.5
+      ],
+      [
+       1.5,
+       -1.5
+      ],
+      [
+       1.5,
+       1.5
+      ],
+      [
+       -1.5,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       1.5
+      ],
+      [
+       1.5,
+       0
+      ],
+      [
+       -1.5,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "t_strainer": {
+   "name_cn": "T 型过滤器",
+   "kind": "inline",
+   "cut": 1.5,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1.5,
+       -1.5
+      ],
+      [
+       1.5,
+       -1.5
+      ],
+      [
+       1.5,
+       1.5
+      ],
+      [
+       -1.5,
+       1.5
+      ]
+     ],
+     "closed": true
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1.5
+      ],
+      [
+       0,
+       -3
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -1,
+       -3
+      ],
+      [
+       1,
+       -3
+      ]
+     ]
+    }
+   ],
+   "aliases": [
+    "T型过滤器",
+    "过滤器",
+    "Y型过滤器"
+   ]
+  },
+  "flange": {
+   "name_cn": "法兰连接",
+   "kind": "across",
+   "cut": 0.4,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.4,
+       -1.5
+      ],
+      [
+       -0.4,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.4,
+       -1.5
+      ],
+      [
+       0.4,
+       1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": [
+    "法兰"
+   ],
+   "maintenance_only": true
+  },
+  "threaded_cap": {
+   "name_cn": "螺纹管帽",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       -0.6,
+       1.5
+      ],
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       -1.5
+      ],
+      [
+       -0.6,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": [],
+   "maintenance_only": true
+  },
+  "hose": {
+   "name_cn": "软管连接",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.6,
+       1.5
+      ],
+      [
+       0,
+       1.5
+      ],
+      [
+       0,
+       -1.5
+      ],
+      [
+       0.6,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "pipe_cap": {
+   "name_cn": "管帽",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1.5
+      ],
+      [
+       0,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "arc",
+     "c": [
+      0,
+      0
+     ],
+     "r": 1.5,
+     "start": 270,
+     "end": 90
+    }
+   ],
+   "aliases": []
+  },
+  "end_blind": {
+   "name_cn": "管端盲板",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1.5
+      ],
+      [
+       0,
+       1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "end_flange": {
+   "name_cn": "管端法兰",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1.5
+      ],
+      [
+       0,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0.6,
+       -1.5
+      ],
+      [
+       0.6,
+       1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": [],
+   "maintenance_only": true
+  },
+  "silencer": {
+   "name_cn": "消声器",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       -1
+      ],
+      [
+       2.2,
+       -1
+      ],
+      [
+       3,
+       0
+      ],
+      [
+       2.2,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": []
+  },
+  "safety_shower": {
+   "name_cn": "安全淋浴器",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       2.5,
+       0
+      ],
+      [
+       2.5,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       2.5,
+       1.5
+      ],
+      [
+       1.8,
+       2.6
+      ],
+      [
+       3.2,
+       2.6
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": []
+  },
+  "vent_hook": {
+   "name_cn": "放空管（弯钩）",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "arc",
+     "c": [
+      3,
+      -0.8
+     ],
+     "r": 0.8,
+     "start": 270,
+     "end": 90
+    }
+   ],
+   "aliases": [
+    "放空管"
+   ]
+  },
+  "vent_arrow": {
+   "name_cn": "放空管（箭头）",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       3,
+       0
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       2,
+       0.7
+      ],
+      [
+       3,
+       0
+      ],
+      [
+       2,
+       -0.7
+      ]
+     ]
+    }
+   ],
+   "aliases": []
+  },
+  "funnel_y": {
+   "name_cn": "漏斗（Y 形）",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       2.2,
+       1.5
+      ]
+     ]
+    },
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       2.2,
+       -1.5
+      ]
+     ]
+    }
+   ],
+   "aliases": [
+    "漏斗"
+   ]
+  },
+  "funnel_v": {
+   "name_cn": "漏斗（带横线）",
+   "kind": "end",
+   "cut": 0,
+   "graphics": [
+    {
+     "type": "polyline",
+     "points": [
+      [
+       0,
+       0
+      ],
+      [
+       2.2,
+       1.5
+      ],
+      [
+       2.2,
+       -1.5
+      ]
+     ],
+     "closed": true
+    }
+   ],
+   "aliases": []
+  }
+ }
+}

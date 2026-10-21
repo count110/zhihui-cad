@@ -1,0 +1,206 @@
+{
+  "id": "horizontal_vessel_boot",
+  "name_cn": "卧式槽（带集液包）",
+  "aliases": [
+    "带集液包卧式槽",
+    "卧式分离罐",
+    "回流罐"
+  ],
+  "category": "V",
+  "family": "vessel",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 卧式槽（带集液包）（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -15,
+    -12,
+    15,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          5
+        ],
+        [
+          12,
+          5
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -12,
+          -5
+        ],
+        [
+          12,
+          -5
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        -12,
+        0
+      ],
+      "rx": 3,
+      "ry": 5,
+      "start": 90,
+      "end": 270
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        12,
+        0
+      ],
+      "rx": 3,
+      "ry": 5,
+      "start": 270,
+      "end": 90
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5,
+          -5
+        ],
+        [
+          5,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          9,
+          -5
+        ],
+        [
+          9,
+          -8
+        ]
+      ]
+    },
+    {
+      "type": "arc",
+      "c": [
+        7,
+        -8
+      ],
+      "r": 2,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          5
+        ],
+        [
+          -8,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          7,
+          -10
+        ],
+        [
+          7,
+          -12
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -8,
+      "y": 8,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 7,
+      "y": -12,
+      "dir": "down",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "gas_out",
+      "kind": "out",
+      "x": 8,
+      "y": 8,
+      "dir": "up",
+      "semantics": "卧式槽（带集液包）的gas_out出口"
+    }
+  ],
+  "axes": [
+    [
+      [
+        -17,
+        0
+      ],
+      [
+        17,
+        0
+      ]
+    ]
+  ],
+  "label": {
+    "x": -15,
+    "y": -9,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": -8,
+      "y": -5,
+      "dir": "down",
+      "len": 3
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 0,
+      "y": 5,
+      "dir": "up",
+      "len": 3
+    }
+  ]
+}

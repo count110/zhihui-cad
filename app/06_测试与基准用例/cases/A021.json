@@ -1,0 +1,66 @@
+{
+ "id": "A021",
+ "category": "A",
+ "functions": [
+  "cad_batch_execute"
+ ],
+ "note": "批量里任何一步失败整体回滚：版本号和图元数都不变 脚本：整批回滚并失败；真实模型：也可以在参数校验失败后反问用户半径，但不能留下半截图形。",
+ "prompt": "画矩形左下角在0,0长100宽60，再画一个半径负5的圆（会失败）",
+ "prompt_asr": "画举行左下角在零零长一百宽六十，再画一个半径负五的圆",
+ "intents": [
+  "system"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "cad_batch_execute",
+   "args": {
+    "transaction_name": "会失败的批量",
+    "steps": [
+     {
+      "tool": "draw_polygons_and_meshes",
+      "args": {
+       "shape_type": "rectangle",
+       "corner1": "0,0",
+       "width": 100,
+       "height": 60
+      }
+     },
+     {
+      "tool": "draw_circular_primitives",
+      "args": {
+       "curve_type": "circle",
+       "method": "center_radius",
+       "center": "0,0",
+       "radius": -5
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "polyline",
+    "n": 0
+   }
+  },
+  {
+   "count": {
+    "kind": "circle",
+    "n": 0
+   }
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": false,
+ "status": [
+  "FAILED",
+  "WAITING_CONFIRMATION"
+ ]
+}

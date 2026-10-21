@@ -1,0 +1,40 @@
+{
+ "id": "A017",
+ "category": "A",
+ "functions": [
+  "invoke_engineering_toolset"
+ ],
+ "note": "螺栓尺寸查标准表，表里没有的规格如实报错",
+ "prompt": "画一个M8螺栓，长30，在100,100",
+ "prompt_asr": "画一个M八螺栓，长三十，在一百逗号一百",
+ "intents": [
+  "engineering_specialty"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "invoke_engineering_toolset",
+   "args": {
+    "domain": "mechanical",
+    "tool_name": "standard_fastener",
+    "insert_point": "100,100",
+    "spec_params": {
+     "type": "hex_bolt",
+     "size": "M8",
+     "length": 30
+    }
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "tag": "group:G1",
+    "min": 6
+   }
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>智绘CAD · 化工流程图</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="shell.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">智绘CAD <span>一句话生成、修改化工流程图，交付可编辑 DXF</span></div>
+    <div class="top-actions">
+      <span id="health" class="badge">连接中…</span>
+      <button id="btnHistory" class="ghost" type="button">历史任务</button>
+      <button id="btnDetails" class="ghost" type="button" disabled>详情与报告</button>
+      <button id="btnSettings" class="ghost" type="button" title="API Key、模型、接口地址">⚙ 设置</button>
+      <button id="btnNew" class="ghost strong" type="button">＋ 新建</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- 左：图纸 -->
+    <section class="stage">
+      <div class="stage-bar">
+        <div class="tabs" id="viewTabs" hidden>
+          <button class="tab active" data-view="preview" type="button">图纸</button>
+          <button class="tab" data-view="diff" id="diffTab" type="button" hidden>改动对比</button>
+        </div>
+        <div class="zoom" id="zoomBar" hidden>
+          <button id="zoomOut" type="button" title="缩小">－</button>
+          <span id="zoomLabel">100%</span>
+          <button id="zoomIn" type="button" title="放大">＋</button>
+          <button id="zoomFit" type="button" title="适应窗口（Shift+双击）">适应</button>
+          <button id="zoomActual" type="button" title="按像素原大小">1:1</button>
+          <button id="zoomFull" type="button" title="全屏查看（Esc 退出）">全屏</button>
+        </div>
+        <div class="downloads" id="downloads"></div>
+      </div>
+      <div class="viewport" id="viewport" tabindex="0" aria-label="图纸预览：滚轮缩放，拖动平移">
+        <div class="welcome" id="welcome">
+          <h1>想画什么流程？</h1>
+          <p>用一两句话说清：<b>有哪些设备（带位号）</b>、<b>怎么连</b>、<b>有哪些进出口</b>。没写的数值不会被编造。</p>
+          <div class="cards">
+            <button class="example" type="button" data-text="绘制乙醇水精馏工艺方案 PFD：原料罐 V-101 → 进料泵 P-101 → 精馏塔 T-101；塔顶蒸气进入冷凝器 E-101，再进入回流罐 V-102；回流罐经回流泵 P-102 分成两路，一路返回 T-101 塔顶，另一路为塔顶产品边界。塔底连接再沸器 E-102，汽化物流返回塔底，另画塔底产品边界。不填写任何未提供的设计数值。">
+              <b>精馏塔流程</b><span>含回流、再沸、两个产品出口</span></button>
+            <button class="example" type="button" data-text="画换热流程方案：热料储罐 V-101 → 输送泵 P-101 → 换热器 E-101 → 产品罐 V-102。E-101 热料侧和冷却水侧必须分开，冷却水供水、回水用边界接口表示。管线标注热料、冷却后物料、冷却水供水、冷却水回水。不要补充流量温度压力。">
+              <b>换热流程</b><span>热料侧与冷却水侧分开</span></button>
+            <button class="example" type="button" data-text="画一个小型餐饮污水处理流程，只做工艺方案示意，不补充流量、温度、压力和管径。请先让我确认设备和连接。">
+              <b>污水处理（先确认再画）</b><span>系统先给方案，你核对后出图</span></button>
+            <button class="example" type="button" data-text="绘制臭氧消毒工艺方案：原料水罐 V-101 → 输送泵 P-101 → 臭氧发生器 M-101 → 接触塔 T-101。不填写任何未提供的设计数值。">
+              <b>图元库里没有的设备</b><span>自动联网检索并生成示意图元</span></button>
+          </div>
+          <details class="howto"><summary>怎么写需求更准？</summary>
+            <ul>
+              <li>设备写成「名称 + 位号」，如 <code>进料泵 P-101</code>，用 <code>→</code> 或“进入、返回、分成两路”说明连接。</li>
+              <li>回流、再沸、旁路、备用泵这类关系要明说，系统会逐条核对图里有没有。</li>
+              <li>不想要的内容直接写：「不要补充流量温度压力」。</li>
+              <li>出图后直接接着说就能改：「把 P-101 向右移动 800 mm」「设计单位写为××院」。</li>
+            </ul>
+          </details>
+        </div>
+        <img id="drawing" alt="图纸预览" hidden draggable="false" />
+        <div class="preview-tag" id="previewTag" hidden></div>
+        <div class="view-hint" id="viewHint" hidden>滚轮缩放 · 拖动平移 · 双击放大 · Shift+双击适应 · 键盘 + − 0 ←↑→↓</div>
+      </div>
+    </section>
+
+    <!-- 右：对话 -->
+    <aside class="chat">
+      <div class="thread" id="thread" aria-live="polite"></div>
+      <div class="composer">
+        <div id="mockNote" class="note" hidden></div>
+        <div id="preflight" class="preflight" hidden></div>
+        <div class="ctx-row">
+          <label class="cont" id="contWrap" hidden><input id="continue" type="checkbox" checked /> 在当前图纸上继续修改</label>
+          <label class="attach" title="上传 DXF 后可直接描述要改什么（≤10 MB，仅支持本系统生成的图）">
+            <input id="file" type="file" accept=".dxf" /><span id="fileLabel">📎 上传 DXF 改图</span>
+          </label>
+          <button id="fileClear" class="link" type="button" hidden>移除</button>
+        </div>
+        <textarea id="prompt" rows="3" placeholder="描述要画的流程，或对当前图纸提修改要求…（Enter 发送，Shift+Enter 换行）"></textarea>
+        <div class="send-row">
+          <span id="charCount" class="count">0 / 2000</span>
+          <button id="send" class="primary" type="button">发送</button>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- 详情抽屉 -->
+  <div class="drawer" id="drawer" hidden>
+    <div class="drawer-bg" data-close></div>
+    <div class="drawer-panel">
+      <div class="drawer-head"><b>详情与报告</b><button class="ghost" type="button" data-close>关闭</button></div>
+      <div class="drawer-tabs" id="drawerTabs"></div>
+      <div class="drawer-body" id="drawerBody"></div>
+    </div>
+  </div>
+
+  <!-- 历史 -->
+  <div class="drawer left" id="historyDrawer" hidden>
+    <div class="drawer-bg" data-close></div>
+    <div class="drawer-panel">
+      <div class="drawer-head"><b>历史任务</b><button class="ghost" type="button" data-close>关闭</button></div>
+      <ul id="history" class="history"></ul>
+    </div>
+  </div>
+
+  <!-- 方案确认 -->
+  <div class="modal" id="planModal" hidden>
+    <div class="modal-bg" data-close-plan></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="planTitle">
+      <div class="modal-head"><h2 id="planTitle">请核对方案，然后确认绘图</h2><button class="ghost" type="button" data-close-plan>稍后再说</button></div>
+      <div class="modal-body" id="planBody"></div>
+      <div class="modal-foot">
+        <div class="foot-left"><button id="undoPlan" class="ghost" type="button">↶ 撤销</button><button id="redoPlan" class="ghost" type="button">↷ 重做</button><span class="legend"><i></i>黄色 = 系统推测，请重点核对</span></div>
+        <div id="planError" class="plan-error" role="alert"></div>
+        <button id="confirmPlan" class="primary" type="button">确认方案并绘图</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="shell.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

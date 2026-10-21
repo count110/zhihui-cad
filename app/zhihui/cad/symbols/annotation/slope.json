@@ -1,0 +1,45 @@
+{
+ "id": "slope",
+ "name_cn": "坡度",
+ "source": "GB/T 50001-2017 第 7.5 节（坡度标注）",
+ "graphics": [
+  {
+   "type": "polyline",
+   "points": [
+    [
+     -8,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ]
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     8,
+     0
+    ],
+    [
+     5.5,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "attribs": [
+  {
+   "tag": "VALUE",
+   "p": [
+    0,
+    0.8
+   ],
+   "role": "annotation",
+   "align": "BOTTOM_CENTER",
+   "default": "i="
+  }
+ ]
+}

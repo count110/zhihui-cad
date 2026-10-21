@@ -1,0 +1,81 @@
+{
+ "id": "G006",
+ "category": "G",
+ "prompt": "气体压缩流程：缓冲罐 V-101 → 压缩机 C-101 → 冷却器 E-101 → 分离罐 V-102。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "V-101",
+    "symbol_id": "tank"
+   },
+   {
+    "tag": "C-101",
+    "symbol_id": "compressor"
+   },
+   {
+    "tag": "E-101",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "V-102",
+    "symbol_id": "tank"
+   }
+  ],
+  "connections": [
+   [
+    "V-101",
+    "C-101"
+   ],
+   [
+    "C-101",
+    "E-101"
+   ],
+   [
+    "E-101",
+    "V-102"
+   ]
+  ]
+ },
+ "plan": {
+  "title": "气体压缩流程",
+  "equipment": [
+   {
+    "symbol_id": "tank",
+    "tag": "V-101",
+    "name": "缓冲罐"
+   },
+   {
+    "symbol_id": "compressor",
+    "tag": "C-101",
+    "name": "压缩机"
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E-101",
+    "name": "冷却器"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-102",
+    "name": "分离罐"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "V-101.out",
+    "to_port": "C-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "C-101.out",
+    "to_port": "E-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "E-101.out",
+    "to_port": "V-102.in",
+    "medium": ""
+   }
+  ]
+ }
+}

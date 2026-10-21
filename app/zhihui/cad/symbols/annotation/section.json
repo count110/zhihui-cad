@@ -1,0 +1,63 @@
+{
+ "id": "section",
+ "name_cn": "剖切符号",
+ "source": "GB/T 4458.6-2002 剖视图和断面图的标注",
+ "graphics": [
+  {
+   "type": "polyline",
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     0,
+     6
+    ],
+    [
+     4,
+     6
+    ]
+   ]
+  },
+  {
+   "type": "polyline",
+   "points": [
+    [
+     2.8,
+     6.6
+    ],
+    [
+     4,
+     6
+    ],
+    [
+     2.8,
+     5.4
+    ]
+   ],
+   "closed": true
+  }
+ ],
+ "attribs": [
+  {
+   "tag": "LETTER",
+   "p": [
+    4.6,
+    6.4
+   ],
+   "role": "annotation",
+   "align": "BOTTOM_LEFT",
+   "default": "A"
+  }
+ ]
+}

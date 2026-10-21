@@ -1,0 +1,275 @@
+{
+  "id": "spray_tower",
+  "name_cn": "喷洒塔",
+  "aliases": [
+    "喷洒塔",
+    "喷淋塔",
+    "空塔",
+    "急冷塔",
+    "脱酸塔",
+    "反应塔",
+    "半干法脱酸塔",
+    "喷雾干燥塔",
+    "冷却塔"
+  ],
+  "category": "T",
+  "family": "tower",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 54 页 喷洒塔",
+  "bbox": [
+    -9,
+    -26,
+    6,
+    26
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -20
+        ],
+        [
+          -6,
+          20
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -20
+        ],
+        [
+          6,
+          20
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        20
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -20
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -9,
+          15
+        ],
+        [
+          0,
+          15
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          -1.5,
+          13
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          12.8
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          1.5,
+          13
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          23
+        ],
+        [
+          0,
+          26
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -23
+        ],
+        [
+          0,
+          -26
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          -9,
+          -12
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "feed",
+      "kind": "in",
+      "x": -9,
+      "y": -12,
+      "dir": "left",
+      "semantics": "进料口"
+    },
+    {
+      "name": "spray_in",
+      "kind": "in",
+      "x": -9,
+      "y": 15,
+      "dir": "left",
+      "semantics": "喷淋/急冷水入口"
+    },
+    {
+      "name": "top_out",
+      "kind": "out",
+      "x": 0,
+      "y": 26,
+      "dir": "up",
+      "semantics": "塔顶出口"
+    },
+    {
+      "name": "bottom_out",
+      "kind": "out",
+      "x": 0,
+      "y": -26,
+      "dir": "down",
+      "semantics": "塔底出口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 23,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "vent",
+      "kind": "vent",
+      "x": -3,
+      "y": 22.6,
+      "dir": "up",
+      "len": 2.5
+    },
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": 3,
+      "y": -22.6,
+      "dir": "down",
+      "len": 2.5
+    },
+    {
+      "name": "instrument",
+      "kind": "instrument",
+      "x": 6,
+      "y": 0,
+      "dir": "right",
+      "len": 3
+    }
+  ],
+  "regions": {
+    "fill": {
+      "points": [
+        [
+          -5,
+          -19
+        ],
+        [
+          5,
+          -19
+        ],
+        [
+          5,
+          -13
+        ],
+        [
+          -5,
+          -13
+        ]
+      ],
+      "description": "图元内部填充区域（图纸几何定义，不代表工艺设计数值）"
+    },
+    "wall": {
+      "points": [
+        [
+          -7,
+          -26
+        ],
+        [
+          4,
+          -26
+        ],
+        [
+          4,
+          -25.4
+        ],
+        [
+          -7,
+          -25.4
+        ]
+      ],
+      "description": "池壁/设备壳体剖面区域"
+    }
+  }
+}

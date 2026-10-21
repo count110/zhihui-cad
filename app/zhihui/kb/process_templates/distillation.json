@@ -1,0 +1,91 @@
+{
+  "id": "distillation",
+  "name": "精馏",
+  "keywords": [
+    "精馏",
+    "精馏系统"
+  ],
+  "initials": [
+    "jl",
+    "jlt"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "tank",
+      "name": "原料罐",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "pump",
+      "name": "进料泵",
+      "tag_prefix": "P",
+      "family": "pump",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "tower",
+      "name": "精馏塔",
+      "tag_prefix": "T",
+      "family": "tower",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "heat_exchanger",
+      "name": "冷凝器",
+      "tag_prefix": "E",
+      "family": "exchanger",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "tank",
+      "name": "回流罐",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "公用工程接口",
+      "requirement": "根据用户确认的冷却、加热或药剂需要补充，不自动添加设计参数"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "进料",
+      "direction": "in",
+      "medium": "用户确认介质",
+      "equipment_index": 0
+    },
+    {
+      "name": "产物流",
+      "direction": "out",
+      "medium": "用户确认介质",
+      "equipment_index": 4
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [
+    {
+      "target_index": 0,
+      "region": "fill"
+    },
+    {
+      "target_index": 4,
+      "region": "fill"
+    }
+  ],
+  "source": "团队整理，待专业确认；仅为工艺方案示意，不含工程设计参数",
+  "requires_confirmation": true
+}

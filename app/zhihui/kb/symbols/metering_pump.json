@@ -1,0 +1,130 @@
+{
+  "id": "metering_pump",
+  "name_cn": "计量泵",
+  "aliases": [
+    "计量泵",
+    "加药泵",
+    "投药泵",
+    "隔膜计量泵"
+  ],
+  "category": "P",
+  "family": "pump",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -7,
+    -6,
+    7,
+    4
+  ],
+  "graphics": [
+    {
+      "type": "circle",
+      "c": [
+        0,
+        0
+      ],
+      "r": 3.5
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -2.5,
+          -2.6
+        ],
+        [
+          -4,
+          -6
+        ],
+        [
+          4,
+          -6
+        ],
+        [
+          2.5,
+          -2.6
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -7,
+          0
+        ],
+        [
+          -3.5,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3.5,
+          0
+        ],
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -1.5,
+          1.5
+        ],
+        [
+          1.5,
+          0
+        ],
+        [
+          -1.5,
+          -1.5
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -7,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 7,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 8,
+    "y": 4,
+    "align": "left"
+  },
+  "name_style": "none",
+  "axes": [
+    [
+      [
+        0,
+        -5
+      ],
+      [
+        0,
+        4.5
+      ]
+    ]
+  ]
+}

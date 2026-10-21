@@ -1,0 +1,79 @@
+{
+  "id": "pipe_terminal",
+  "name_cn": "管道去向",
+  "aliases": [
+    "管道去向",
+    "管道来源",
+    "至配水管网",
+    "配水管网",
+    "自厂区给水管",
+    "厂区给水管"
+  ],
+  "category": "X",
+  "family": "pipe_terminal",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -5,
+    -1.5,
+    5,
+    1.5
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -5,
+          0
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          3,
+          1.5
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          3,
+          -1.5
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -5,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 5,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 0,
+    "y": 5.5,
+    "align": "center",
+    "_note": "位号写在箭头正上方：两端都是端口（来源接 out、去向接 in），写在右边会挡住 out 口的引出段"
+  },
+  "name_style": "note"
+}

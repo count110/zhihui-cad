@@ -1,0 +1,16 @@
+{
+ "id": "water_supply",
+ "name": "给水排水（GB 通用，行业条文待用户提供）",
+ "extends": "gb_general",
+ "_note": "给水排水专业的具体条文（如 GB/T 50106《建筑给水排水制图标准》）以用户提供的标准原文为准；用户没有提供的项一律沿用 gb_general。",
+ "scale": {
+  "_source": "GB/T 14690-1993；高程图允许水平、竖向分别取比例，标题栏写「见图」时图上标出两个比例",
+  "separate_vertical": true
+ },
+ "title_block": "water_institute",
+ "text": {
+  "latin_width_factor": 0.7,
+  "latin_advance": 0.55,
+  "_latin_width_factor": "高程图字母数字（标高数值、管道代号）沿用宽度因子 0.7：构筑物之间只有 20 mm 左右，标高数值按 0.9 写会和出水管、水位标注挤在一起（W001 实测）。GB/T 14691 只规定汉字字宽 h/√2，对字母数字的宽度因子没有规定；斜体、B 型照常。"
+ }
+}

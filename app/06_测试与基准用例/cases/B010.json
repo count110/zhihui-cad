@@ -1,0 +1,34 @@
+{
+ "id": "B010",
+ "category": "B",
+ "functions": [
+  "configure_dynamic_input_and_coords"
+ ],
+ "note": "",
+ "prompt": "关闭动态输入，坐标显示改成连续的极坐标",
+ "prompt_asr": "关闭动态输入，坐标显示改成连续的极坐标",
+ "intents": [
+  "environment_setup"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "configure_dynamic_input_and_coords",
+   "args": {
+    "dynmode_on": false,
+    "coords_display_mode": "continuous_polar"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "draft.dynmode_on": false,
+    "draft.coords_display_mode": "continuous_polar"
+   }
+  }
+ ],
+ "mock_ok": false
+}

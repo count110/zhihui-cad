@@ -1,0 +1,84 @@
+{
+ "id": "M004",
+ "base_case": "G003",
+ "prompt": "在 P-101 和 V-102 之间加一个调节阀 XV-101",
+ "expected": {
+  "type": "add",
+  "tag": "XV-101",
+  "symbol_id": "valve",
+  "connections": [
+   [
+    "P-101",
+    "XV-101"
+   ],
+   [
+    "XV-101",
+    "V-102"
+   ]
+  ]
+ },
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  [
+   {
+    "name": "connect_ports",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "remove": [
+      "P-101.out→V-102.in"
+     ]
+    }
+   },
+   {
+    "name": "place_equipment",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "items": [
+      {
+       "symbol_id": "valve",
+       "tag": "XV-101",
+       "name": "调节阀"
+      }
+     ]
+    }
+   }
+  ],
+  [
+   {
+    "name": "auto_layout",
+    "arguments": {
+     "drawing_id": "$drawing_id"
+    }
+   }
+  ],
+  [
+   {
+    "name": "connect_ports",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "items": [
+      {
+       "from_port": "P-101.out",
+       "to_port": "XV-101.in"
+      },
+      {
+       "from_port": "XV-101.out",
+       "to_port": "V-102.in"
+      }
+     ]
+    }
+   }
+  ],
+  {
+   "say": "已加阀。"
+  }
+ ],
+ "category": "M"
+}

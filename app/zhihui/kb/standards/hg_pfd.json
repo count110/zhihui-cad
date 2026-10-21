@@ -1,0 +1,96 @@
+{
+ "id": "hg_pfd",
+ "name": "化工工艺流程图（GB 通用 + HG/T 20519）",
+ "extends": "gb_general",
+ "lines": {
+  "_source": "HG/T 20519.1-2009 表 6.1.3（项目 README 引用，原文未取得）：主物料管道粗线 0.6～0.9，其他物料中粗 0.3～0.5，细线 0.15～0.25",
+  "rules": {
+   "pipe_width": {
+    "source": "HG/T 20519.1-2009 表 6.1.3（原文未取得）",
+    "verified": false,
+    "text": "主物料管道 0.6～0.9 mm；与文章表 2-5（1992 版，b=0.8～1.2）冲突，默认按 2009 版，见 03_CAD算法与图元库/标准冲突清单.md"
+   }
+  },
+  "ratio": [
+   4,
+   2,
+   1
+  ],
+  "ranges": {
+   "thick": [
+    0.6,
+    0.9
+   ],
+   "medium": [
+    0.3,
+    0.5
+   ],
+   "thin": [
+    0.15,
+    0.25
+   ]
+  },
+  "group": {
+   "thick": 0.7,
+   "medium": 0.35,
+   "thin": 0.18
+  },
+  "_note": "0.7 / 0.35 / 0.18 同时满足 GB/T 17450 第 4.1 条（线宽系列、4:2:1）和 HG/T 20519.1-2009 的范围。原来的 0.25 细线不满足 4:2:1，S3 时以为 GB 不允许 0.18 是记错了（GB/T 17450 原文系列里有 0.18）。"
+ },
+ "text": {
+  "_source": "GB/T 14691-1993；HG/T 20519.1-2009 第 6.2 条（字母数字 2～3 mm，汉字不小于 3.5）",
+  "roles": {
+   "tag": 2.5
+  }
+ },
+ "title_block": "hg_flow",
+ "paper": {
+  "default_chemical": "A1",
+  "simple": "A2",
+  "_source": "文章第 4～5 页：化工工艺流程图一般采用 A1 横幅，流程简单可用 A2；过长时每次加长图样宽度的 1/4，或分张",
+  "verified": false,
+  "extend_quarters_max": 4
+ },
+ "pipes": {
+  "crossing": {
+   "style": "break",
+   "broken": "vertical",
+   "aux_broken": true,
+   "gap_mm": 2.0,
+   "source": "文章 3.1 节、图 2-6：管线交叉时断开一根，横线连续、竖线断开；主物料与辅助物料交叉断辅助线（规范化要求 6.3）",
+   "verified": false,
+   "_note": "gap_mm 为程序取值（文章未给数值）；替换原来的跨线符号（半圆），给水高程图（water_supply）仍用跨线符号"
+  },
+  "arrow_repeat_mm": 100,
+  "_arrow_source": "文章 3.1 节：每根管线都要以箭头表示物料流向（verified=false）；长管段每 100 mm 补一个箭头，间距为程序取值",
+  "label_sides": [
+   "above",
+   "left",
+   "right"
+  ],
+  "_label_source": "文章 3.2 节：横向管线标在管线上方，竖向标在左侧（也可在右侧，字头向左），放不下用指引线引出（verified=false）",
+  "offsheet": {
+   "rect_mm": 10,
+   "tip_mm": 3,
+   "height_mm": 6,
+   "source": "文章图 2-5 空心箭头",
+   "verified": false
+  },
+  "ground": {
+   "text": "EL±0.000",
+   "mm_per_m": 4,
+   "underhang_mm": 3,
+   "source": "文章 2.1 节：先用细实线画出厂房地平线并标标高；地下设备画一段地面（剖面线）",
+   "verified": false,
+   "_note": "mm_per_m（安装高度每米在图上抬高多少）为程序取值，高度数值只能来自用户（params.el，单位 m）"
+  }
+ },
+ "fittings": {
+  "valve_mm": [
+   6,
+   3
+  ],
+  "source": "文章 3.2.3 节：阀门图形符号一般长 6 mm、宽 3 mm，或长 8 mm、宽 4 mm",
+  "verified": false
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "id": "M005",
+ "base_case": "G005",
+ "prompt": "删除回流罐 V-101",
+ "expected": {
+  "type": "delete",
+  "target": "V-101"
+ },
+ "steps": [
+  [
+   {
+    "name": "inspect_drawing",
+    "arguments": {
+     "file_ref": "$file_ref"
+    }
+   }
+  ],
+  [
+   {
+    "name": "edit_equipment",
+    "arguments": {
+     "drawing_id": "$drawing_id",
+     "equipment_ref": "V-101",
+     "delete": true
+    }
+   }
+  ],
+  {
+   "say": "已删除。"
+  }
+ ],
+ "category": "M"
+}

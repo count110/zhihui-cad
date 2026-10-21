@@ -1,0 +1,100 @@
+{
+  "id": "retaining_wall",
+  "name_cn": "挡土墙",
+  "aliases": [
+    "挡土墙",
+    "挡墙"
+  ],
+  "category": "X",
+  "family": "retaining_wall",
+  "status": "simplified",
+  "source": "按参考图外形简化",
+  "bbox": [
+    -8,
+    -10,
+    8,
+    8
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          -10
+        ],
+        [
+          8,
+          -10
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          -4,
+          8
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "hatch",
+      "boundary": [
+        [
+          -8,
+          -10
+        ],
+        [
+          8,
+          -10
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          -4,
+          8
+        ]
+      ],
+      "pattern": "ANSI31",
+      "paper_spacing": 1.2,
+      "angle": 0
+    },
+    {
+      "type": "hatch",
+      "boundary": [
+        [
+          -8,
+          -10
+        ],
+        [
+          8,
+          -10
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          -4,
+          8
+        ]
+      ],
+      "pattern": "AR-CONC",
+      "paper_spacing": 4.0,
+      "angle": 0
+    }
+  ],
+  "ports": [],
+  "label": {
+    "x": 9,
+    "y": 8,
+    "align": "left"
+  },
+  "elev_ports": {
+    "top": 8,
+    "bottom": -10
+  }
+}

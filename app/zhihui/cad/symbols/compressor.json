@@ -1,0 +1,94 @@
+{
+  "id": "compressor",
+  "name_cn": "离心式压缩机",
+  "aliases": [
+    "压缩机",
+    "离心式压缩机",
+    "空压机",
+    "气体压缩机",
+    "循环压缩机"
+  ],
+  "category": "C",
+  "family": "blower",
+  "status": "standard",
+  "source": "HG/T 20519.2-2009 表 8.0.6 第 58 页 离心式压缩机",
+  "bbox": [
+    -8,
+    -5,
+    8,
+    9
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -8,
+          -5
+        ],
+        [
+          8,
+          -5
+        ],
+        [
+          8,
+          3
+        ],
+        [
+          -8,
+          6
+        ]
+      ],
+      "closed": true
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6.5,
+          5.72
+        ],
+        [
+          -6.5,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6.5,
+          3.28
+        ],
+        [
+          6.5,
+          9
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": -6.5,
+      "y": 9,
+      "dir": "up",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 6.5,
+      "y": 9,
+      "dir": "up",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 9,
+    "y": 1,
+    "align": "left"
+  }
+}

@@ -1,0 +1,104 @@
+{
+ "id": "A012",
+ "category": "A",
+ "functions": [
+  "apply_parametric_constraints"
+ ],
+ "note": "约束由数值求解器解，诊断过约束/无解",
+ "prompt": "给C1和C2加同心约束，C2的直径等于C1的两倍",
+ "prompt_asr": "给C1和C2加同新约束，C2的直径等于C1的两倍",
+ "intents": [
+  "block_xref_constraint"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "20,20",
+     "diameter": 10
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "60,20",
+     "diameter": 10
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "cad_batch_execute",
+   "args": {
+    "transaction_name": "同心约束等",
+    "steps": [
+     {
+      "tool": "apply_parametric_constraints",
+      "args": {
+       "constraint_category": "geometric",
+       "geom_type": "concentric",
+       "entity_ids": [
+        "C1",
+        "C2"
+       ]
+      }
+     },
+     {
+      "tool": "apply_parametric_constraints",
+      "args": {
+       "constraint_category": "dimensional",
+       "dim_type": "diameter",
+       "entity_ids": [
+        "C1"
+       ],
+       "dim_param_name": "d1"
+      }
+     },
+     {
+      "tool": "apply_parametric_constraints",
+      "args": {
+       "constraint_category": "dimensional",
+       "dim_type": "diameter",
+       "entity_ids": [
+        "C2"
+       ],
+       "dim_param_name": "d2",
+       "dim_expression": "d1 * 2"
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "constraints": [
+    "concentric",
+    "diameter",
+    "diameter"
+   ]
+  },
+  {
+   "entity": {
+    "kind": "circle",
+    "id": "C2",
+    "data": {
+     "c": [
+      20,
+      20,
+      0
+     ],
+     "r": 10
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

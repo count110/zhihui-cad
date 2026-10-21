@@ -1,0 +1,71 @@
+{
+  "id": "offsheet_left",
+  "name_cn": "图纸接续（空心箭头，向左）",
+  "aliases": [
+    "向左的接续标记"
+  ],
+  "category": "X",
+  "family": "offsheet",
+  "status": "article",
+  "verified": false,
+  "source": "文章 3.1 节、图 2-5：管线与其他图纸有关时端点画在图的左方或右方，空心箭头标出流入或流出，箭头内注相关图纸的图号或序号，附近注来去的设备位号或管道号",
+  "bbox": [
+    -5.2,
+    -2.4,
+    5.2,
+    2.4
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          5.2,
+          -2.4
+        ],
+        [
+          -2.8,
+          -2.4
+        ],
+        [
+          -5.2,
+          0
+        ],
+        [
+          -2.8,
+          2.4
+        ],
+        [
+          5.2,
+          2.4
+        ]
+      ],
+      "closed": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 5.2,
+      "y": 0,
+      "dir": "right",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": -5.2,
+      "y": 0,
+      "dir": "left",
+      "semantics": "主物料出口"
+    }
+  ],
+  "label": {
+    "x": 0,
+    "y": 6.8,
+    "align": "center",
+    "_note": "来、去的设备位号或管道号写在箭头正上方（位号属性）"
+  },
+  "_text_x": 1.2
+}

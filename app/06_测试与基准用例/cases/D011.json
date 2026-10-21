@@ -1,0 +1,69 @@
+{
+ "id": "D011",
+ "category": "D",
+ "functions": [
+  "transform_entities"
+ ],
+ "note": "",
+ "prompt": "把圆向右移动10",
+ "prompt_asr": "把圆向右移动十",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_polygons_and_meshes",
+    "args": {
+     "shape_type": "rectangle",
+     "corner1": "0,0",
+     "width": 100,
+     "height": 60
+    }
+   },
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "50,30",
+     "diameter": 20
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "圆"
+  },
+  {
+   "tool": "transform_entities",
+   "args": {
+    "operation": "move",
+    "entity_ids": [
+     "$s1.entity_ids[0]"
+    ],
+    "displacement": [
+     10,
+     0
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "entity": {
+    "kind": "circle",
+    "data": {
+     "c": [
+      60,
+      30,
+      0
+     ]
+    }
+   }
+  }
+ ],
+ "mock_ok": true
+}

@@ -1,0 +1,122 @@
+{
+ "id": "D010",
+ "category": "D",
+ "functions": [
+  "replicate_entities",
+  "get_entity_snap_points"
+ ],
+ "note": "阵列数量 6 含原对象；圆心坐标来自识别结果，不由模型计算",
+ "prompt": "以大圆圆心为中心环形阵列6个直径8的小圆，分布圆直径60",
+ "prompt_asr": "以大圆圆心为中心环形阵烈六个直径八的小圆，分布圆直径六十",
+ "intents": [
+  "2d_editing"
+ ],
+ "setup": {
+  "template": "blank_a3",
+  "calls": [
+   {
+    "tool": "draw_circular_primitives",
+    "args": {
+     "curve_type": "circle",
+     "method": "center_diameter",
+     "center": "60,40",
+     "diameter": 40
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "rec": "大圆圆心",
+   "need": [
+    "entity_ids",
+    "snap:center"
+   ]
+  },
+  {
+   "tool": "cad_batch_execute",
+   "args": {
+    "transaction_name": "画小圆等",
+    "steps": [
+     {
+      "tool": "draw_circular_primitives",
+      "args": {
+       "curve_type": "circle",
+       "method": "center_diameter",
+       "center": "$s1.points.primary",
+       "diameter": 8
+      }
+     },
+     {
+      "tool": "transform_entities",
+      "args": {
+       "operation": "move",
+       "entity_ids": [
+        "$this[0].created[0]"
+       ],
+       "displacement": [
+        30,
+        0
+       ]
+      }
+     },
+     {
+      "tool": "replicate_entities",
+      "args": {
+       "operation": "array_polar",
+       "entity_ids": [
+        "$this[0].created[0]"
+       ],
+       "array_params": {
+        "center": "$s1.points.primary",
+        "count": 6,
+        "fill_angle_deg": 360,
+        "rotate_items": false
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "assert": [
+  {
+   "count": {
+    "kind": "circle",
+    "n": 7
+   }
+  },
+  {
+   "entity": {
+    "kind": "circle",
+    "nth": 1,
+    "data": {
+     "r": 4,
+     "c": [
+      90,
+      40,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "entity": {
+    "kind": "circle",
+    "nth": 4,
+    "data": {
+     "r": 4,
+     "c": [
+      30,
+      40,
+      0
+     ]
+    }
+   }
+  },
+  {
+   "revisions_added": 1
+  }
+ ],
+ "mock_ok": true
+}

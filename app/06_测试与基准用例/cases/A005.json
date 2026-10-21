@@ -1,0 +1,44 @@
+{
+ "id": "A005",
+ "category": "A",
+ "functions": [
+  "manage_dim_style"
+ ],
+ "note": "口令没给样式名：只检查当前样式已不是默认的 ISO-25，且字高 3.5、精度 1。",
+ "prompt": "建一个机械标注样式，文字高度3.5，精度1位，设为当前",
+ "prompt_asr": "建一个机械标住样式，文字高度三点五，精度一位，设为当前",
+ "intents": [
+  "annotation_dimension"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "manage_dim_style",
+   "args": {
+    "style_name": "机械",
+    "standard_preset": "GB_MECH_MM",
+    "text_height": 3.5,
+    "precision": 1,
+    "set_current": true
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "current_dim_style": {
+     "ne": "ISO-25"
+    }
+   }
+  },
+  {
+   "dim_style": {
+    "text_height": 3.5,
+    "precision": 1
+   }
+  }
+ ],
+ "mock_ok": false
+}

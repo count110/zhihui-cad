@@ -1,0 +1,135 @@
+{
+ "id": "G005",
+ "category": "G",
+ "prompt": "精馏流程：进料泵 P-101 → 预热器 E-101 → 精馏塔 T-101 进料口；塔顶气 → 冷凝器 E-102 → 回流罐 V-101；塔底 → 塔底泵 P-102 → 产品罐 V-102。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "P-101",
+    "symbol_id": "pump"
+   },
+   {
+    "tag": "E-101",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "T-101",
+    "symbol_id": "tower"
+   },
+   {
+    "tag": "E-102",
+    "symbol_id": "heat_exchanger"
+   },
+   {
+    "tag": "V-101",
+    "symbol_id": "tank"
+   },
+   {
+    "tag": "P-102",
+    "symbol_id": "pump"
+   },
+   {
+    "tag": "V-102",
+    "symbol_id": "tank"
+   }
+  ],
+  "connections": [
+   [
+    "P-101",
+    "E-101"
+   ],
+   [
+    "E-101",
+    "T-101"
+   ],
+   [
+    "T-101",
+    "E-102"
+   ],
+   [
+    "E-102",
+    "V-101"
+   ],
+   [
+    "T-101",
+    "P-102"
+   ],
+   [
+    "P-102",
+    "V-102"
+   ]
+  ]
+ },
+ "plan": {
+  "title": "精馏流程",
+  "equipment": [
+   {
+    "symbol_id": "pump",
+    "tag": "P-101",
+    "name": "进料泵"
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E-101",
+    "name": "预热器"
+   },
+   {
+    "symbol_id": "tower",
+    "tag": "T-101",
+    "name": "精馏塔"
+   },
+   {
+    "symbol_id": "heat_exchanger",
+    "tag": "E-102",
+    "name": "冷凝器"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-101",
+    "name": "回流罐"
+   },
+   {
+    "symbol_id": "pump",
+    "tag": "P-102",
+    "name": "塔底泵"
+   },
+   {
+    "symbol_id": "tank",
+    "tag": "V-102",
+    "name": "产品罐"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "P-101.out",
+    "to_port": "E-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "E-101.out",
+    "to_port": "T-101.feed",
+    "medium": ""
+   },
+   {
+    "from_port": "T-101.top_out",
+    "to_port": "E-102.in",
+    "medium": "塔顶气"
+   },
+   {
+    "from_port": "E-102.out",
+    "to_port": "V-101.in",
+    "medium": ""
+   },
+   {
+    "from_port": "T-101.bottom_out",
+    "to_port": "P-102.in",
+    "medium": ""
+   },
+   {
+    "from_port": "P-102.out",
+    "to_port": "V-102.in",
+    "medium": "产品"
+   }
+  ]
+ }
+}

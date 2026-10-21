@@ -1,0 +1,150 @@
+{
+ "id": "E006",
+ "category": "E",
+ "functions": [
+  "vessel_define"
+ ],
+ "note": "演示口令 5：上封头再加一个 DN50 放空口。管口数 +1，新管口位置 top_head、DN50 来源用户，方位和伸出长度按默认规则；已有管口符号不变，新管口符号 d；0 个错误。",
+ "prompt": "上封头再加一个DN50的放空口",
+ "prompt_asr": "上封头再加一个DN五十的放空口",
+ "intents": [
+  "chem_equipment"
+ ],
+ "expect_route": "equipment",
+ "setup": {
+  "template": "hg_equipment_a1",
+  "calls": [
+   {
+    "tool": "vessel_define",
+    "args": {
+     "op": "create",
+     "spec": {
+      "kind": "vertical_vessel",
+      "shell": {
+       "inner_diameter_mm": 1600,
+       "length_mm": 2400,
+       "thickness_mm": 8,
+       "material": "Q345R"
+      },
+      "heads": [
+       {
+        "kind": "EHA"
+       }
+      ],
+      "design": {
+       "design_pressure_mpa": 0.6,
+       "design_temp_c": 80
+      },
+      "nozzles": [
+       {
+        "dn": 500,
+        "kind": "manhole",
+        "purpose_text": "人孔"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "进料口"
+       },
+       {
+        "dn": 80,
+        "purpose_text": "出料口"
+       },
+       {
+        "dn": 25,
+        "kind": "level_gauge",
+        "purpose_text": "液位计口",
+        "count": 2
+       }
+      ],
+      "supports": [
+       {
+        "kind": "lug",
+        "count": 4
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "steps": [
+  {
+   "tool": "vessel_define",
+   "args": {
+    "op": "patch",
+    "upsert_nozzles": [
+     {
+      "dn": 50,
+      "purpose_text": "放空口",
+      "location": "top_head"
+     }
+    ]
+   },
+   "summary": "上封头加 DN50 放空口"
+  }
+ ],
+ "assert": [
+  {
+   "revisions_added": 1
+  },
+  {
+   "equip_check": {
+    "errors": 0
+   }
+  },
+  {
+   "equip_values_from_user": true
+  },
+  {
+   "equip_nozzles": {
+    "count": 6,
+    "marks": [
+     "M1",
+     "a",
+     "b1",
+     "b2",
+     "c",
+     "d"
+    ],
+    "dn": {
+     "d": 50,
+     "a": 80,
+     "M1": 500
+    },
+    "location": {
+     "d": "top_head",
+     "a": "top_head"
+    }
+   }
+  },
+  {
+   "equip_spec": {
+    "nozzles[purpose=放空口].dn": 50,
+    "nozzles[purpose=放空口].location": "top_head",
+    "shell.inner_diameter_mm": 1600,
+    "shell.length_mm": 2400,
+    "shell.thickness_mm": 8,
+    "shell.material": "Q345R",
+    "design.design_pressure_mpa": 0.6,
+    "design.design_temp_c": 80,
+    "heads[top].kind": "EHA",
+    "supports[0].kind": "lug",
+    "supports[0].count": 4
+   }
+  },
+  {
+   "equip_sources": {
+    "nozzles[purpose=放空口].dn": "user",
+    "nozzles[purpose=放空口].location": "user",
+    "nozzles[purpose=放空口].orientation_deg": "rule",
+    "nozzles[purpose=放空口].projection_mm": "rule"
+   }
+  },
+  {
+   "equip_user_kept": {
+    "except": []
+   }
+  }
+ ],
+ "mock_ok": false
+}

@@ -1,0 +1,239 @@
+{
+  "id": "fluidized_bed_reactor",
+  "name_cn": "流化床反应器",
+  "aliases": [
+    "流化床反应器",
+    "流化床"
+  ],
+  "category": "R",
+  "family": "reactor",
+  "status": "article",
+  "verified": false,
+  "source": "文章 表 2-4 流化床反应器（HG 20519 旧系列图例，按扫描图绘制，未与标准原文核对）",
+  "bbox": [
+    -9,
+    -18,
+    6,
+    18
+  ],
+  "graphics": [
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -12
+        ],
+        [
+          -6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          6,
+          -12
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 0,
+      "end": 180
+    },
+    {
+      "type": "ellipse",
+      "c": [
+        0,
+        -12
+      ],
+      "rx": 6,
+      "ry": 3,
+      "start": 180,
+      "end": 360
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          9
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -9
+        ],
+        [
+          6,
+          -9
+        ]
+      ]
+    },
+    {
+      "type": "circle",
+      "c": [
+        -3,
+        4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        3,
+        4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        -1.5,
+        0
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        1.5,
+        0
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        -3,
+        -4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        0,
+        -4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "circle",
+      "c": [
+        3,
+        -4
+      ],
+      "r": 0.8
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          15
+        ],
+        [
+          0,
+          18
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          0,
+          -15
+        ],
+        [
+          0,
+          -18
+        ]
+      ]
+    },
+    {
+      "type": "polyline",
+      "points": [
+        [
+          -6,
+          -6
+        ],
+        [
+          -9,
+          -6
+        ]
+      ]
+    }
+  ],
+  "ports": [
+    {
+      "name": "in",
+      "kind": "in",
+      "x": 0,
+      "y": -18,
+      "dir": "down",
+      "semantics": "主物料入口"
+    },
+    {
+      "name": "out",
+      "kind": "out",
+      "x": 0,
+      "y": 18,
+      "dir": "up",
+      "semantics": "主物料出口"
+    },
+    {
+      "name": "solid_in",
+      "kind": "in",
+      "x": -9,
+      "y": -6,
+      "dir": "left",
+      "semantics": "流化床反应器的solid_in入口"
+    }
+  ],
+  "label": {
+    "x": 7,
+    "y": 12,
+    "align": "left"
+  },
+  "nozzles": [
+    {
+      "name": "drain",
+      "kind": "drain",
+      "x": 4,
+      "y": -13.8,
+      "dir": "down",
+      "len": 2
+    }
+  ]
+}

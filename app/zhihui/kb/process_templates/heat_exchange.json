@@ -1,0 +1,77 @@
+{
+  "id": "heat_exchange",
+  "name": "换热",
+  "keywords": [
+    "换热",
+    "热交换"
+  ],
+  "initials": [
+    "hr",
+    "hrq"
+  ],
+  "equipment": [
+    {
+      "symbol_id": "tank",
+      "name": "热物流来源",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "heat_exchanger",
+      "name": "换热器",
+      "tag_prefix": "E",
+      "family": "exchanger",
+      "confidence": 0.8
+    },
+    {
+      "symbol_id": "tank",
+      "name": "热物流去向",
+      "tag_prefix": "V",
+      "family": "vessel",
+      "confidence": 0.8
+    }
+  ],
+  "auxiliary_streams": [
+    {
+      "name": "公用工程接口",
+      "requirement": "根据用户确认的冷却、加热或药剂需要补充，不自动添加设计参数"
+    }
+  ],
+  "terminals": [
+    {
+      "name": "进料",
+      "direction": "in",
+      "medium": "用户确认介质",
+      "equipment_index": 0
+    },
+    {
+      "name": "产物流",
+      "direction": "out",
+      "medium": "用户确认介质",
+      "equipment_index": 2
+    }
+  ],
+  "optional_units": [
+    {
+      "name": "前处理单元",
+      "requirement": "由用户按物料性质和排放/产品要求确认"
+    },
+    {
+      "name": "后处理单元",
+      "requirement": "由用户按排放/产品要求确认"
+    }
+  ],
+  "hatch_regions": [
+    {
+      "target_index": 0,
+      "region": "fill"
+    },
+    {
+      "target_index": 2,
+      "region": "fill"
+    }
+  ],
+  "source": "团队整理，待专业确认；仅为工艺方案示意，不含工程设计参数",
+  "requires_confirmation": true
+}

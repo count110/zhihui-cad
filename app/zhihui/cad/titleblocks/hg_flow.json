@@ -1,0 +1,277 @@
+{
+ "id": "hg_flow",
+ "name": "化工工艺流程图标题栏（文章图 2-3，180×50）",
+ "source": "文章图 2-3「流程图标题栏格式」（原化工部规定，文章未给标准号；GB/T 10609.1 原文未取得），单位 mm",
+ "verified": false,
+ "size": [
+  180,
+  50
+ ],
+ "columns_mm": [
+  20,
+  25,
+  15,
+  15,
+  45,
+  25,
+  35
+ ],
+ "rows_mm": [
+  13,
+  6,
+  6,
+  18,
+  7
+ ],
+ "skip_edges": [
+  "right",
+  "bottom"
+ ],
+ "required": [
+  "drawing_name",
+  "drawing_no",
+  "scale_text",
+  "stage"
+ ],
+ "auto": {
+  "drawing_name": "title",
+  "drawing_no": "revision_no",
+  "scale_text": "not_to_scale",
+  "stage": "stage_name",
+  "sheet_no": "sheet_no",
+  "sheet_total": "sheet_total"
+ },
+ "sign_area": {
+  "x": [
+   0,
+   20,
+   45,
+   60
+  ],
+  "y": [
+   7,
+   31
+  ],
+  "roles": [
+   "设计",
+   "绘图",
+   "校核",
+   "审核"
+  ],
+  "date_column": true
+ },
+ "cells": [
+  {
+   "x": [
+    0,
+    120
+   ],
+   "y": [
+    37,
+    50
+   ],
+   "field": "unit_name",
+   "role": "unit_name",
+   "placeholder": "（单位名称）"
+  },
+  {
+   "x": [
+    120,
+    180
+   ],
+   "y": [
+    37,
+    50
+   ],
+   "field": "project",
+   "role": "unit_name",
+   "placeholder": "（工程名称）"
+  },
+  {
+   "x": [
+    0,
+    20
+   ],
+   "y": [
+    31,
+    37
+   ],
+   "text": "职责",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    20,
+    45
+   ],
+   "y": [
+    31,
+    37
+   ],
+   "text": "签字",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    45,
+    60
+   ],
+   "y": [
+    31,
+    37
+   ],
+   "text": "日期",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    60,
+    120
+   ],
+   "y": [
+    7,
+    37
+   ],
+   "field": "drawing_name",
+   "role": "drawing_name",
+   "placeholder": "（图名）"
+  },
+  {
+   "x": [
+    120,
+    145
+   ],
+   "y": [
+    31,
+    37
+   ],
+   "text": "设计项目",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    145,
+    180
+   ],
+   "y": [
+    31,
+    37
+   ],
+   "field": "design_project",
+   "role": "title_block_value"
+  },
+  {
+   "x": [
+    120,
+    145
+   ],
+   "y": [
+    25,
+    31
+   ],
+   "text": "设计阶段",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    145,
+    180
+   ],
+   "y": [
+    25,
+    31
+   ],
+   "field": "stage",
+   "role": "title_block_value"
+  },
+  {
+   "x": [
+    120,
+    180
+   ],
+   "y": [
+    7,
+    25
+   ],
+   "field": "drawing_no",
+   "role": "drawing_title",
+   "placeholder": "（图号）"
+  },
+  {
+   "x": [
+    0,
+    20
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "text": "年限",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    20,
+    60
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "field": "years",
+   "role": "title_block_value"
+  },
+  {
+   "x": [
+    60,
+    75
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "text": "比例",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    75,
+    120
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "field": "scale_text",
+   "role": "title_block_value"
+  },
+  {
+   "x": [
+    120,
+    145
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "field": "sheet_no",
+   "role": "title_block_value",
+   "format": "第 {} 张",
+   "blank": "第　　张"
+  },
+  {
+   "x": [
+    145,
+    180
+   ],
+   "y": [
+    0,
+    7
+   ],
+   "field": "sheet_total",
+   "role": "title_block_value",
+   "format": "共 {} 张",
+   "blank": "共　　张"
+  }
+ ]
+}

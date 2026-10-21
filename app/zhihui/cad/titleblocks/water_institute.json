@@ -1,0 +1,229 @@
+{
+ "id": "water_institute",
+ "name": "水利院标题栏（180×50）",
+ "source": "按参考图（21.工艺流程设计图）的水利院标题栏整理，SL 73.1 原文待核对；外框粗、内格细按 GB/T 10609.1-2008",
+ "size": [
+  180,
+  50
+ ],
+ "skip_edges": [
+  "right",
+  "bottom"
+ ],
+ "required": [
+  "drawing_name",
+  "scale_text"
+ ],
+ "auto": {},
+ "sign_area": {
+  "x": [
+   0,
+   14,
+   44
+  ],
+  "y": [
+   0,
+   40
+  ],
+  "roles": [
+   "批准",
+   "核定",
+   "审查",
+   "校核",
+   "设计",
+   "制图",
+   "证号"
+  ],
+  "date_column": false
+ },
+ "cells": [
+  {
+   "x": [
+    0,
+    180
+   ],
+   "y": [
+    40,
+    50
+   ],
+   "field": "unit_name",
+   "role": "unit_name",
+   "placeholder": "（设计单位名称）"
+  },
+  {
+   "x": [
+    44,
+    62
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "text": "工程名称",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    62,
+    180
+   ],
+   "y": [
+    32,
+    40
+   ],
+   "field": "project",
+   "role": "title_block_value",
+   "placeholder": "（工程名称）"
+  },
+  {
+   "x": [
+    44,
+    62
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "text": "设计阶段",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    62,
+    105
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "field": "stage",
+   "role": "title_block_value",
+   "placeholder": "（设计阶段）"
+  },
+  {
+   "x": [
+    105,
+    121
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "text": "专业",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    121,
+    180
+   ],
+   "y": [
+    24,
+    32
+   ],
+   "field": "discipline",
+   "role": "title_block_value",
+   "placeholder": "（专业）"
+  },
+  {
+   "x": [
+    44,
+    62
+   ],
+   "y": [
+    12,
+    24
+   ],
+   "text": "图名",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    62,
+    180
+   ],
+   "y": [
+    12,
+    24
+   ],
+   "field": "drawing_name",
+   "role": "drawing_name",
+   "placeholder": "（图名）"
+  },
+  {
+   "x": [
+    44,
+    62
+   ],
+   "y": [
+    6,
+    12
+   ],
+   "text": "比例",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    62,
+    105
+   ],
+   "y": [
+    6,
+    12
+   ],
+   "field": "scale_text",
+   "role": "title_block_value",
+   "placeholder": "（比例）"
+  },
+  {
+   "x": [
+    105,
+    121
+   ],
+   "y": [
+    6,
+    12
+   ],
+   "text": "日期",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    121,
+    180
+   ],
+   "y": [
+    6,
+    12
+   ],
+   "field": "date",
+   "role": "title_block_value",
+   "placeholder": "（日期）"
+  },
+  {
+   "x": [
+    44,
+    62
+   ],
+   "y": [
+    0,
+    6
+   ],
+   "text": "图号",
+   "role": "title_block_label"
+  },
+  {
+   "x": [
+    62,
+    180
+   ],
+   "y": [
+    0,
+    6
+   ],
+   "field": "drawing_no",
+   "role": "title_block_value",
+   "placeholder": "（图号）"
+  }
+ ]
+}

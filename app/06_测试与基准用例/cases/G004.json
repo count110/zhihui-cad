@@ -1,0 +1,81 @@
+{
+ "id": "G004",
+ "category": "G",
+ "prompt": "锅炉烟气处理：锅炉 B-101 的烟气出口接除尘器 D-101，再经引风机 F-101 送烟囱 S-101 排放。",
+ "expected": {
+  "equipment": [
+   {
+    "tag": "B-101",
+    "symbol_id": "boiler"
+   },
+   {
+    "tag": "D-101",
+    "symbol_id": "dust_collector"
+   },
+   {
+    "tag": "F-101",
+    "symbol_id": "fan"
+   },
+   {
+    "tag": "S-101",
+    "symbol_id": "stack"
+   }
+  ],
+  "connections": [
+   [
+    "B-101",
+    "D-101"
+   ],
+   [
+    "D-101",
+    "F-101"
+   ],
+   [
+    "F-101",
+    "S-101"
+   ]
+  ]
+ },
+ "plan": {
+  "title": "锅炉烟气处理流程",
+  "equipment": [
+   {
+    "symbol_id": "boiler",
+    "tag": "B-101",
+    "name": "锅炉"
+   },
+   {
+    "symbol_id": "dust_collector",
+    "tag": "D-101",
+    "name": "除尘器"
+   },
+   {
+    "symbol_id": "fan",
+    "tag": "F-101",
+    "name": "引风机"
+   },
+   {
+    "symbol_id": "stack",
+    "tag": "S-101",
+    "name": "烟囱"
+   }
+  ],
+  "connections": [
+   {
+    "from_port": "B-101.flue_out",
+    "to_port": "D-101.in",
+    "medium": "烟气"
+   },
+   {
+    "from_port": "D-101.out",
+    "to_port": "F-101.in",
+    "medium": "烟气"
+   },
+   {
+    "from_port": "F-101.out",
+    "to_port": "S-101.in",
+    "medium": "烟气"
+   }
+  ]
+ }
+}

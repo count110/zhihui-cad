@@ -1,0 +1,37 @@
+{
+ "id": "A015",
+ "category": "A",
+ "functions": [
+  "switch_3d_view_and_visual_style"
+ ],
+ "note": "",
+ "prompt": "切到西南等轴测，着色样式",
+ "prompt_asr": "切到 西南等轴测，着色样式",
+ "intents": [
+  "3d_modeling"
+ ],
+ "setup": {
+  "template": "blank_a3"
+ },
+ "steps": [
+  {
+   "tool": "switch_3d_view_and_visual_style",
+   "args": {
+    "standard_view": "sw_isometric",
+    "visual_style": "shaded"
+   }
+  }
+ ],
+ "assert": [
+  {
+   "drawing": {
+    "view.view3d": "sw_iso",
+    "view.visual_style": "shaded"
+   }
+  },
+  {
+   "revisions_added": 0
+  }
+ ],
+ "mock_ok": true
+}
