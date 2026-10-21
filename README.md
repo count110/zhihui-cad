@@ -1,4 +1,6 @@
-# 智绘CAD · 化工设计绘图
+# 智绘CAD · 化工设计绘图 | ZhihuiCAD: LLM Agent for Chemical Engineering Drawings (Text-to-CAD)
+
+**中文** · [English](#english)
 
 > 一句话画化工图：**工艺流程图、化工设备图、通用二维 / 三维 CAD**，都在同一个对话框里完成。
 > 大模型只负责“听懂话、写参数”，**所有坐标和几何都由确定性程序计算**；缺关键参数就反问，不替你编数值。
@@ -11,6 +13,8 @@
 | 通用 CAD · 真实大模型 | 修复前 32/50 → 修复后三轮 46、48、45/50 |
 
 > ⚠️ 设备图输出是**方案图**：标准件尺寸按公开资料录入、**尚未与标准原文核对**；**未做强度计算、开孔补强计算和支座校核，不得直接用于制造**。导出的 DXF 只经过 ezdxf 自检，没有在 AutoCAD / 浩辰 / 中望里逐一验证。
+
+**关键词**：大模型 CAD、AI 绘图、自然语言绘图、文本生成 CAD、Text-to-CAD、化工制图、化工设备图、压力容器、储罐装配图、管口方位图、管口表、工艺流程图、PFD、P&ID、带控制点流程图、给水处理高程图、AutoCAD、DXF、ezdxf、MCP、智能体、多智能体、DeepSeek、语音绘图、GB/T 150、HG/T 20519、HG/T 20592、HG/T 20668
 
 **目录**：[能做什么](#能做什么) · [5 分钟跑起来](#5-分钟跑起来) · [架构](#架构) · [一句话是怎么变成图纸的](#一句话是怎么变成图纸的) · [设计原则](#设计原则) · [开发中的有趣发现](#开发中的有趣发现) · [参考资料](#参考资料) · [目录结构](#目录结构) · [常用命令](#常用命令) · [文档索引](#文档索引)
 
@@ -244,6 +248,24 @@ tests/              # pytest
 | 化工设备图 | [设计说明](app/01_项目文档/化工设备图_设计说明.md) · [功能对照表](app/01_项目文档/化工设备图_功能对照表.md) · [数据表清单](app/01_项目文档/化工设备图_数据表清单.md) · [变更总结](app/01_项目文档/化工设备图_变更总结.md) · [改造任务书](app/01_项目文档/化工设备图能力_改造提示词_v1.md) |
 | 通用 CAD | [设计说明](app/01_项目文档/通用CAD能力_设计说明.md) · [功能对照表](app/01_项目文档/通用CAD能力_功能对照表.md) · [变更总结](app/01_项目文档/通用CAD能力_变更总结.md) |
 | 接口 | [接口约定](app/01_项目文档/接口约定/接口约定.md)（工具 Schema、CAD-IR Schema、错误码、Web API、基准格式） |
+
+---
+
+## English
+
+**ZhihuiCAD** is an open-source **LLM-powered CAD agent for chemical engineering drawings**. Describe what you want in plain language (Chinese, typed or spoken) and it produces standard-style engineering drawings as **DXF / PDF / PNG / SVG**:
+
+- **Pressure vessel / storage tank drawings** (vertical and horizontal vessels): assembly-style front section view, **nozzle orientation view**, **nozzle schedule**, design data table, bill of materials, technical notes and title block — following Chinese standards (GB/T 150, GB/T 25198, HG/T 20592, HG/T 20668, NB/T 47065).
+- **Process flow diagrams (PFD) and P&ID-style flowsheets** (HG/T 20519), including water-treatment elevation diagrams; edit them by talking ("move P-101 to the right by 800").
+- **General 2D / 3D CAD**: 46 deterministic drawing functions (layers, lines, arcs, hatches, dimensions, tolerances, blocks, constraints, layouts/viewports, extrude/revolve/boolean), AutoCAD-style command line and voice input.
+
+**How it works.** The LLM (DeepSeek / Qwen / GLM via OpenAI-compatible APIs) only turns the request into a JSON plan or a parameter patch. **All geometry is computed by deterministic Python code** (ezdxf-based kernel); a numeric guard rejects any value that does not appear in the user's words, and missing required parameters trigger one consolidated clarification question instead of invented numbers. Tools are exposed through **MCP (Model Context Protocol)**; the backend is **FastAPI**.
+
+**Highlights.** 1770 automated tests · 94/94 scripted benchmark cases · real-LLM success 12/12 on the vessel-drawing benchmark (two rounds) · every standard-table value carries `source` and `verified` fields · outputs are concept drawings (no strength calculation; not for fabrication).
+
+**Keywords:** LLM CAD, AI CAD agent, text-to-CAD, natural-language CAD, CAD automation, generative engineering drawing, chemical engineering, process engineering, pressure vessel, storage tank, nozzle orientation, PFD, P&ID, piping and instrumentation diagram, AutoCAD, DXF, ezdxf, MCP server, tool-calling agent, multi-agent, DeepSeek, FastAPI, Python.
+
+Quick start: `cd app && pip install -e ".[dev]"`, put `DEEPSEEK_API_KEY` in `app/.env`, then `python -m zhihui.api` and open http://127.0.0.1:8000. License: MIT.
 
 ## 许可证
 

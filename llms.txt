@@ -1,0 +1,17 @@
+# ZhihuiCAD (智绘CAD)
+
+> Open-source LLM agent that turns natural-language requests into chemical engineering drawings (DXF/PDF/PNG): pressure vessel and storage tank drawings with nozzle orientation views and nozzle schedules, process flow diagrams (PFD / P&ID-style, HG/T 20519), and general 2D/3D CAD. The LLM only writes JSON plans or parameter patches; all geometry is computed by deterministic Python code (ezdxf). Tools are exposed via MCP; backend is FastAPI. Default model: DeepSeek. License: MIT.
+
+## Docs
+- [README (Chinese + English)](README.md): features, architecture diagrams, pipeline, design principles, findings, references
+- [Vessel drawing design](app/01_项目文档/化工设备图_设计说明.md): data model, default rules, views, dimension datum, agent sequence
+- [Vessel drawing feature matrix](app/01_项目文档/化工设备图_功能对照表.md)
+- [Standard data tables and verification status](app/01_项目文档/化工设备图_数据表清单.md)
+- [Interface contract](app/01_项目文档/接口约定/接口约定.md): tool schemas, CAD-IR schema, error codes, web API, benchmark format
+
+## Code
+- [app/zhihui/agent](app/zhihui/agent): router, planner prompts, numeric guards (the only place that calls the LLM)
+- [app/zhihui/cad/equipment](app/zhihui/cad/equipment): deterministic vessel drawing generator and standard tables
+- [app/zhihui/cad/geom](app/zhihui/cad/geom): deterministic 2D/3D geometry kernel
+- [app/zhihui/tools/general](app/zhihui/tools/general): 59 registered CAD functions (MCP tools)
+- [app/06_测试与基准用例/cases](app/06_测试与基准用例/cases): benchmark cases (G/M/F/C/S/B/D/A/E)

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use ZhihuiCAD, please cite it as below."
+title: "ZhihuiCAD (智绘CAD): LLM agent for chemical engineering drawings"
+abstract: "Open-source LLM-powered CAD agent that generates chemical engineering drawings (pressure vessel drawings, nozzle orientation views, process flow diagrams) and general 2D/3D CAD from natural language, with deterministic geometry and numeric guards."
+authors:
+  - name: "ZhihuiCAD contributors"
+repository-code: "https://github.com/count110/zhihui-cad"
+license: MIT
+keywords:
+  - LLM
+  - CAD
+  - text-to-CAD
+  - chemical engineering
+  - pressure vessel
+  - process flow diagram
+  - P&ID
+  - DXF
+  - MCP
+  - AI agent
